@@ -20,11 +20,19 @@ namespace GreenFlowers.Controllers
             return View();
         }
 
+        public ActionResult Shop()
+        {
+            ViewBag.Message = "Your shop page.";
+
+            return View();
+        }
+
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
             return View();
         }
+
     }
 }

@@ -22,9 +22,28 @@ namespace GreenFlowers
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/javascript").Include(
+                      "~/Scripts/popper.js",
+                      "~/Scripts/bootstrap.min.js",
+                      "~/Scripts/imagesloaded.pkgd.min.js",
+                      "~/Scripts/isotope.pkgd.min.js",
+                      "~/Scripts/ajax-mail.js",
+                      "~/Scripts/owl.carousel.min.js",
+                      "~/Scripts/plugins.js",
+                      "~/Scripts/main.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/animate.css",
+                      "~/Content/owl.carousel.min.css",
+                      "~/Content/slick.css",
+                      "~/Content/chosen.min.css",
+                      "~/Content/font-awesome.min.css",
+                      "~/Content/simple-line-icons.css",
+                      "~/Content/ionicons.min.css",
+                      "~/Content/meanmenu.min.css",
+                      "~/Content/style.css",
+                      "~/Content/responsive.css"));
         }
     }
 }
