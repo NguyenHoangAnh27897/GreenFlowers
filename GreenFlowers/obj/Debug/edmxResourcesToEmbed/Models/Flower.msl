@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GreenFlowersModelStoreContainer" CdmEntityContainer="GreenFlowersEntities">
+    <EntitySetMapping Name="GF_Category">
+      <EntityTypeMapping TypeName="GreenFlowersModel.GF_Category">
+        <MappingFragment StoreEntitySet="GF_Category">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GF_Product">
+      <EntityTypeMapping TypeName="GreenFlowersModel.GF_Product">
+        <MappingFragment StoreEntitySet="GF_Product">
+          <ScalarProperty Name="Images" ColumnName="Images" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

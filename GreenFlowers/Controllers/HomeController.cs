@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using GreenFlowers.Models;
 
 namespace GreenFlowers.Controllers
 {
     public class HomeController : Controller
     {
+        GreenFlowersEntities db = new GreenFlowersEntities();
         public ActionResult Index()
         {
-            return View();
+            var lst = db.GF_Product.ToList();
+            return View(lst);
         }
 
         public ActionResult About()

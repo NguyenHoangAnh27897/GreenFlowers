@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<GreenFlowers.Models.GF_Product>
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -95,142 +96,146 @@
         <div class="tab-content jump">
             <div id="tab1" class="tab-pane active">
                 <div class="featured-product-active owl-carousel product-nav">
-                    <div class="product-wrapper">
-                        <div class="product-img">
-                            <a href="@Url.Action("Details", "Products")">
-                                <img alt="" src="~/Images/product/product-1.jpg">
-                            </a>
-                            <span>-30%</span>
-                            <div class="product-action">
-                                <a class="action-wishlist" href="#" title="Wishlist">
-                                    <i class="icon-heart"></i>
+                    @foreach (var item in Model)
+                    {
+                        <div class="product-wrapper">
+                            <div class="product-img">
+                                <a href="@Url.Action("Details", "Products")">
+                                    <img alt="" src="~/Images/product/@item.Avatar">
                                 </a>
-                                <a class="action-cart" href="#" title="Add To Cart">
-                                    <i class="icon-handbag"></i>
-                                </a>
-                                <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
-                                    <i class="icon-magnifier-add"></i>
-                                </a>
+                                <span>-30%</span>
+                                <div class="product-action">
+                                    <a class="action-wishlist" href="#" title="Wishlist">
+                                        <i class="icon-heart"></i>
+                                    </a>
+                                    <a class="action-cart" href="#" title="Thêm vào giỏ hàng">
+                                        <i class="icon-handbag"></i>
+                                    </a>
+                                    <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
+                                        <i class="icon-magnifier-add"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-content text-center">
+                                <h4>
+                                    <a href="@Url.Action("Details", "Products")">@item.ProductName</a>
+                                </h4>
+                                <div class="product-price-wrapper">
+                                    <span>@item.Price VNĐ</span>
+                                    @*<span class="product-price-old">$120.00 </span>*@
+                                </div>
                             </div>
                         </div>
-                        <div class="product-content text-center">
-                            <h4>
-                                <a href="@Url.Action("Details", "Products")">Dutchman's Breeches </a>
-                            </h4>
-                            <div class="product-price-wrapper">
-                                <span>$100.00</span>
-                                <span class="product-price-old">$120.00 </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-wrapper">
-                        <div class="product-img">
-                            <a href="@Url.Action("Details", "Products")">
-                                <img alt="" src="~/Images/product/product-2.jpg">
-                            </a>
-                            <div class="product-action">
-                                <a class="action-wishlist" href="#" title="Wishlist">
-                                    <i class="icon-heart"></i>
-                                </a>
-                                <a class="action-cart" href="#" title="Add To Cart">
-                                    <i class="icon-handbag"></i>
-                                </a>
-                                <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
-                                    <i class="icon-magnifier-add"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-content text-center">
-                            <h4>
-                                <a href="@Url.Action("Details", "Products")">Flowers Bouquet Pink	</a>
-                            </h4>
-                            <div class="product-price-wrapper">
-                                <span>$100.00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-wrapper">
-                        <div class="product-img">
-                            <a href="@Url.Action("Details", "Products")">
-                                <img alt="" src="~/Images/product/product-3.jpg">
-                            </a>
-                            <span>-30%</span>
-                            <div class="product-action">
-                                <a class="action-wishlist" href="#" title="Wishlist">
-                                    <i class="icon-heart"></i>
-                                </a>
-                                <a class="action-cart" href="#" title="Add To Cart">
-                                    <i class="icon-handbag"></i>
-                                </a>
-                                <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
-                                    <i class="icon-magnifier-add"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-content text-center">
-                            <h4>
-                                <a href="@Url.Action("Details", "Products")">Evergreen Candytuft </a>
-                            </h4>
-                            <div class="product-price-wrapper">
-                                <span>$100.00</span>
-                                <span class="product-price-old">$120.00 </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-wrapper">
-                        <div class="product-img">
-                            <a href="@Url.Action("Details", "Products")">
-                                <img alt="" src="~/Images/product/product-4.jpg">
-                            </a>
-                            <div class="product-action">
-                                <a class="action-wishlist" href="#" title="Wishlist">
-                                    <i class="icon-heart"></i>
-                                </a>
-                                <a class="action-cart" href="#" title="Add To Cart">
-                                    <i class="icon-handbag"></i>
-                                </a>
-                                <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
-                                    <i class="icon-magnifier-add"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-content text-center">
-                            <h4>
-                                <a href="@Url.Action("Details", "Products")">Pearly Everlasting</a>
-                            </h4>
-                            <div class="product-price-wrapper">
-                                <span>$100.00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-wrapper">
-                        <div class="product-img">
-                            <a href="@Url.Action("Details", "Products")">
-                                <img alt="" src="~/Images/product/product-2.jpg">
-                            </a>
-                            <span>-30%</span>
-                            <div class="product-action">
-                                <a class="action-wishlist" href="#" title="Wishlist">
-                                    <i class="icon-heart"></i>
-                                </a>
-                                <a class="action-cart" href="#" title="Add To Cart">
-                                    <i class="icon-handbag"></i>
-                                </a>
-                                <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
-                                    <i class="icon-magnifier-add"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-content text-center">
-                            <h4>
-                                <a href="@Url.Action("Details", "Products")">Yellow Loosestrife</a>
-                            </h4>
-                            <div class="product-price-wrapper">
-                                <span>$100.00</span>
-                                <span class="product-price-old">$120.00 </span>
-                            </div>
-                        </div>
-                    </div>
+                    }
+
+                    @*<div class="product-wrapper">
+            <div class="product-img">
+                <a href="@Url.Action("Details", "Products")">
+                    <img alt="" src="~/Images/product/product-2.jpg">
+                </a>
+                <div class="product-action">
+                    <a class="action-wishlist" href="#" title="Wishlist">
+                        <i class="icon-heart"></i>
+                    </a>
+                    <a class="action-cart" href="#" title="Add To Cart">
+                        <i class="icon-handbag"></i>
+                    </a>
+                    <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
+                        <i class="icon-magnifier-add"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="product-content text-center">
+                <h4>
+                    <a href="@Url.Action("Details", "Products")">Flowers Bouquet Pink	</a>
+                </h4>
+                <div class="product-price-wrapper">
+                    <span>$100.00</span>
+                </div>
+            </div>
+        </div>
+        <div class="product-wrapper">
+            <div class="product-img">
+                <a href="@Url.Action("Details", "Products")">
+                    <img alt="" src="~/Images/product/product-3.jpg">
+                </a>
+                <span>-30%</span>
+                <div class="product-action">
+                    <a class="action-wishlist" href="#" title="Wishlist">
+                        <i class="icon-heart"></i>
+                    </a>
+                    <a class="action-cart" href="#" title="Add To Cart">
+                        <i class="icon-handbag"></i>
+                    </a>
+                    <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
+                        <i class="icon-magnifier-add"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="product-content text-center">
+                <h4>
+                    <a href="@Url.Action("Details", "Products")">Evergreen Candytuft </a>
+                </h4>
+                <div class="product-price-wrapper">
+                    <span>$100.00</span>
+                    <span class="product-price-old">$120.00 </span>
+                </div>
+            </div>
+        </div>
+        <div class="product-wrapper">
+            <div class="product-img">
+                <a href="@Url.Action("Details", "Products")">
+                    <img alt="" src="~/Images/product/product-4.jpg">
+                </a>
+                <div class="product-action">
+                    <a class="action-wishlist" href="#" title="Wishlist">
+                        <i class="icon-heart"></i>
+                    </a>
+                    <a class="action-cart" href="#" title="Add To Cart">
+                        <i class="icon-handbag"></i>
+                    </a>
+                    <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
+                        <i class="icon-magnifier-add"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="product-content text-center">
+                <h4>
+                    <a href="@Url.Action("Details", "Products")">Pearly Everlasting</a>
+                </h4>
+                <div class="product-price-wrapper">
+                    <span>$100.00</span>
+                </div>
+            </div>
+        </div>
+        <div class="product-wrapper">
+            <div class="product-img">
+                <a href="@Url.Action("Details", "Products")">
+                    <img alt="" src="~/Images/product/product-2.jpg">
+                </a>
+                <span>-30%</span>
+                <div class="product-action">
+                    <a class="action-wishlist" href="#" title="Wishlist">
+                        <i class="icon-heart"></i>
+                    </a>
+                    <a class="action-cart" href="#" title="Add To Cart">
+                        <i class="icon-handbag"></i>
+                    </a>
+                    <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
+                        <i class="icon-magnifier-add"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="product-content text-center">
+                <h4>
+                    <a href="@Url.Action("Details", "Products")">Yellow Loosestrife</a>
+                </h4>
+                <div class="product-price-wrapper">
+                    <span>$100.00</span>
+                    <span class="product-price-old">$120.00 </span>
+                </div>
+            </div>
+        </div>*@
                 </div>
             </div>
             <div id="tab2" class="tab-pane">

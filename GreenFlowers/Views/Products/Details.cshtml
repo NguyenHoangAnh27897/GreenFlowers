@@ -80,7 +80,7 @@
                             <input class="cart-plus-minus-box" type="text" name="qtybutton" value="02">
                         </div>
                         <div class="shop-list-cart-wishlist">
-                            <a title="Add To Cart" href="#">
+                            <a title="Add To Cart" href="#" onclick="">
                                 <i class="icon-handbag"></i>
                             </a>
                             <a title="Wishlist" href="#">
@@ -381,4 +381,13 @@
         </div>
     </div>
 </div>
-
+<script>
+    function clickCheckout() {
+        if (typeof (Storage) !== "undefined") {
+            localStorage.setItem("productname",);
+            
+        } else {
+            document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+        }
+    }
+</script>
