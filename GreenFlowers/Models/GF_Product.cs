@@ -14,11 +14,13 @@ namespace GreenFlowers.Models
     
     public partial class GF_Product
     {
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string ProductName { get; set; }
         public Nullable<int> Price { get; set; }
         public string Description { get; set; }
         public string Avatar { get; set; }
         public string Images { get; set; }
+        public Nullable<int> DiscountPrice { get; set; }
+        public Nullable<int> Type { get; set; }
     }
 }

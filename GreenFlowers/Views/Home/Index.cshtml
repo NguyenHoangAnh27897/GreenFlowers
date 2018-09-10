@@ -100,7 +100,7 @@
                     {
                         <div class="product-wrapper">
                             <div class="product-img">
-                                <a href="@Url.Action("Details", "Products")">
+                                <a href="/products/details/@item.ID">
                                     <img alt="" src="~/Images/product/@item.Avatar">
                                 </a>
                                 <span>-30%</span>
@@ -116,7 +116,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="product-content text-center">
+                            <div class="product-content text-center">   
                                 <h4>
                                     <a href="@Url.Action("Details", "Products")">@item.ProductName</a>
                                 </h4>

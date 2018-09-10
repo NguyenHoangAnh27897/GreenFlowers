@@ -5,6 +5,17 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="GreenFlowersModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="GF_Blog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" />
+          <Property Name="ContentBlog" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="Avatar" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="GF_Category">
           <Key>
             <PropertyRef Name="ID" />
@@ -12,20 +23,64 @@
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Category" Type="nvarchar" MaxLength="20" />
         </EntityType>
+        <EntityType Name="GF_Information">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="GF_Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Price" Type="int" />
+          <Property Name="DiscountPrice" Type="int" />
+        </EntityType>
         <EntityType Name="GF_Product">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ProductName" Type="nvarchar" MaxLength="100" />
           <Property Name="Price" Type="int" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="Avatar" Type="nvarchar" MaxLength="20" />
           <Property Name="Images" Type="nvarchar" MaxLength="100" />
+          <Property Name="DiscountPrice" Type="int" />
+          <Property Name="Type" Type="int" />
+        </EntityType>
+        <EntityType Name="GF_Session">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_Order" />
+            <PropertyRef Name="ID_Session" />
+            <PropertyRef Name="ID_Information" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID_Order" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_Session" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_Information" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GR_Type">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="GreenFlowersModelStoreContainer">
+          <EntitySet Name="GF_Blog" EntityType="Self.GF_Blog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GF_Category" EntityType="Self.GF_Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GF_Information" EntityType="Self.GF_Information" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GF_Order" EntityType="Self.GF_Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GF_Product" EntityType="Self.GF_Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GF_Session" EntityType="Self.GF_Session" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GR_Type" EntityType="Self.GR_Type" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -38,21 +93,76 @@
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Category" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityContainer Name="GreenFlowersEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GF_Category" EntityType="Self.GF_Category" />
+          <EntitySet Name="GF_Order" EntityType="GreenFlowersModel.GF_Order" />
+          <EntitySet Name="GF_Session" EntityType="GreenFlowersModel.GF_Session" />
+          <EntitySet Name="GF_Product" EntityType="GreenFlowersModel.GF_Product" />
+          <EntitySet Name="GF_Blog" EntityType="GreenFlowersModel.GF_Blog" />
+          <EntitySet Name="GF_Information" EntityType="GreenFlowersModel.GF_Information" />
+          <EntitySet Name="GR_Type" EntityType="GreenFlowersModel.GR_Type" />
+        </EntityContainer>
+        <EntityType Name="GF_Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="DiscountPrice" Type="Int32" />
+        </EntityType>
+        <EntityType Name="GF_Session">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_Order" />
+            <PropertyRef Name="ID_Session" />
+            <PropertyRef Name="ID_Information" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID_Order" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Session" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Information" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="GF_Product">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Int32" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Avatar" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Images" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DiscountPrice" Type="Int32" />
+          <Property Name="Type" Type="Int32" />
         </EntityType>
-        <EntityContainer Name="GreenFlowersEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="GF_Category" EntityType="Self.GF_Category" />
-          <EntitySet Name="GF_Product" EntityType="Self.GF_Product" />
-        </EntityContainer>
+        <EntityType Name="GF_Blog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ContentBlog" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Avatar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GF_Information">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GR_Type">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -67,15 +177,67 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="GF_Order">
+            <EntityTypeMapping TypeName="GreenFlowersModel.GF_Order">
+              <MappingFragment StoreEntitySet="GF_Order">
+                <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GF_Session">
+            <EntityTypeMapping TypeName="GreenFlowersModel.GF_Session">
+              <MappingFragment StoreEntitySet="GF_Session">
+                <ScalarProperty Name="ID_Information" ColumnName="ID_Information" />
+                <ScalarProperty Name="ID_Session" ColumnName="ID_Session" />
+                <ScalarProperty Name="ID_Order" ColumnName="ID_Order" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="GF_Product">
             <EntityTypeMapping TypeName="GreenFlowersModel.GF_Product">
               <MappingFragment StoreEntitySet="GF_Product">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
                 <ScalarProperty Name="Images" ColumnName="Images" />
                 <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GF_Blog">
+            <EntityTypeMapping TypeName="GreenFlowersModel.GF_Blog">
+              <MappingFragment StoreEntitySet="GF_Blog">
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ContentBlog" ColumnName="ContentBlog" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GF_Information">
+            <EntityTypeMapping TypeName="GreenFlowersModel.GF_Information">
+              <MappingFragment StoreEntitySet="GF_Information">
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GR_Type">
+            <EntityTypeMapping TypeName="GreenFlowersModel.GR_Type">
+              <MappingFragment StoreEntitySet="GR_Type">
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -7,19 +7,65 @@
     <Property Name="ID" Type="Int32" Nullable="false" />
     <Property Name="Category" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityContainer Name="GreenFlowersEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="GF_Category" EntityType="Self.GF_Category" />
+    <EntitySet Name="GF_Order" EntityType="GreenFlowersModel.GF_Order" />
+    <EntitySet Name="GF_Session" EntityType="GreenFlowersModel.GF_Session" />
+    <EntitySet Name="GF_Product" EntityType="GreenFlowersModel.GF_Product" />
+    <EntitySet Name="GF_Blog" EntityType="GreenFlowersModel.GF_Blog" />
+    <EntitySet Name="GF_Information" EntityType="GreenFlowersModel.GF_Information" />
+  </EntityContainer>
+  <EntityType Name="GF_Order">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="DiscountPrice" Type="Int32" />
+  </EntityType>
+  <EntityType Name="GF_Session">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="ID_Order" />
+      <PropertyRef Name="ID_Session" />
+      <PropertyRef Name="ID_Information" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ID_Order" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID_Session" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID_Information" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
   <EntityType Name="GF_Product">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Price" Type="Int32" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Avatar" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="Images" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DiscountPrice" Type="Int32" />
   </EntityType>
-  <EntityContainer Name="GreenFlowersEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="GF_Category" EntityType="Self.GF_Category" />
-    <EntitySet Name="GF_Product" EntityType="Self.GF_Product" />
-  </EntityContainer>
+  <EntityType Name="GF_Blog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ContentBlog" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Avatar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GF_Information">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>
