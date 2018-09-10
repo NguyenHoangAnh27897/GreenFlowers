@@ -11,7 +11,6 @@
         <EntityTypeShape EntityType="GreenFlowersModel.GF_Product" Width="1.5" PointX="5.375" PointY="0.75" />
         <EntityTypeShape EntityType="GreenFlowersModel.GF_Blog" Width="1.5" PointX="5.75" PointY="4.75" />
         <EntityTypeShape EntityType="GreenFlowersModel.GF_Information" Width="1.5" PointX="2.875" PointY="1.125" />
-        <EntityTypeShape EntityType="GreenFlowersModel.GR_Type" Width="1.5" PointX="0.75" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

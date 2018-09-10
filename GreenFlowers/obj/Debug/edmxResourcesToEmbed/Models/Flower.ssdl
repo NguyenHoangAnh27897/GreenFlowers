@@ -47,6 +47,7 @@
     <Property Name="Avatar" Type="nvarchar" MaxLength="20" />
     <Property Name="Images" Type="nvarchar" MaxLength="100" />
     <Property Name="DiscountPrice" Type="int" />
+    <Property Name="Type" Type="int" />
   </EntityType>
   <EntityType Name="GF_Session">
     <Key>
@@ -60,6 +61,13 @@
     <Property Name="ID_Session" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="ID_Information" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="GR_Type">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityContainer Name="GreenFlowersModelStoreContainer">
     <EntitySet Name="GF_Blog" EntityType="Self.GF_Blog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GF_Category" EntityType="Self.GF_Category" Schema="dbo" store:Type="Tables" />
@@ -67,5 +75,6 @@
     <EntitySet Name="GF_Order" EntityType="Self.GF_Order" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GF_Product" EntityType="Self.GF_Product" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GF_Session" EntityType="Self.GF_Session" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GR_Type" EntityType="Self.GR_Type" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

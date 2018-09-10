@@ -14,6 +14,7 @@
     <EntitySet Name="GF_Product" EntityType="GreenFlowersModel.GF_Product" />
     <EntitySet Name="GF_Blog" EntityType="GreenFlowersModel.GF_Blog" />
     <EntitySet Name="GF_Information" EntityType="GreenFlowersModel.GF_Information" />
+    <EntitySet Name="GR_Type" EntityType="GreenFlowersModel.GR_Type" />
   </EntityContainer>
   <EntityType Name="GF_Order">
     <Key>
@@ -48,6 +49,7 @@
     <Property Name="Avatar" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="Images" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="DiscountPrice" Type="Int32" />
+    <Property Name="Type" Type="Int32" />
   </EntityType>
   <EntityType Name="GF_Blog">
     <Key>
@@ -67,5 +69,12 @@
     <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GR_Type">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

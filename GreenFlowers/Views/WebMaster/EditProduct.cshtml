@@ -1,7 +1,10 @@
 ﻿@model IQueryable<GreenFlowers.Models.GF_Product>
+@using GreenFlowers.Models
 @{
     ViewBag.Title = "EditProduct";
     Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+    GreenFlowersEntities db = new GreenFlowersEntities();
+    var lst = db.GF_Category.ToList();
 }
 
 <div class="main-wrapper">
@@ -49,6 +52,14 @@
                                     <input type="number" class="form-control" placeholder="" name="discountprice" step="any" value="@Model.FirstOrDefault().DiscountPrice">
                                 </div>
 
+                                <select name='category' class='form-control'>
+                                    @foreach (var item in lst)
+                                    {
+                                        <option value="@item.ID">@item.Category</option>
+                                    }
+
+                                </select>
+
                                 <div class="form-group">
                                     <label for="exampleFormControlFile1">Avatar</label>
                                     <br />
@@ -57,25 +68,25 @@
                                 </div>
                                 @if (Model.FirstOrDefault().Images.Contains(","))
                                 {
-                                   string[] arrStr = Model.FirstOrDefault().Images.ToString().Split(',');
-                                <div class="form-group">
-                                    <label for="exampleFormControlFile1">Images</label>
-                                    <br />
-                                    <input type="file" name="images" accept="image/*" multiple="multiple" />
-                                    @foreach (var img in arrStr)
-                                    {
-                                        <img src="~/Images/product/image/@img" style="width:100%" />
-                                    }
-                                </div>
+                                    string[] arrStr = Model.FirstOrDefault().Images.ToString().Split(',');
+                                    <div class="form-group">
+                                        <label for="exampleFormControlFile1">Images</label>
+                                        <br />
+                                        <input type="file" name="images" accept="image/*" multiple="multiple" />
+                                        @foreach (var img in arrStr)
+                                        {
+                                            <img src="~/Images/product/image/@img" style="width:100%" />
+                                        }
+                                    </div>
                                 }
                                 else
                                 {
-                                <div class="form-group">
-                                    <label for="exampleFormControlFile1">Images</label>
-                                    <br />
-                                    <input type="file" name="images" accept="image/*" multiple="multiple" />
-                                    <img src="~/Images/product/image/@Model.FirstOrDefault().Images" style="width:100%" />
-                                </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlFile1">Images</label>
+                                        <br />
+                                        <input type="file" name="images" accept="image/*" multiple="multiple" />
+                                        <img src="~/Images/product/image/@Model.FirstOrDefault().Images" style="width:100%" />
+                                    </div>
                                 }
 
                                 <div class="form-group">

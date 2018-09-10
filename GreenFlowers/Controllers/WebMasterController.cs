@@ -65,7 +65,7 @@ namespace GreenFlowers.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult AddProduct(string name, HttpPostedFileBase avatar, HttpPostedFileBase[] images, string editor, bool hide = false, int price = 0, int discountprice = 0)
+        public ActionResult AddProduct(string name, HttpPostedFileBase avatar, HttpPostedFileBase[] images, string editor, bool hide = false, int price = 0, int discountprice = 0, string category ="")
         {
             String chk = "";
             if (hide == false)
@@ -112,6 +112,7 @@ namespace GreenFlowers.Controllers
             pd.Price = price;
             pd.DiscountPrice = discountprice;
             pd.Description = editor;
+            pd.IDCategory = int.Parse(category);
             db.GF_Product.Add(pd);
             db.SaveChanges();
             return RedirectToAction("Index","Webmaster");
@@ -146,7 +147,7 @@ namespace GreenFlowers.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditProduct(string name, HttpPostedFileBase avatar, HttpPostedFileBase[] images, string editor, bool hide = false, int price = 0, int discountprice = 0)
+        public ActionResult EditProduct(string name, HttpPostedFileBase avatar, HttpPostedFileBase[] images, string editor, bool hide = false, int price = 0, int discountprice = 0, string category ="")
         {
             String chk = "";
             if (hide == false)
@@ -192,6 +193,7 @@ namespace GreenFlowers.Controllers
             pd.Price = price;
             pd.DiscountPrice = discountprice;
             pd.Description = editor;
+            pd.IDCategory = int.Parse(category);
             db.Entry(pd).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index", "Webmaster");

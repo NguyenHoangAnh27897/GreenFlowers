@@ -52,7 +52,7 @@
           <Property Name="Avatar" Type="nvarchar" MaxLength="20" />
           <Property Name="Images" Type="nvarchar" MaxLength="100" />
           <Property Name="DiscountPrice" Type="int" />
-          <Property Name="Type" Type="int" />
+          <Property Name="IDCategory" Type="int" />
         </EntityType>
         <EntityType Name="GF_Session">
           <Key>
@@ -66,13 +66,6 @@
           <Property Name="ID_Session" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ID_Information" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="GR_Type">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
-        </EntityType>
         <EntityContainer Name="GreenFlowersModelStoreContainer">
           <EntitySet Name="GF_Blog" EntityType="Self.GF_Blog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GF_Category" EntityType="Self.GF_Category" Schema="dbo" store:Type="Tables" />
@@ -80,7 +73,6 @@
           <EntitySet Name="GF_Order" EntityType="Self.GF_Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GF_Product" EntityType="Self.GF_Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GF_Session" EntityType="Self.GF_Session" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="GR_Type" EntityType="Self.GR_Type" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -100,7 +92,6 @@
           <EntitySet Name="GF_Product" EntityType="GreenFlowersModel.GF_Product" />
           <EntitySet Name="GF_Blog" EntityType="GreenFlowersModel.GF_Blog" />
           <EntitySet Name="GF_Information" EntityType="GreenFlowersModel.GF_Information" />
-          <EntitySet Name="GR_Type" EntityType="GreenFlowersModel.GR_Type" />
         </EntityContainer>
         <EntityType Name="GF_Order">
           <Key>
@@ -136,6 +127,7 @@
           <Property Name="Images" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DiscountPrice" Type="Int32" />
           <Property Name="Type" Type="Int32" />
+          <Property Name="IDCategory" Type="Int32" />
         </EntityType>
         <EntityType Name="GF_Blog">
           <Key>
@@ -155,13 +147,6 @@
           <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="GR_Type">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -201,7 +186,7 @@
           <EntitySetMapping Name="GF_Product">
             <EntityTypeMapping TypeName="GreenFlowersModel.GF_Product">
               <MappingFragment StoreEntitySet="GF_Product">
-                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="IDCategory" ColumnName="IDCategory" />
                 <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
                 <ScalarProperty Name="Images" ColumnName="Images" />
                 <ScalarProperty Name="Avatar" ColumnName="Avatar" />
@@ -229,14 +214,6 @@
               <MappingFragment StoreEntitySet="GF_Information">
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="GR_Type">
-            <EntityTypeMapping TypeName="GreenFlowersModel.GR_Type">
-              <MappingFragment StoreEntitySet="GR_Type">
-                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
