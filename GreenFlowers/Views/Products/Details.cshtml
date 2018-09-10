@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-12">
                 <div class="product-details-img">
-                    <img class="zoompro" src="~/Images/product-details/product-detalis-l1.jpg" data-zoom-image="~/Images/product-details/product-detalis-bl1.jpg" alt="zoom" />
+                    <img class="zoompro" src="/Images/product/@Model.FirstOrDefault().Avatar" data-zoom-image="/Images/product/@Model.FirstOrDefault().Avatar" alt="zoom" />
                     <div id="gallery" class="mt-20 product-dec-slider owl-carousel">
                         <a data-image="~/Images/product-details/product-detalis-l1.jpg" data-zoom-image="~/Images/product-details/product-detalis-bl1.jpg">
                             <img src="~/Images/product-details/product-detalis-s1.jpg" alt="">
@@ -80,7 +80,7 @@
                             <input class="cart-plus-minus-box" type="text" name="qtybutton" value="02">
                         </div>
                         <div class="shop-list-cart-wishlist">
-                            <a title="Add To Cart" href="#" onclick="return clickCheckout();">
+                            <a href="" title="Add To Cart" class="btn-cart">
                                 <i class="icon-handbag"></i>
                             </a>
                             <a title="Wishlist" href="#">
@@ -380,14 +380,59 @@
         </div>
     </div>
 </div>
-<script>
-    function clickCheckout() {
+
+<script type="text/javascript">
+    var orderArr = [];
+    const price = @Model.FirstOrDefault().Price;
+    const proName = document.querySelector('div.product-details-content > h4').innerHTML;
+    const avatar = document.querySelector('div.product-details-img > img').getAttribute('src');
+    const avr = avatar.slice(avatar.lastIndexOf('/')).replace(/\//,'');
+
+    $('a.btn-cart').click((e) => {
+        e.preventDefault();
+        const qty = document.querySelector('input[name=qtybutton]').value;
+        const $ul = $('div.shopping-cart-content > ul');
+        var dataOrder = JSON.parse(localStorage.getItem('order'));
+        if(dataOrder != null) {
+            orderArr = dataOrder;
+            loStorage($ul, orderArr, qty);
+        } else {
+            loStorage($ul, orderArr, qty);
+        }
+    });
+
+    var loStorage = ($ul, orderArr, qty) => {
+        var obj = {};
+        obj.ProductName = proName;
+        obj.Price = price;
+        obj.Avatar = avr;
+        obj.Qty = qty;
+        orderArr.push(obj);
         if (typeof (Storage) !== "undefined") {
-            localStorage.setItem('productname',@Model.FirstOrDefault().ProductName);
-            localStorage.setItem('price',@Model.FirstOrDefault().Price);
-            localStorage.setItem('avatar',@Model.FirstOrDefault().Avatar);
+            console.log(orderArr);
+            localStorage.setItem('order', JSON.stringify(orderArr));
         } else {
             console.log("dont have local storage");
         }
+        $ul.prepend(myLi(obj,(orderArr.length-1)));
+        document.querySelector('span.count-style').innerText = (orderArr.length);
     }
+
+    var myLi = (data,i) => {
+        var $li = `<li class="single-shopping-cart" data-order="${i}">
+                    <div class="shopping-cart-img">
+                        <a href="#"><img alt="" src="Images/cart/${data.Avatar}"></a>
+                    </div>
+                    <div class="shopping-cart-title">
+                        <h4><a href="#">${data.ProductName} </a></h4>
+                        <h6>Qty: ${data.Qty}</h6>
+                        <span>${data.Price}</span>
+                    </div>
+                    <div class="shopping-cart-delete">
+                        <a class="delete" href=""><i class="ion ion-close"></i></a>
+                    </div>
+                </li>`;
+        return $li;
+    }
+
 </script>

@@ -32,51 +32,42 @@
                                     <th>Subtotal</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="product-thumbnail">
-                                        <a href="#"><img src="~/Images/cart/cart-3.jpg" alt=""></a>
-                                    </td>
-                                    <td class="product-name"><a href="#">Dutchman's Breeches</a></td>
-                                    <td class="product-price-cart"><span class="amount">$260.00</span></td>
-                                    <td class="product-quantity">
-                                        <div class="pro-dec-cart">
-                                            <input class="cart-plus-minus-box" type="text" value="02" name="qtybutton">
-                                        </div>
-                                    </td>
-                                    <td class="product-subtotal">$110.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="product-thumbnail">
-                                        <a href="#"><img src="~/Images/cart/cart-4.jpg" alt=""></a>
-                                    </td>
-                                    <td class="product-name"><a href="#">Flowers Bouquet Pink	</a></td>
-                                    <td class="product-price-cart"><span class="amount">$150.00</span></td>
-                                    <td class="product-quantity">
-                                        <div class="pro-dec-cart">
-                                            <input class="cart-plus-minus-box" type="text" value="02" name="qtybutton">
-                                        </div>
-                                    </td>
-                                    <td class="product-subtotal">$150.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="product-thumbnail">
-                                        <a href="#"><img src="~/Images/cart/cart-5.jpg" alt=""></a>
-                                    </td>
-                                    <td class="product-name"><a href="#">Evergreen Candytuft </a></td>
-                                    <td class="product-price-cart"><span class="amount">$170.00</span></td>
-                                    <td class="product-quantity">
-                                        <div class="pro-dec-cart">
-                                            <input class="cart-plus-minus-box" type="text" value="02" name="qtybutton">
-                                        </div>
-                                    </td>
-                                    <td class="product-subtotal">$170.00</td>
-                                </tr>
-                            </tbody>
+                            <tbody class="tbody-cart"></tbody>
                         </table>
                     </div>
                 </form>
+                <div class="shopping-cart-btn btn-success col-sm-4">
+                    <a href="@Url.Action("Checkout", "CheckOut")"> Checkout</a>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        const $tbody = $('tbody.tbody-cart');
+        var dataOrder = JSON.parse(localStorage.getItem('order'));
+        for (let i in dataStorage) {
+            $tbody.append(myTr(dataStorage[i], i));
+        }
+    });
+
+    var myTr = (data, i) => {
+        var $tr = `<tr>
+                    <td class="product-thumbnail">
+                        <a href="#"><img src="~/Images/cart/${data.Avatar}" alt="${i}"></a>
+                    </td>
+                    <td class ="product-name"><a href="#">${data.ProductName}</a></td>
+                    <td class ="product-price-cart"><span class ="amount">${data.Price}</span></td>
+                    <td class="product-quantity">
+                        <div class="pro-dec-cart">
+                            <input class ="cart-plus-minus-box" type="text" value="${data.Qty}" name="qtybutton" readonly disable>
+                        </div>
+                    </td>
+                    <td class ="product-subtotal">${data.Price * data.Price}</td>
+                </tr>`;
+        return $tr;
+    }
+</script>
