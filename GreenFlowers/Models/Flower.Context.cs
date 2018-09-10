@@ -25,11 +25,10 @@ namespace GreenFlowers.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<GF_Blog> GF_Blog { get; set; }
         public virtual DbSet<GF_Category> GF_Category { get; set; }
         public virtual DbSet<GF_Order> GF_Order { get; set; }
-        public virtual DbSet<GF_Session> GF_Session { get; set; }
-        public virtual DbSet<GF_Blog> GF_Blog { get; set; }
-        public virtual DbSet<GF_Information> GF_Information { get; set; }
         public virtual DbSet<GF_Product> GF_Product { get; set; }
+        public virtual DbSet<GF_Record> GF_Record { get; set; }
     }
 }

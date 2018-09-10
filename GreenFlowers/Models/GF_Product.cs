@@ -22,5 +22,6 @@ namespace GreenFlowers.Models
         public string Images { get; set; }
         public Nullable<int> DiscountPrice { get; set; }
         public Nullable<int> IDCategory { get; set; }
+        public Nullable<bool> IsHide { get; set; }
     }
 }

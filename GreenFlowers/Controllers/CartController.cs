@@ -17,16 +17,38 @@ namespace GreenFlowers.Controllers
         }
 
         [HttpPost]
-        public ActionResult Payment(string ProductName, int Price, int Quantity, int DiscountPrice)
+        public ActionResult AddtoCart(string productname, int quantity, int price)
         {
-            GF_Order od = new GF_Order();
-            od.ProductName = ProductName;
-            od.Price = Price;
-            od.Quantity = Quantity;
-            od.DiscountPrice = DiscountPrice;
-            db.GF_Order.Add(od);
+            Session["Order"] = getGUID();
+
+            GF_Record rc = new GF_Record();
+            rc.ID = getGUID();
+            rc.ID_Order = Session["Order"].ToString();
+            rc.ProductName = productname;
+            rc.Quantity = quantity;
+            rc.TotalPrice = quantity * price;
+            db.GF_Record.Add(rc);
             db.SaveChanges();
-            return RedirectToAction("","");
+
+            return RedirectToAction("Checkout", "Checkout");
+        }
+
+        //generate ra một id mới
+        public static string getGUID()
+        {
+            string rs = "";
+            char replace = '-';
+            char to = '_';
+            try
+            {
+                rs = Guid.NewGuid().ToString();
+                rs = rs.Replace(replace, to);
+            }
+            catch (Exception ex)
+            {
+                string mess = ex.Message.ToString();
+            }
+            return rs;
         }
     }
 }

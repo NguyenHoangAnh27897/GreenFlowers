@@ -49,9 +49,9 @@
                                         @foreach (var item in Model)
                                         {
                                             <tr>
-                                                <td>@item.ID</td>
-                                                <td><a href="/webmaster/editproduct/@item.ID">@item.Title</a></td>
-                                                <td>@item.ContentBlog</td>
+                                                <td>@item.ID.Substring(0,10)</td>
+                                                <td><a href="/webmaster/editblog/@item.ID">@item.Title.Substring(0,10)</a></td>
+                                                <td>@item.ContentBlog.Substring(0,25)</td>
                                                 <td>@item.Avatar</td>
                                                 <td>@item.CreatedBy</td>
                                                 <td>@item.CreatedDate</td>

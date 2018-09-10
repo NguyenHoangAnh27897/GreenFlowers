@@ -229,16 +229,13 @@
     <Compile Include="Models\GF_Category.cs">
       <DependentUpon>Flower.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GF_Information.cs">
-      <DependentUpon>Flower.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\GF_Order.cs">
       <DependentUpon>Flower.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GF_Product.cs">
       <DependentUpon>Flower.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GF_Session.cs">
+    <Compile Include="Models\GF_Record.cs">
       <DependentUpon>Flower.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
@@ -737,6 +734,7 @@
     <Content Include="Images\logo\logo.png" />
     <Content Include="Images\logo\logo2.png" />
     <Content Include="Images\logo\logo3.png" />
+    <Content Include="Images\logo\logoa3.png" />
     <Content Include="Images\logo\logỏ.png" />
     <Content Include="Images\product-details\product-detalis-l1.jpg" />
     <Content Include="Images\product-details\product-detalis-l2.jpg" />
@@ -747,14 +745,14 @@
     <Content Include="Images\product-details\product-detalis-s3.jpg" />
     <Content Include="Images\product-details\product-detalis-s4.jpg" />
     <Content Include="Images\product-details\product-detalis-s5.jpg" />
-    <Content Include="Images\product\product-1.jpg" />
-    <Content Include="Images\product\product-2.jpg" />
-    <Content Include="Images\product\product-3.jpg" />
-    <Content Include="Images\product\product-4.jpg" />
-    <Content Include="Images\product\product-5.jpg" />
-    <Content Include="Images\product\product-6.jpg" />
-    <Content Include="Images\product\product-7.jpg" />
-    <Content Include="Images\product\product-8.jpg" />
+    <Content Include="Images\product\avatar\product-1.jpg" />
+    <Content Include="Images\product\avatar\product-2.jpg" />
+    <Content Include="Images\product\avatar\product-3.jpg" />
+    <Content Include="Images\product\avatar\product-4.jpg" />
+    <Content Include="Images\product\avatar\product-5.jpg" />
+    <Content Include="Images\product\avatar\product-6.jpg" />
+    <Content Include="Images\product\avatar\product-7.jpg" />
+    <Content Include="Images\product\avatar\product-8.jpg" />
     <Content Include="Images\slider\slider-1.jpg" />
     <Content Include="Images\slider\slider-2.jpg" />
     <Content Include="Images\slider\slider-3.jpg" />
@@ -886,10 +884,11 @@
     <Content Include="Views\WebMaster\ListBlog.cshtml" />
     <Content Include="Views\WebMaster\AddBlog.cshtml" />
     <Content Include="Views\WebMaster\EditBlog.cshtml" />
+    <Content Include="Views\WebMaster\ListOrder.cshtml" />
+    <Content Include="Views\WebMaster\CheckOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\product\avatar\" />
     <Folder Include="Images\product\image\" />
   </ItemGroup>
   <ItemGroup>

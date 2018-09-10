@@ -1,0 +1,68 @@
+﻿@model IEnumerable<GreenFlowers.Models.GF_Order>
+@{
+    ViewBag.Title = "ListOrder";
+    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+}
+
+<div class="main-wrapper">
+    <div class="container">
+
+        <!-- Start breadcrumb section  -->
+        <div class="row">
+            <div class="col-lg-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/webmaster/index" ">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Danh sách Order</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Start table basic -->
+        <div class="basic-table">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="single-table">
+                        <div class="section-head">
+                            <div class="title">
+                                <h4>progress table</h4>
+                            </div>
+                        </div>
+                        <div class="section-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover progress-table text-white text-center" border="0" style="border-width:0px;border-style:None;border-collapse:collapse;">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Customer Name</th>
+                                            <th>Address</th>
+                                            <th>Phone</th>
+                                            <th>Email</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.ID</td>
+                                                <td><a href="/webmaster/checkorder/@item.ID">@item.CustomerName</a></td>
+                                                <td>@item.Address</td>
+                                                <td>@item.Phone</td>
+                                                <td>@item.Email</td>
+                                                <td><input type="checkbox" /></td>
+                                                <td><a href="/webmaster/deleteproduct/@item.ID"><img src="~/Images/icon/if_f-cross_256_282471.png" /></a></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

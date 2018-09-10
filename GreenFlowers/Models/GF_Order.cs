@@ -15,9 +15,10 @@ namespace GreenFlowers.Models
     public partial class GF_Order
     {
         public string ID { get; set; }
-        public string ProductName { get; set; }
-        public Nullable<int> Quantity { get; set; }
-        public Nullable<int> Price { get; set; }
-        public Nullable<int> DiscountPrice { get; set; }
+        public string CustomerName { get; set; }
+        public string Address { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public Nullable<bool> IsChecked { get; set; }
     }
 }

@@ -20,5 +20,6 @@ namespace GreenFlowers.Models
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public string Avatar { get; set; }
+        public Nullable<bool> IsHide { get; set; }
     }
 }

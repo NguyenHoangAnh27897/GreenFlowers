@@ -70,15 +70,6 @@ namespace GreenFlowers.Controllers
             //kiểm tra đã đăng nhập vào chưa
             if (Session["Authentication"] != null)
             {
-                String chk = "";
-                if (hide == false)
-                {
-                    chk = "False";
-                }
-                else
-                {
-                    chk = "True";
-                }
                 string Avatar = "";
                 if (avatar != null)
                 {
@@ -116,6 +107,7 @@ namespace GreenFlowers.Controllers
                 pd.DiscountPrice = discountprice;
                 pd.Description = editor;
                 pd.IDCategory = int.Parse(category);
+                pd.IsHide = hide;
                 db.GF_Product.Add(pd);
                 db.SaveChanges();
                 return RedirectToAction("Index", "WebMaster");
@@ -161,15 +153,6 @@ namespace GreenFlowers.Controllers
             //kiểm tra đã đăng nhập vào chưa
             if (Session["Authentication"] != null)
             {
-                String chk = "";
-                if (hide == false)
-                {
-                    chk = "False";
-                }
-                else
-                {
-                    chk = "True";
-                }
                 string Avatar = "";
                 if (avatar != null)
                 {
@@ -206,6 +189,7 @@ namespace GreenFlowers.Controllers
                 pd.DiscountPrice = discountprice;
                 pd.Description = editor;
                 pd.IDCategory = int.Parse(category);
+                pd.IsHide = hide;
                 db.Entry(pd).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index", "WebMaster");
@@ -316,15 +300,6 @@ namespace GreenFlowers.Controllers
             //kiểm tra đã đăng nhập vào chưa
             if (Session["Authentication"] != null)
             {
-                String chk = "";
-                if (hide == false)
-                {
-                    chk = "False";
-                }
-                else
-                {
-                    chk = "True";
-                }
                 string Avatar = "";
                 if (avatar != null)
                 {
@@ -345,6 +320,7 @@ namespace GreenFlowers.Controllers
                 bl.ContentBlog = editor;
                 bl.CreatedBy = "Admin";
                 bl.CreatedDate = DateTime.Now;
+                bl.IsHide = hide;
                 db.GF_Blog.Add(bl);
                 db.SaveChanges();
                 return RedirectToAction("Index", "WebMaster");
@@ -377,15 +353,6 @@ namespace GreenFlowers.Controllers
             //kiểm tra đã đăng nhập vào chưa
             if (Session["Authentication"] != null)
             {
-                String chk = "";
-                if (hide == false)
-                {
-                    chk = "False";
-                }
-                else
-                {
-                    chk = "True";
-                }
                 string Avatar = "";
                 if (avatar != null)
                 {
@@ -406,6 +373,7 @@ namespace GreenFlowers.Controllers
                 bl.ContentBlog = editor;
                 bl.CreatedBy = "Admin";
                 bl.CreatedDate = DateTime.Now;
+                bl.IsHide = hide;
                 db.Entry(bl).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index", "WebMaster");
@@ -415,6 +383,34 @@ namespace GreenFlowers.Controllers
                 return RedirectToAction("Login", "WebMaster");
             }
 
+        }
+
+        public ActionResult ListOrder()
+        {
+            //kiểm tra đã đăng nhập vào chưa
+            if (Session["Authentication"] != null)
+            {
+                var lst = db.GF_Order.ToList();
+                return View(lst);
+            }
+            else
+            {
+                return RedirectToAction("Login", "WebMaster");
+            }
+        }
+
+        public ActionResult CheckOrder(string orderid)
+        {
+            //kiểm tra đã đăng nhập vào chưa
+            if (Session["Authentication"] != null)
+            {
+                var rs = db.GF_Record.Where(s=>s.ID_Order.Equals(orderid));
+                return View(rs);
+            }
+            else
+            {
+                return RedirectToAction("Login", "WebMaster");
+            }
         }
     }
 }
