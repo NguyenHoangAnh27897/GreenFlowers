@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+}
+
+<div class="main-wrapper">
+    <div class="container">
+
+        <!-- Start breadcrumb section  -->
+        <div class="row">
+            <div class="col-lg-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/category/index">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Quản lý Loại</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Start form -->
+        <div class="form-area">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="single-form">
+                        <div class="section-head">
+                            <div class="title">
+                                <h4>Thêm Loại</h4>
+                            </div>
+                        </div>
+                        <div class="section-body">
+                            <form method="post" action="/webmaster/addcategory">
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput4">Category Name</label>
+                                    <input type="text" class="form-control" placeholder="" name="category">
+                                </div>
+                                <button class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

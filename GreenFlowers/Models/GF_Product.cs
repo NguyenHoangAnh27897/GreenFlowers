@@ -21,7 +21,6 @@ namespace GreenFlowers.Models
         public string Avatar { get; set; }
         public string Images { get; set; }
         public Nullable<int> DiscountPrice { get; set; }
-        public Nullable<int> Type { get; set; }
         public Nullable<int> IDCategory { get; set; }
     }
 }

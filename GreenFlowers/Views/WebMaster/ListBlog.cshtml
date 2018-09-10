@@ -1,7 +1,8 @@
-﻿@model IEnumerable<GreenFlowers.Models.GF_Product>
+﻿@model IEnumerable<GreenFlowers.Models.GF_Blog>
 @{
-    ViewBag.Title = "ListProduct";
-    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+
+                ViewBag.Title = "ListBlog";
+                Layout = "~/Views/Shared/_LayoutMaster.cshtml";
 }
 
 <div class="main-wrapper">
@@ -13,7 +14,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/webmaster/index" ">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Danh sách Product</li>
+                        <li class="breadcrumb-item active" aria-current="page">Danh sách Blog</li>
                     </ol>
                 </nav>
             </div>
@@ -35,12 +36,11 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Product Name</th>
-                                            <th>Price</th>
-                                            <th>Discount Price</th>
-                                            <th>Description</th>
+                                            <th>Title</th>
+                                            <th>Content Blog</th>
                                             <th>Avatar</th>
-                                            <th>IMG</th>
+                                            <th>Created By</th>
+                                            <th>Created Date</th>
                                             <th>Hide</th>
                                             <th>Action</th>
                                         </tr>
@@ -48,17 +48,16 @@
                                     <tbody>
                                         @foreach (var item in Model)
                                         {
-                                        <tr>
-                                            <td>@item.ID</td>
-                                            <td><a href="/webmaster/editproduct/@item.ID">@item.ProductName</a></td>
-                                            <td>@item.Price</td>
-                                            <td>@item.DiscountPrice</td>
-                                            <td>@item.Description</td>
-                                            <td>@item.Avatar</td>
-                                            <td>@item.Images</td>
-                                            <td><input type="checkbox" /></td>
-                                            <td><a href="/webmaster/deleteproduct/@item.ID"><img src="~/Images/icon/if_f-cross_256_282471.png" /></a></td>
-                                        </tr>
+                                            <tr>
+                                                <td>@item.ID</td>
+                                                <td><a href="/webmaster/editproduct/@item.ID">@item.Title</a></td>
+                                                <td>@item.ContentBlog</td>
+                                                <td>@item.Avatar</td>
+                                                <td>@item.CreatedBy</td>
+                                                <td>@item.CreatedDate</td>
+                                                <td><input type="checkbox" /></td>
+                                                <td><a href="/webmaster/deleteproduct/@item.ID"><img src="~/Images/icon/if_f-cross_256_282471.png" /></a></td>
+                                            </tr>
                                         }
                                     </tbody>
                                 </table>
@@ -70,4 +69,6 @@
         </div>
     </div>
 </div>
+
+
 

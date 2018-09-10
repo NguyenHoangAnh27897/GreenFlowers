@@ -30,20 +30,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="GF_Product">
-      <EntityTypeMapping TypeName="GreenFlowersModel.GF_Product">
-        <MappingFragment StoreEntitySet="GF_Product">
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
-          <ScalarProperty Name="Images" ColumnName="Images" />
-          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="GF_Blog">
       <EntityTypeMapping TypeName="GreenFlowersModel.GF_Blog">
         <MappingFragment StoreEntitySet="GF_Blog">
@@ -65,10 +51,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="GR_Type">
-      <EntityTypeMapping TypeName="GreenFlowersModel.GR_Type">
-        <MappingFragment StoreEntitySet="GR_Type">
-          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+    <EntitySetMapping Name="GF_Product">
+      <EntityTypeMapping TypeName="GreenFlowersModel.GF_Product">
+        <MappingFragment StoreEntitySet="GF_Product">
+          <ScalarProperty Name="IDCategory" ColumnName="IDCategory" />
+          <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

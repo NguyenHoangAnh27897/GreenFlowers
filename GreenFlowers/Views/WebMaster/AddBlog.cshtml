@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "AddBlog";
+    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+}
+
+
+<div class="main-wrapper">
+    <div class="container">
+
+        <!-- Start breadcrumb section  -->
+        <div class="row">
+            <div class="col-lg-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/webmaster/index">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Quản lý Product</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Start form -->
+        <div class="form-area">
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <div class="single-form">
+                        <div class="section-head">
+                            <div class="title">
+                                <h4>Thêm Sản phẩm</h4>
+                            </div>
+                        </div>
+
+                        <div class="section-body">
+                            <form action="/webmaster/addblog" method="post" enctype="multipart/form-data">
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput4">Title</label>
+                                    <input type="text" class="form-control" placeholder="" name="title">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlFile1">Avatar</label>
+                                    <br />
+                                    <input type="file" name="avatar" accept="image/*" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Content</label>
+                                    <br />
+                                    <textarea name="editor" id="editor" rows="50" cols="80"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-check-label"><input type="checkbox" name="hide" value="true" />Hide</label>
+                                </div>
+
+                                <button class="btn btn-primaryt">Submit</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Content/Webmaster/js/ckeditor/ckeditor.js"></script>
+<script src="~/Content/Webmaster/js/ckeditor/samples/js/sample.js"></script>
+<script>
+    CKEDITOR.replace('editor');
+</script>
+
+

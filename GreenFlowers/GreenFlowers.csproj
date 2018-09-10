@@ -241,9 +241,6 @@
     <Compile Include="Models\GF_Session.cs">
       <DependentUpon>Flower.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GR_Type.cs">
-      <DependentUpon>Flower.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -884,6 +881,11 @@
     <Content Include="Views\WebMaster\GFProduct.cshtml" />
     <Content Include="Views\WebMaster\ListProduct.cshtml" />
     <Content Include="Views\WebMaster\EditProduct.cshtml" />
+    <Content Include="Views\WebMaster\ListCategory.cshtml" />
+    <Content Include="Views\WebMaster\AddCategory.cshtml" />
+    <Content Include="Views\WebMaster\ListBlog.cshtml" />
+    <Content Include="Views\WebMaster\AddBlog.cshtml" />
+    <Content Include="Views\WebMaster\EditBlog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
