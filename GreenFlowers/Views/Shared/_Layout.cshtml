@@ -7,6 +7,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="~/Images/favicon.png">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
 
 </head>
 <body>
@@ -123,7 +124,7 @@
                                 <a href="#">
                                     <div class="cart-icon">
                                         <i class="ion-bag"></i>
-                                        <span class="count-style">02</span>
+                                        <span class="count-style"></span>
                                     </div>
                                     <div class="cart-text">
                                         <span class="digit">Giỏ Hàng</span>
@@ -131,41 +132,13 @@
                                     </div>
                                 </a>
                                 <div class="shopping-cart-content">
-                                    <ul>
-                                        <li class="single-shopping-cart">
-                                            <div class="shopping-cart-img">
-                                                <a href="#"><img alt="" src="~/Images/cart/cart-1.jpg"></a>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="#">Phantom Remote </a></h4>
-                                                <h6>Qty: 02</h6>
-                                                <span>$260.00</span>
-                                            </div>
-                                            <div class="shopping-cart-delete">
-                                                <a href="#"><i class="ion ion-close"></i></a>
-                                            </div>
-                                        </li>
-                                        <li class="single-shopping-cart">
-                                            <div class="shopping-cart-img">
-                                                <a href="#"><img alt="" src="~/Images/cart/cart-2.jpg"></a>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="#">Phantom Remote</a></h4>
-                                                <h6>Qty: 02</h6>
-                                                <span>$260.00</span>
-                                            </div>
-                                            <div class="shopping-cart-delete">
-                                                <a href="#"><i class="ion ion-close"></i></a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="shopping-cart-total">
+                                    <ul></ul>
+                                    @*<div class="shopping-cart-total">
                                         <h4>Shipping : <span>$20.00</span></h4>
                                         <h4>Total : <span class="shop-total">$260.00</span></h4>
-                                    </div>
+                                    </div>*@
                                     <div class="shopping-cart-btn">
                                         <a href="@Url.Action("Cart", "Cart")">View cart</a>
-                                        <a href="@Url.Action("Checkout", "CheckOut")"> Checkout</a>
                                     </div>
                                 </div>
                             </div>
@@ -353,10 +326,55 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/javascript")
     @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+        var dataStorage = JSON.parse(localStorage.getItem('order'));
+
+        $(document).ready(function () {
+            if (dataStorage.length != 0) {
+                $('span.count-style').text(dataStorage.length);
+            } else {
+                $('span.count-style').text(0);
+            }
+            const $ul = $('div.shopping-cart-content > ul');
+            for (let i in dataStorage) {
+                $ul.prepend(myLi(dataStorage[i],i));
+            }
+
+            $('.delete').on('click', (e) => {
+                e.preventDefault();
+                var $this = e.target.closest('li');
+                dataStorage.splice($this.getAttribute('data-order'), 1);
+                if (dataStorage.length != 0) {
+                    $('span.count-style').text(dataStorage.length);
+                } else {
+                    $('span.count-style').text(0);
+                }
+                localStorage.setItem('order',JSON.stringify(dataStorage));
+                $this.outerHTML = "";
+            });
+        });
+
+        var myLi = (data,i) => {
+            var $li = `<li class="single-shopping-cart" data-order="${i}">
+                    <div class="shopping-cart-img">
+                        <a href="#"><img alt="" src="Images/cart/${data.Avatar}"></a>
+                    </div>
+                    <div class="shopping-cart-title">
+                        <h4><a href="#">${data.ProductName} </a></h4>
+                        <h6>Qty: ${data.Qty}</h6>
+                        <span>${data.Price}</span>
+                    </div>
+                    <div class="shopping-cart-delete">
+                        <a class="delete" href=""><i class="ion ion-close"></i></a>
+                    </div>
+                </li>`;
+            return $li;
+        }
+    </script>
 
 </body>
 </html>
