@@ -1,38 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="GreenFlowersModelStoreContainer" CdmEntityContainer="GreenFlowersEntities">
-    <EntitySetMapping Name="GF_Category">
-      <EntityTypeMapping TypeName="GreenFlowersModel.GF_Category">
-        <MappingFragment StoreEntitySet="GF_Category">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Category" ColumnName="Category" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GF_Order">
-      <EntityTypeMapping TypeName="GreenFlowersModel.GF_Order">
-        <MappingFragment StoreEntitySet="GF_Order">
-          <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GF_Session">
-      <EntityTypeMapping TypeName="GreenFlowersModel.GF_Session">
-        <MappingFragment StoreEntitySet="GF_Session">
-          <ScalarProperty Name="ID_Information" ColumnName="ID_Information" />
-          <ScalarProperty Name="ID_Session" ColumnName="ID_Session" />
-          <ScalarProperty Name="ID_Order" ColumnName="ID_Order" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="GF_Blog">
       <EntityTypeMapping TypeName="GreenFlowersModel.GF_Blog">
         <MappingFragment StoreEntitySet="GF_Blog">
+          <ScalarProperty Name="IsHide" ColumnName="IsHide" />
           <ScalarProperty Name="Avatar" ColumnName="Avatar" />
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
@@ -42,11 +14,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="GF_Information">
-      <EntityTypeMapping TypeName="GreenFlowersModel.GF_Information">
-        <MappingFragment StoreEntitySet="GF_Information">
+    <EntitySetMapping Name="GF_Category">
+      <EntityTypeMapping TypeName="GreenFlowersModel.GF_Category">
+        <MappingFragment StoreEntitySet="GF_Category">
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GF_Order">
+      <EntityTypeMapping TypeName="GreenFlowersModel.GF_Order">
+        <MappingFragment StoreEntitySet="GF_Order">
+          <ScalarProperty Name="IsChecked" ColumnName="IsChecked" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -54,6 +37,7 @@
     <EntitySetMapping Name="GF_Product">
       <EntityTypeMapping TypeName="GreenFlowersModel.GF_Product">
         <MappingFragment StoreEntitySet="GF_Product">
+          <ScalarProperty Name="IsHide" ColumnName="IsHide" />
           <ScalarProperty Name="IDCategory" ColumnName="IDCategory" />
           <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
           <ScalarProperty Name="Images" ColumnName="Images" />
@@ -61,6 +45,17 @@
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GF_Record">
+      <EntityTypeMapping TypeName="GreenFlowersModel.GF_Record">
+        <MappingFragment StoreEntitySet="GF_Record">
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ID_Order" ColumnName="ID_Order" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

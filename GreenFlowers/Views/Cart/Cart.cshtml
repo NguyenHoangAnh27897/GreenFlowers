@@ -27,9 +27,9 @@
                                 <tr>
                                     <th></th>
                                     <th>Product Name</th>
-                                    <th>Until Price</th>
-                                    <th>Qty</th>
-                                    <th>Subtotal</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total Price</th>
                                 </tr>
                             </thead>
                             <tbody class="tbody-cart"></tbody>
@@ -57,7 +57,7 @@
     var myTr = (data, i) => {
         var $tr = `<tr>
                     <td class="product-thumbnail">
-                        <a href="#"><img src="~/Images/cart/${data.Avatar}" alt="${i}"></a>
+                        <a href="#"><img src="/Images/product/avatar/${data.Avatar}" alt="${i}"></a>
                     </td>
                     <td class ="product-name"><a href="#">${data.ProductName}</a></td>
                     <td class ="product-price-cart"><span class ="amount">${data.Price}</span></td>
@@ -66,7 +66,7 @@
                             <input class ="cart-plus-minus-box" type="text" value="${data.Qty}" name="qtybutton" readonly disable>
                         </div>
                     </td>
-                    <td class ="product-subtotal">${data.Price * data.Price}</td>
+                    <td class ="product-subtotal">${data.Qty * data.Price}</td>
                 </tr>`;
         return $tr;
     }

@@ -28,6 +28,7 @@ namespace GreenFlowers.Controllers
             od.IsChecked = false;
             db.GF_Order.Add(od);
             db.SaveChanges();
+            return RedirectToAction("Index","Home");
         }
     }
 }

@@ -412,5 +412,20 @@ namespace GreenFlowers.Controllers
                 return RedirectToAction("Login", "WebMaster");
             }
         }
+
+        [HttpPost]
+        public ActionResult ConfirmOrder()
+        {
+            //kiểm tra đã đăng nhập vào chưa
+            if (Session["Authentication"] != null)
+            {
+                //var rs = db.GF_Record.Where(s => s.ID_Order.Equals(orderid));
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "WebMaster");
+            }
+        }
     }
 }
