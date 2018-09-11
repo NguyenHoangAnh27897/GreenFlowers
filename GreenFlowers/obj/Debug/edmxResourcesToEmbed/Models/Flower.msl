@@ -52,6 +52,7 @@
     <EntitySetMapping Name="GF_Record">
       <EntityTypeMapping TypeName="GreenFlowersModel.GF_Record">
         <MappingFragment StoreEntitySet="GF_Record">
+          <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="ProductName" ColumnName="ProductName" />

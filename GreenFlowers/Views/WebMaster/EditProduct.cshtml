@@ -37,6 +37,7 @@
                         <div class="section-body">
                             <form action="/webmaster/editproduct" method="post" enctype="multipart/form-data">
 
+                                <input type="text" class="form-control" placeholder="" name="id" value="@Model.FirstOrDefault().ID" style="display:none">
                                 <div class="form-group">
                                     <label for="exampleFormControlInput4">Product Name</label>
                                     <input type="text" class="form-control" placeholder="" name="name" value="@Model.FirstOrDefault().ProductName">
@@ -78,7 +79,7 @@
                                         <input type="file" name="images" accept="image/*" multiple="multiple" />
                                         @foreach (var img in arrStr)
                                         {
-                                            <img src="~/Images/product/image/@img" style="width:100%" />
+                                            <img src="~/Images/product/image/@img"  />
                                         }
                                     </div>
                                 }
@@ -88,7 +89,7 @@
                                         <label for="exampleFormControlFile1">Images</label>
                                         <br />
                                         <input type="file" name="images" accept="image/*" multiple="multiple" />
-                                        <img src="~/Images/product/image/@Model.FirstOrDefault().Images" style="width:100%" />
+                                        <img src="~/Images/product/image/@Model.FirstOrDefault().Images" />
                                     </div>
                                 }
 

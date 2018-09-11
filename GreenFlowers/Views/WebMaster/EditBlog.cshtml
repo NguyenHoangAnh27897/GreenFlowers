@@ -33,6 +33,7 @@
                         <div class="section-body">
                             <form action="/webmaster/editblog" method="post" enctype="multipart/form-data">
 
+                                <input type="text" class="form-control" placeholder="" name="id" value="@Model.FirstOrDefault().ID" style="display:none">
                                 <div class="form-group">
                                     <label for="exampleFormControlInput4">Title</label>
                                     <input type="text" class="form-control" placeholder="" name="title" value="@Model.FirstOrDefault().Title">

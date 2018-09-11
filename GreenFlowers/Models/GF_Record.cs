@@ -19,5 +19,6 @@ namespace GreenFlowers.Models
         public string ProductName { get; set; }
         public Nullable<int> Quantity { get; set; }
         public Nullable<int> TotalPrice { get; set; }
+        public Nullable<int> Price { get; set; }
     }
 }

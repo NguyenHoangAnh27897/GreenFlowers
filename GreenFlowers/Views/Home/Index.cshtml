@@ -103,15 +103,12 @@
                                 <a href="/products/details/@item.ID">
                                     <img alt="" src="~/Images/product/avatar/@item.Avatar">
                                 </a>
-                                <span>-30%</span>
+                                @*<span>-30%</span>*@
                                 <div class="product-action">
                                     <a class="action-wishlist" href="#" title="Wishlist">
                                         <i class="icon-heart"></i>
                                     </a>
-                                    <a class="action-cart" href="#" title="Thêm vào giỏ hàng">
-                                        <i class="icon-handbag"></i>
-                                    </a>
-                                    <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
+                                    <a class="action-compare" href="/product/detail/@item.ID" data-target="#exampleModal" data-toggle="modal" title="Quick View">
                                         <i class="icon-magnifier-add"></i>
                                     </a>
                                 </div>
@@ -121,7 +118,7 @@
                                     <a href="/products/details/@item.ID">@item.ProductName</a>
                                 </h4>
                                 <div class="product-price-wrapper">
-                                    <span>@item.Price VNĐ</span>
+                                    <span>Giá: @item.Price VNĐ</span>
                                     @*<span class="product-price-old">$120.00 </span>*@
                                 </div>
                             </div>

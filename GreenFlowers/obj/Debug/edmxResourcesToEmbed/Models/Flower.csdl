@@ -61,5 +61,6 @@
     <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Quantity" Type="Int32" />
     <Property Name="TotalPrice" Type="Int32" />
+    <Property Name="Price" Type="Int32" />
   </EntityType>
 </Schema>

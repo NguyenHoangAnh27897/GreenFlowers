@@ -88,21 +88,33 @@ namespace GreenFlowers.Controllers
                 {
                     foreach (HttpPostedFileBase file in images)
                     {
-                        if (file.ContentLength > 0)
+                        if(file != null)
                         {
-                            var filename = Path.GetFileName(file.FileName);
-                            var path = Path.Combine(Server.MapPath("~/Images/product/image"), file.FileName);
-                            file.SaveAs(path);
-                            Images += file.FileName + ",";
+                            if (file.ContentLength > 0)
+                            {
+                                var filename = Path.GetFileName(file.FileName);
+                                var path = Path.Combine(Server.MapPath("~/Images/product/image"), file.FileName);
+                                file.SaveAs(path);
+                                Images += file.FileName + ",";
+                            }
                         }
                     }
+                    if (Images != "")
+                    {
+                        Images = Images.Remove(Images.Length - 1);
+                    }
                 }
-                Images = Images.Remove(Images.Length - 1);
                 GF_Product pd = new GF_Product();
                 pd.ID = getGUID();
                 pd.ProductName = name;
-                pd.Avatar = Avatar;
-                pd.Images = Images;
+                if(Avatar != "")
+                {
+                    pd.Avatar = Avatar;
+                }
+                if(Images != "")
+                {
+                    pd.Images = Images;
+                }
                 pd.Price = price;
                 pd.DiscountPrice = discountprice;
                 pd.Description = editor;
@@ -110,7 +122,7 @@ namespace GreenFlowers.Controllers
                 pd.IsHide = hide;
                 db.GF_Product.Add(pd);
                 db.SaveChanges();
-                return RedirectToAction("Index", "WebMaster");
+                return RedirectToAction("ListProduct", "WebMaster");
             }
             else
             {
@@ -148,7 +160,8 @@ namespace GreenFlowers.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditProduct(string name, HttpPostedFileBase avatar, HttpPostedFileBase[] images, string editor, bool hide = false, int price = 0, int discountprice = 0, string category ="")
+        [ValidateInput(false)]
+        public ActionResult EditProduct(string id, string name, HttpPostedFileBase avatar, HttpPostedFileBase[] images, string editor, bool hide = false, int price = 0, int discountprice = 0, string category ="")
         {
             //kiểm tra đã đăng nhập vào chưa
             if (Session["Authentication"] != null)
@@ -171,28 +184,47 @@ namespace GreenFlowers.Controllers
                 {
                     foreach (HttpPostedFileBase file in images)
                     {
-                        if (file.ContentLength > 0)
+                        if(file != null)
                         {
-                            var filename = Path.GetFileName(file.FileName);
-                            var path = Path.Combine(Server.MapPath("~/Images/product/image"), file.FileName);
-                            file.SaveAs(path);
-                            Images += file.FileName + ",";
+                            if (file.ContentLength > 0)
+                            {
+                                var filename = Path.GetFileName(file.FileName);
+                                var path = Path.Combine(Server.MapPath("~/Images/product/image"), file.FileName);
+                                file.SaveAs(path);
+                                Images += file.FileName + ",";
+                            }   
                         }
                     }
+                  if(Images != "")
+                    {
+                        Images = Images.Remove(Images.Length - 1);
+                    }
                 }
-                Images = Images.Remove(Images.Length - 1);
-                GF_Product pd = new GF_Product();
+                var pd = db.GF_Product.Where(s=>s.ID.Equals(id)).FirstOrDefault();
                 pd.ProductName = name;
-                pd.Avatar = Avatar;
-                pd.Images = Images;
-                pd.Price = price;
+                if (Avatar != "")
+                {
+                    pd.Avatar = Avatar;
+                }
+                else
+                {
+                    pd.Avatar = pd.Avatar;
+                }
+                if (Images != "")
+                {
+                    pd.Images = Images;
+                }
+                else
+                {
+                    pd.Images = pd.Images;
+                }
                 pd.DiscountPrice = discountprice;
                 pd.Description = editor;
                 pd.IDCategory = int.Parse(category);
                 pd.IsHide = hide;
                 db.Entry(pd).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index", "WebMaster");
+                return RedirectToAction("ListProduct", "WebMaster");
             }
             else
             {
@@ -323,7 +355,7 @@ namespace GreenFlowers.Controllers
                 bl.IsHide = hide;
                 db.GF_Blog.Add(bl);
                 db.SaveChanges();
-                return RedirectToAction("Index", "WebMaster");
+                return RedirectToAction("ListBlog", "WebMaster");
             }
             else
             {
@@ -348,7 +380,7 @@ namespace GreenFlowers.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult EditBlog(string title, string editor, HttpPostedFileBase avatar, bool hide = false)
+        public ActionResult EditBlog(string id, string title, string editor, HttpPostedFileBase avatar, bool hide = false)
         {
             //kiểm tra đã đăng nhập vào chưa
             if (Session["Authentication"] != null)
@@ -366,7 +398,7 @@ namespace GreenFlowers.Controllers
 
                 }
 
-                GF_Blog bl = new GF_Blog();
+                var bl = db.GF_Blog.Where(s => s.ID.Equals(id)).FirstOrDefault();
                 bl.ID = getGUID();
                 bl.Title = title;
                 bl.Avatar = Avatar;
@@ -376,7 +408,7 @@ namespace GreenFlowers.Controllers
                 bl.IsHide = hide;
                 db.Entry(bl).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index", "WebMaster");
+                return RedirectToAction("ListBlog", "WebMaster");
             }
             else
             {
@@ -423,7 +455,7 @@ namespace GreenFlowers.Controllers
                 rs.IsChecked = true;
                 db.GF_Order.Add(rs);
                 db.SaveChanges();
-                return View("Index","WebMaster");
+                return View("ListOrder","WebMaster");
             }
             else
             {

@@ -17,7 +17,7 @@ namespace GreenFlowers.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddtoCart(string productname, int? quantity, int? price)
+        public ActionResult AddtoCart(string[] productname, int?[] quantity, int?[] price)
         {
             Session["Order"] = getGUID();
 
@@ -26,6 +26,7 @@ namespace GreenFlowers.Controllers
             rc.ID_Order = Session["Order"].ToString();
             rc.ProductName = productname;
             rc.Quantity = quantity;
+            rc.Price = price;
             rc.TotalPrice = quantity * price;
             db.GF_Record.Add(rc);
             db.SaveChanges();
