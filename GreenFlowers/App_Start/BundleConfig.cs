@@ -20,11 +20,11 @@ namespace GreenFlowers
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                      "~/Scripts/popper.js",
+                      "~/Scripts/bootstrap.min.js"
+                      ));
 
             bundles.Add(new ScriptBundle("~/bundles/javascript").Include(
-                      "~/Scripts/popper.js",
-                      "~/Scripts/bootstrap.min.js",
                       "~/Scripts/imagesloaded.pkgd.min.js",
                       "~/Scripts/isotope.pkgd.min.js",
                       "~/Scripts/ajax-mail.js",
