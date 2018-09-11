@@ -101,7 +101,7 @@
                         <div class="product-wrapper">
                             <div class="product-img">
                                 <a href="/products/details/@item.ID">
-                                    <img alt="" src="~/Images/product/@item.Avatar">
+                                    <img alt="" src="~/Images/product/avatar/@item.Avatar">
                                 </a>
                                 <span>-30%</span>
                                 <div class="product-action">
@@ -118,7 +118,7 @@
                             </div>
                             <div class="product-content text-center">   
                                 <h4>
-                                    <a href="@Url.Action("Details", "Products")">@item.ProductName</a>
+                                    <a href="/products/details/@item.ID">@item.ProductName</a>
                                 </h4>
                                 <div class="product-price-wrapper">
                                     <span>@item.Price VNĐ</span>
@@ -127,115 +127,6 @@
                             </div>
                         </div>
                     }
-
-                    @*<div class="product-wrapper">
-            <div class="product-img">
-                <a href="@Url.Action("Details", "Products")">
-                    <img alt="" src="~/Images/product/product-2.jpg">
-                </a>
-                <div class="product-action">
-                    <a class="action-wishlist" href="#" title="Wishlist">
-                        <i class="icon-heart"></i>
-                    </a>
-                    <a class="action-cart" href="#" title="Add To Cart">
-                        <i class="icon-handbag"></i>
-                    </a>
-                    <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
-                        <i class="icon-magnifier-add"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="product-content text-center">
-                <h4>
-                    <a href="@Url.Action("Details", "Products")">Flowers Bouquet Pink	</a>
-                </h4>
-                <div class="product-price-wrapper">
-                    <span>$100.00</span>
-                </div>
-            </div>
-        </div>
-        <div class="product-wrapper">
-            <div class="product-img">
-                <a href="@Url.Action("Details", "Products")">
-                    <img alt="" src="~/Images/product/product-3.jpg">
-                </a>
-                <span>-30%</span>
-                <div class="product-action">
-                    <a class="action-wishlist" href="#" title="Wishlist">
-                        <i class="icon-heart"></i>
-                    </a>
-                    <a class="action-cart" href="#" title="Add To Cart">
-                        <i class="icon-handbag"></i>
-                    </a>
-                    <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
-                        <i class="icon-magnifier-add"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="product-content text-center">
-                <h4>
-                    <a href="@Url.Action("Details", "Products")">Evergreen Candytuft </a>
-                </h4>
-                <div class="product-price-wrapper">
-                    <span>$100.00</span>
-                    <span class="product-price-old">$120.00 </span>
-                </div>
-            </div>
-        </div>
-        <div class="product-wrapper">
-            <div class="product-img">
-                <a href="@Url.Action("Details", "Products")">
-                    <img alt="" src="~/Images/product/product-4.jpg">
-                </a>
-                <div class="product-action">
-                    <a class="action-wishlist" href="#" title="Wishlist">
-                        <i class="icon-heart"></i>
-                    </a>
-                    <a class="action-cart" href="#" title="Add To Cart">
-                        <i class="icon-handbag"></i>
-                    </a>
-                    <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
-                        <i class="icon-magnifier-add"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="product-content text-center">
-                <h4>
-                    <a href="@Url.Action("Details", "Products")">Pearly Everlasting</a>
-                </h4>
-                <div class="product-price-wrapper">
-                    <span>$100.00</span>
-                </div>
-            </div>
-        </div>
-        <div class="product-wrapper">
-            <div class="product-img">
-                <a href="@Url.Action("Details", "Products")">
-                    <img alt="" src="~/Images/product/product-2.jpg">
-                </a>
-                <span>-30%</span>
-                <div class="product-action">
-                    <a class="action-wishlist" href="#" title="Wishlist">
-                        <i class="icon-heart"></i>
-                    </a>
-                    <a class="action-cart" href="#" title="Add To Cart">
-                        <i class="icon-handbag"></i>
-                    </a>
-                    <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
-                        <i class="icon-magnifier-add"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="product-content text-center">
-                <h4>
-                    <a href="@Url.Action("Details", "Products")">Yellow Loosestrife</a>
-                </h4>
-                <div class="product-price-wrapper">
-                    <span>$100.00</span>
-                    <span class="product-price-old">$120.00 </span>
-                </div>
-            </div>
-        </div>*@
                 </div>
             </div>
             <div id="tab2" class="tab-pane">
@@ -243,7 +134,7 @@
                     <div class="product-wrapper">
                         <div class="product-img">
                             <a href="@Url.Action("Details", "Products")">
-                                <img alt="" src="~/Images/product/product-5.jpg">
+                                <img alt="" src="~/Images/product/avatar/product-5.jpg">
                             </a>
                             <span>-30%</span>
                             <div class="product-action">
@@ -271,7 +162,7 @@
                     <div class="product-wrapper">
                         <div class="product-img">
                             <a href="@Url.Action("Details", "Products")">
-                                <img alt="" src="~/Images/product/product-6.jpg">
+                                <img alt="" src="~/Images/product/avatar/product-6.jpg">
                             </a>
                             <div class="product-action">
                                 <a class="action-wishlist" href="#" title="Wishlist">
@@ -297,7 +188,7 @@
                     <div class="product-wrapper">
                         <div class="product-img">
                             <a href="@Url.Action("Details", "Products")">
-                                <img alt="" src="~/Images/product/product-7.jpg">
+                                <img alt="" src="~/Images/product/avatar/product-7.jpg">
                             </a>
                             <span>-30%</span>
                             <div class="product-action">
@@ -325,7 +216,7 @@
                     <div class="product-wrapper">
                         <div class="product-img">
                             <a href="@Url.Action("Details", "Products")">
-                                <img alt="" src="~/Images/product/product-8.jpg">
+                                <img alt="" src="~/Images/product/avatar/product-8.jpg">
                             </a>
                             <div class="product-action">
                                 <a class="action-wishlist" href="#" title="Wishlist">
@@ -351,7 +242,7 @@
                     <div class="product-wrapper">
                         <div class="product-img">
                             <a href="@Url.Action("Details", "Products")">
-                                <img alt="" src="~/Images/product/product-6.jpg">
+                                <img alt="" src="~/Images/product/avatar/product-6.jpg">
                             </a>
                             <span>-30%</span>
                             <div class="product-action">
@@ -383,7 +274,7 @@
                     <div class="product-wrapper">
                         <div class="product-img">
                             <a href="@Url.Action("Details", "Products")">
-                                <img alt="" src="~/Images/product/product-4.jpg">
+                                <img alt="" src="~/Images/product/avatar/product-4.jpg">
                             </a>
                             <span>-30%</span>
                             <div class="product-action">
@@ -411,7 +302,7 @@
                     <div class="product-wrapper">
                         <div class="product-img">
                             <a href="@Url.Action("Details", "Products")">
-                                <img alt="" src="~/Images/product/product-2.jpg">
+                                <img alt="" src="~/Images/product/avatar/product-2.jpg">
                             </a>
                             <div class="product-action">
                                 <a class="action-wishlist" href="#" title="Wishlist">
@@ -437,7 +328,7 @@
                     <div class="product-wrapper">
                         <div class="product-img">
                             <a href="@Url.Action("Details", "Products")">
-                                <img alt="" src="~/Images/product/product-1.jpg">
+                                <img alt="" src="~/Images/product/avatar/product-1.jpg">
                             </a>
                             <span>-30%</span>
                             <div class="product-action">
@@ -465,7 +356,7 @@
                     <div class="product-wrapper">
                         <div class="product-img">
                             <a href="@Url.Action("Details", "Products")">
-                                <img alt="" src="~/Images/product/product-3.jpg">
+                                <img alt="" src="~/Images/product/avatar/product-3.jpg">
                             </a>
                             <div class="product-action">
                                 <a class="action-wishlist" href="#" title="Wishlist">
@@ -491,7 +382,7 @@
                     <div class="product-wrapper">
                         <div class="product-img">
                             <a href="@Url.Action("Details", "Products")">
-                                <img alt="" src="~/Images/product/product-2.jpg">
+                                <img alt="" src="~/Images/product/avatar/product-2.jpg">
                             </a>
                             <span>-30%</span>
                             <div class="product-action">
@@ -523,7 +414,7 @@
                     <div class="product-wrapper">
                         <div class="product-img">
                             <a href="@Url.Action("Details", "Products")">
-                                <img alt="" src="~/Images/product/product-8.jpg">
+                                <img alt="" src="~/Images/product/avatar/product-8.jpg">
                             </a>
                             <span>-30%</span>
                             <div class="product-action">
@@ -551,7 +442,7 @@
                     <div class="product-wrapper">
                         <div class="product-img">
                             <a href="@Url.Action("Details", "Products")">
-                                <img alt="" src="~/Images/product/product-6.jpg">
+                                <img alt="" src="~/Images/product/avatar/product-6.jpg">
                             </a>
                             <div class="product-action">
                                 <a class="action-wishlist" href="#" title="Wishlist">
@@ -577,7 +468,7 @@
                     <div class="product-wrapper">
                         <div class="product-img">
                             <a href="@Url.Action("Details", "Products")">
-                                <img alt="" src="~/Images/product/product-5.jpg">
+                                <img alt="" src="~/Images/product/avatar/product-5.jpg">
                             </a>
                             <span>-30%</span>
                             <div class="product-action">
@@ -605,7 +496,7 @@
                     <div class="product-wrapper">
                         <div class="product-img">
                             <a href="@Url.Action("Details", "Products")">
-                                <img alt="" src="~/Images/product/product-7.jpg">
+                                <img alt="" src="~/Images/product/avatar/product-7.jpg">
                             </a>
                             <div class="product-action">
                                 <a class="action-wishlist" href="#" title="Wishlist">
@@ -631,7 +522,7 @@
                     <div class="product-wrapper">
                         <div class="product-img">
                             <a href="@Url.Action("Details", "Products")">
-                                <img alt="" src="~/Images/product/product-4.jpg">
+                                <img alt="" src="~/Images/product/avatar/product-4.jpg">
                             </a>
                             <span>-30%</span>
                             <div class="product-action">

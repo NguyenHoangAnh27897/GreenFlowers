@@ -49,17 +49,16 @@
                                             @foreach (var item in Model)
                                             {
                                                 <tr>
-                                                    <td style="display:none">@item.ID</td>
+                                                    <td style="display:none">@item.ID<input type="text" value="@item.ID" name="orderid" style="display:none" /></td>
                                                     <td>@item.ProductName</td>
                                                     <td>@item.Quantity</td>
                                                     <td>@item.TotalPrice / @item.Quantity</td>
                                                     <td>@item.TotalPrice</td>
-                                                    <td><input type="checkbox" /></td>
                                                 </tr>
                                             }
                                         </tbody>
                                     </table>
-                                    <button class="btn btn-primaryt">Submit</button>
+                                    <button class="btn btn-primaryt">Duyệt đơn hàng</button>
                                 </div>
                             </form>
                         </div>

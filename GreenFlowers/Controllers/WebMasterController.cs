@@ -399,12 +399,12 @@ namespace GreenFlowers.Controllers
             }
         }
 
-        public ActionResult CheckOrder(string orderid)
+        public ActionResult CheckOrder(string id)
         {
             //kiểm tra đã đăng nhập vào chưa
             if (Session["Authentication"] != null)
             {
-                var rs = db.GF_Record.Where(s=>s.ID_Order.Equals(orderid));
+                var rs = db.GF_Record.Where(s=>s.ID_Order.Equals(id)).ToList();
                 return View(rs);
             }
             else
@@ -414,13 +414,16 @@ namespace GreenFlowers.Controllers
         }
 
         [HttpPost]
-        public ActionResult ConfirmOrder()
+        public ActionResult ConfirmOrder(string orderid)
         {
             //kiểm tra đã đăng nhập vào chưa
             if (Session["Authentication"] != null)
             {
-                //var rs = db.GF_Record.Where(s => s.ID_Order.Equals(orderid));
-                return View();
+                var rs = db.GF_Order.Where(s => s.ID.Equals(orderid)).FirstOrDefault();
+                rs.IsChecked = true;
+                db.GF_Order.Add(rs);
+                db.SaveChanges();
+                return View("Index","WebMaster");
             }
             else
             {

@@ -20,7 +20,7 @@
         <h3 class="page-title">Your cart items</h3>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                <form action="#">
+                <form action="/cart/addtocart" method="post">
                     <div class="table-content table-responsive wishlist">
                         <table>
                             <thead>
@@ -35,10 +35,10 @@
                             <tbody class="tbody-cart"></tbody>
                         </table>
                     </div>
+                    <div class="col-sm-4">
+                        <button class="shopping-cart-btn btn-success">Thanh toán</button>
+                    </div>
                 </form>
-                <div class="shopping-cart-btn btn-success col-sm-4">
-                    <a href="@Url.Action("Checkout", "CheckOut")"> Checkout</a>
-                </div>
             </div>
         </div>
     </div>
@@ -59,11 +59,13 @@
                     <td class="product-thumbnail">
                         <a href="#"><img src="/Images/product/avatar/${data.Avatar}" alt="${i}"></a>
                     </td>
-                    <td class ="product-name"><a href="#">${data.ProductName}</a></td>
-                    <td class ="product-price-cart"><span class ="amount">${data.Price}</span></td>
+                    <td class ="product-name"><a href="#">${data.ProductName}<input type="text" name="productname" value="${data.ProductName}" style="display:none"/></a></td>
+                    
+                    <td class ="product-price-cart"><span class ="amount">${data.Price} <input type="number" name="price" value="${data.Price}" style="display:none" /></span></td>
+                   
                     <td class="product-quantity">
                         <div class="pro-dec-cart">
-                            <input class ="cart-plus-minus-box" type="text" value="${data.Qty}" name="qtybutton" readonly disable>
+                            <input class ="cart-plus-minus-box" type="number" value="${data.Qty}" name="quantity" readonly disable>
                         </div>
                     </td>
                     <td class ="product-subtotal">${data.Qty * data.Price}</td>

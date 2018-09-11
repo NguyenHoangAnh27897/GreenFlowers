@@ -45,15 +45,28 @@
                                     <tbody>
                                         @foreach (var item in Model)
                                         {
-                                            <tr>
-                                                <td>@item.ID</td>
-                                                <td><a href="/webmaster/checkorder/@item.ID">@item.CustomerName</a></td>
-                                                <td>@item.Address</td>
-                                                <td>@item.Phone</td>
-                                                <td>@item.Email</td>
-                                                <td><input type="checkbox" /></td>
-                                                <td><a href="/webmaster/deleteproduct/@item.ID"><img src="~/Images/icon/if_f-cross_256_282471.png" /></a></td>
-                                            </tr>
+                                            if (item.IsChecked == false)
+                                            {
+                                                <tr class="alert-danger">
+                                                    <td><a href="/webmaster/checkorder/@item.ID">@item.ID.Substring(0, 5)</a></td>
+                                                    <td>@item.CustomerName</td>
+                                                    <td>@item.Address</td>
+                                                    <td>@item.Phone</td>
+                                                    <td>@item.Email</td>
+                                                    <td><a href="/webmaster/deleteproduct/@item.ID"><img src="~/Images/icon/if_f-cross_256_282471.png" /></a></td>
+                                                </tr>
+                                            }
+                                            else
+                                            {
+                                                <tr class="alert-success">
+                                                    <td><a href="/webmaster/checkorder/@item.ID">@item.ID.Substring(0, 5)</a></td>
+                                                    <td>@item.CustomerName</td>
+                                                    <td>@item.Address</td>
+                                                    <td>@item.Phone</td>
+                                                    <td>@item.Email</td>
+                                                    <td><a href="/webmaster/deleteproduct/@item.ID"><img src="~/Images/icon/if_f-cross_256_282471.png" /></a></td>
+                                                </tr>
+                                            }
                                         }
                                     </tbody>
                                 </table>

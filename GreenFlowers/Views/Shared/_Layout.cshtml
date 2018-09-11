@@ -361,12 +361,12 @@
         var myLi = (data,i) => {
             var $li = `<li class="single-shopping-cart" data-order="${i}">
                     <div class="shopping-cart-img">
-                        <a href="#"><img alt="" src="Images/cart/${data.Avatar}"></a>
+                        <a href="#"><img alt="" src="/Images/product/avatar/${data.Avatar}"></a>
                     </div>
                     <div class="shopping-cart-title">
                         <h4><a href="#">${data.ProductName} </a></h4>
-                        <h6>Qty: ${data.Qty}</h6>
-                        <span>${data.Price}</span>
+                        <h6>Số lượng: ${data.Qty}</h6>
+                        <span>Giá: ${data.Price} VNĐ</span>
                     </div>
                     <div class="shopping-cart-delete">
                         <a class="delete" href=""><i class="ion ion-close"></i></a>
