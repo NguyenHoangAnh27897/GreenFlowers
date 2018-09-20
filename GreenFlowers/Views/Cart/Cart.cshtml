@@ -57,6 +57,21 @@
         } else {
             document.querySelector('button.shopping-cart-buy').removeAttribute("disabled");
         }
+        $('button.shopping-cart-buy').click(() => {
+            $.ajax({
+                type: "POST",
+                url: "/cart/addtocart",
+                contentType: "application/json",
+                data: dataOrder,
+                cache: false,
+                success: function (result) {
+                    console.log(result);
+                },
+                error: function (error) {
+                    alert(error);
+                }
+            });
+        });
     });
 
     var myTr = (data, i) => {
