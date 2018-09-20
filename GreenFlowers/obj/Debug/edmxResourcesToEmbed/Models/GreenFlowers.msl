@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="hoat7422_hoatuoixanhcomModelStoreContainer" CdmEntityContainer="GreenFlowersEntities">
+    <EntitySetMapping Name="GF_Blog">
+      <EntityTypeMapping TypeName="hoat7422_hoatuoixanh.comModel.GF_Blog">
+        <MappingFragment StoreEntitySet="GF_Blog">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ContentBlog" ColumnName="ContentBlog" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="IsHide" ColumnName="IsHide" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GF_Category">
+      <EntityTypeMapping TypeName="hoat7422_hoatuoixanh.comModel.GF_Category">
+        <MappingFragment StoreEntitySet="GF_Category">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GF_Order">
+      <EntityTypeMapping TypeName="hoat7422_hoatuoixanh.comModel.GF_Order">
+        <MappingFragment StoreEntitySet="GF_Order">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="IsChecked" ColumnName="IsChecked" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GF_Product">
+      <EntityTypeMapping TypeName="hoat7422_hoatuoixanh.comModel.GF_Product">
+        <MappingFragment StoreEntitySet="GF_Product">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+          <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
+          <ScalarProperty Name="IDCategory" ColumnName="IDCategory" />
+          <ScalarProperty Name="IsHide" ColumnName="IsHide" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GF_Record">
+      <EntityTypeMapping TypeName="hoat7422_hoatuoixanh.comModel.GF_Record">
+        <MappingFragment StoreEntitySet="GF_Record">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_Order" ColumnName="ID_Order" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

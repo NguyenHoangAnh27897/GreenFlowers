@@ -200,7 +200,7 @@ namespace GreenFlowers.Controllers
                         Images = Images.Remove(Images.Length - 1);
                     }
                 }
-                var pd = db.GF_Product.Where(s=>s.ID.Equals(id)).FirstOrDefault();
+                var pd = db.GF_Product.Find(id);
                 pd.ProductName = name;
                 if (Avatar != "")
                 {
@@ -398,7 +398,7 @@ namespace GreenFlowers.Controllers
 
                 }
 
-                var bl = db.GF_Blog.Where(s => s.ID.Equals(id)).FirstOrDefault();
+                var bl = db.GF_Blog.Find(id);
                 bl.ID = getGUID();
                 bl.Title = title;
                 bl.Avatar = Avatar;
@@ -451,11 +451,11 @@ namespace GreenFlowers.Controllers
             //kiểm tra đã đăng nhập vào chưa
             if (Session["Authentication"] != null)
             {
-                var rs = db.GF_Order.Where(s => s.ID.Equals(orderid)).FirstOrDefault();
+                var rs = db.GF_Order.Find(orderid);
                 rs.IsChecked = true;
-                db.GF_Order.Add(rs);
+                db.Entry(rs).State = EntityState.Modified;
                 db.SaveChanges();
-                return View("ListOrder","WebMaster");
+                return RedirectToAction("ListOrder", "WebMaster");
             }
             else
             {

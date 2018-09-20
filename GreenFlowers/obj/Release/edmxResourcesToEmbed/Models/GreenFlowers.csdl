@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="hoat7422_hoatuoixanh.comModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="GF_Blog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ContentBlog" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Avatar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsHide" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="GF_Category">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GF_Order">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsChecked" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="GF_Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Avatar" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Images" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DiscountPrice" Type="Int32" />
+    <Property Name="IDCategory" Type="Int32" />
+    <Property Name="IsHide" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="GF_Record">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="ID_Order" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID_Order" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="TotalPrice" Type="Int32" />
+    <Property Name="Price" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="GreenFlowersEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="GF_Blog" EntityType="Self.GF_Blog" />
+    <EntitySet Name="GF_Category" EntityType="Self.GF_Category" />
+    <EntitySet Name="GF_Order" EntityType="Self.GF_Order" />
+    <EntitySet Name="GF_Product" EntityType="Self.GF_Product" />
+    <EntitySet Name="GF_Record" EntityType="Self.GF_Record" />
+  </EntityContainer>
+</Schema>

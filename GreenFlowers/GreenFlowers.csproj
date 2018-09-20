@@ -208,35 +208,35 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Flower.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Flower.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Flower.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Flower.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Flower.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Flower.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\GF_Blog.cs">
-      <DependentUpon>Flower.tt</DependentUpon>
+      <DependentUpon>GreenFlowers.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GF_Category.cs">
-      <DependentUpon>Flower.tt</DependentUpon>
+      <DependentUpon>GreenFlowers.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GF_Order.cs">
-      <DependentUpon>Flower.tt</DependentUpon>
+      <DependentUpon>GreenFlowers.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GF_Product.cs">
-      <DependentUpon>Flower.tt</DependentUpon>
+      <DependentUpon>GreenFlowers.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GF_Record.cs">
-      <DependentUpon>Flower.tt</DependentUpon>
+      <DependentUpon>GreenFlowers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GreenFlowers.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GreenFlowers.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GreenFlowers.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GreenFlowers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GreenFlowers.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GreenFlowers.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -761,15 +761,15 @@
     <Content Include="Images\team\team-2.jpg" />
     <Content Include="Images\team\team-3.jpg" />
     <Content Include="Images\team\team-4.jpg" />
-    <Content Include="Models\Flower.Context.tt">
+    <Content Include="Models\GreenFlowers.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Flower.edmx</DependentUpon>
-      <LastGenOutput>Flower.Context.cs</LastGenOutput>
+      <DependentUpon>GreenFlowers.edmx</DependentUpon>
+      <LastGenOutput>GreenFlowers.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Flower.tt">
+    <Content Include="Models\GreenFlowers.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Flower.edmx</DependentUpon>
-      <LastGenOutput>Flower.cs</LastGenOutput>
+      <DependentUpon>GreenFlowers.edmx</DependentUpon>
+      <LastGenOutput>GreenFlowers.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\ajax-mail.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -789,13 +789,6 @@
     <Content Include="fonts\Simple-Line-Iconsb26c.ttf" />
     <Content Include="fonts\Simple-Line-Iconsb26c.woff" />
     <Content Include="fonts\Simple-Line-Iconsb26c.woff2" />
-    <EntityDeploy Include="Models\Flower.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Flower.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Flower.edmx.diagram">
-      <DependentUpon>Flower.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\Webmaster\fonts\fontawesome-webfont3e6e.eot" />
     <Content Include="Content\Webmaster\fonts\fontawesome-webfont3e6e.ttf" />
     <Content Include="Content\Webmaster\fonts\fontawesome-webfont3e6e.woff" />
@@ -816,6 +809,14 @@
     <Content Include="Content\Webmaster\js\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="Content\Webmaster\js\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Content\Webmaster\js\ckeditor\skins\moono-lisa\readme.md" />
+    <EntityDeploy Include="Models\GreenFlowers.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GreenFlowers.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\GreenFlowers.edmx.diagram">
+      <DependentUpon>GreenFlowers.edmx</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\imagesloaded.pkgd.min.js" />
     <Content Include="Scripts\isotope.pkgd.min.js" />
@@ -833,7 +834,9 @@
     <Content Include="Scripts\owl.carousel.min.js" />
     <Content Include="Scripts\plugins.js" />
     <Content Include="Scripts\popper.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

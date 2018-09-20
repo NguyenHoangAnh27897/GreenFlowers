@@ -13,7 +13,8 @@ namespace GreenFlowers.Controllers
         // GET: CheckOut
         public ActionResult Checkout()
         {
-            var lst = db.GF_Record.Where(s => s.ID_Order.Equals(Session["Order"].ToString())).ToList();
+            string orid = Session["Order"].ToString();
+            var lst = db.GF_Record.Where(s => s.ID_Order.Equals(orid)).ToList();
             return View(lst);
         }
 

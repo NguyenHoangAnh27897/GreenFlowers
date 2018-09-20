@@ -17,7 +17,7 @@ namespace GreenFlowers.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddtoCart(string[] productname, int?[] quantity, int?[] price)
+        public ActionResult AddtoCart(string productname, int? quantity, int? price)
         {
             Session["Order"] = getGUID();
 
