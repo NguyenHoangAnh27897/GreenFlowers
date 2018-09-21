@@ -299,6 +299,7 @@
 
     var loStorage = ($ul, orderArr, qty) => {
         var obj = {};
+        obj.date = new Date().toDateString();
         obj.ProductName = proName;
         obj.Price = price;
         obj.Avatar = avr;

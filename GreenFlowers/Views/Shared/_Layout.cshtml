@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="~/Content/meanmenu.min.css">
     <link rel="stylesheet" href="~/Content/style.css">
     <link rel="stylesheet" href="~/Content/responsive.css">
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
 
 </head>
@@ -333,7 +334,6 @@
 
         </footer>
     </div>
-    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/popper.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/imagesloaded.pkgd.min.js"></script>
@@ -357,32 +357,30 @@
                 $ul.prepend(myLi(dataStorage[i], i));
             }
 
-            $('.delete').on('click', (e) => {
-                e.preventDefault();
-                var $this = e.target.closest('li');
-                dataStorage.splice($this.getAttribute('data-order'), 1);
-                if (dataStorage.length != 0) {
-                    $('span.count-style').text(dataStorage.length);
-                } else {
-                    $('span.count-style').text(0);
-                }
-                localStorage.setItem('order', JSON.stringify(dataStorage));
-                $this.outerHTML = "";
-            });
+            //$('.delete').on('click', (e) => {
+            //    e.preventDefault();
+            //    var $this = e.target.closest('li');
+            //    dataStorage.splice($this.getAttribute('data-order'), 1);
+            //    if (dataStorage.length != 0) {
+            //        $('span.count-style').text(dataStorage.length);
+            //    } else {
+            //        $('span.count-style').text(0);
+            //    }
+            //    localStorage.setItem('order', JSON.stringify(dataStorage));
+            //    $this.outerHTML = "";
+            //});
         });
 
         var myLi = (data, i) => {
             var $li = `<li class="single-shopping-cart" data-order="${i}">
                         <div class="shopping-cart-img">
-                            <a href="#"><img alt="" src="/Images/product/avatar/${data.Avatar}"></a>
+                            <a href="#"><img alt="" src="/Images/product/avatar/${data.Avatar}" style="width: 100%;"></a>
                         </div>
-                        <div class="shopping-cart-title">
+                        <div class ="shopping-cart-title">
+                            <i>${ data.date}</i>
                             <h4><a href="#">${data.ProductName} </a></h4>
                             <h6>Số lượng: ${data.Qty}</h6>
                             <span>Giá: ${data.Price} VNĐ</span>
-                        </div>
-                        <div class="shopping-cart-delete">
-                            <a class="delete" href=""><i class="ion ion-close"></i></a>
                         </div>
                     </li>`;
             return $li;
