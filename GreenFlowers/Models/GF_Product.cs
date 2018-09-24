@@ -23,5 +23,6 @@ namespace GreenFlowers.Models
         public Nullable<int> DiscountPrice { get; set; }
         public Nullable<int> IDCategory { get; set; }
         public Nullable<bool> IsHide { get; set; }
+        public Nullable<System.DateTime> Created_Date { get; set; }
     }
 }

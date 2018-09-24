@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="hoat7422_hoatuoixanh.comModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="hoat7422_hoatuoixanh.comModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="GF_Blog">
           <Key>
             <PropertyRef Name="ID" />
@@ -48,6 +48,7 @@
           <Property Name="DiscountPrice" Type="int" />
           <Property Name="IDCategory" Type="int" />
           <Property Name="IsHide" Type="bit" />
+          <Property Name="Created_Date" Type="datetime" />
         </EntityType>
         <EntityType Name="GF_Record">
           <Key>
@@ -68,8 +69,7 @@
           <EntitySet Name="GF_Product" EntityType="Self.GF_Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GF_Record" EntityType="Self.GF_Record" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="hoat7422_hoatuoixanh.comModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -116,6 +116,7 @@
           <Property Name="DiscountPrice" Type="Int32" />
           <Property Name="IDCategory" Type="Int32" />
           <Property Name="IsHide" Type="Boolean" />
+          <Property Name="Created_Date" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="GF_Record">
           <Key>
@@ -178,6 +179,7 @@
           <EntitySetMapping Name="GF_Product">
             <EntityTypeMapping TypeName="hoat7422_hoatuoixanh.comModel.GF_Product">
               <MappingFragment StoreEntitySet="GF_Product">
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="Price" ColumnName="Price" />

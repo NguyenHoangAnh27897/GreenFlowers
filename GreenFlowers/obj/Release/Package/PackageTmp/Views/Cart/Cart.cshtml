@@ -36,7 +36,7 @@
                         </table>
                     </div>
                     <div class="col-sm-4">
-                        <button class="shopping-cart-buy btn-success">Thanh toán</button>
+                        <button class="shopping-cart-buy btn btn-success">Thanh toán</button>
                     </div>
                 </form>
             </div>
@@ -52,11 +52,27 @@
         for (let i in dataStorage) {
             $tbody.append(myTr(dataStorage[i], i));
         }
-        if (dataOrder.length == 0) {
-            document.querySelector('button.shopping-cart-buy').setAttribute("disabled", "disabled");
+
+        if ((dataOrder == null) || (dataOrder == undefined)) {
+            document.querySelector('button.shopping-cart-buy').setAttribute("disabled", "true");
         } else {
             document.querySelector('button.shopping-cart-buy').removeAttribute("disabled");
         }
+        $('button.shopping-cart-buy').click(() => {
+            $.ajax({
+                type: "POST",
+                url: "/cart/addtocart",
+                contentType: "application/json",
+                data: JSON.stringify(dataOrder),
+                cache: false,
+                success: function (result) {
+                    console.log(result);
+                },
+                error: function (error) {
+                    alert(JSON.stringify(error));
+                }
+            });
+        });
     });
 
     var myTr = (data, i) => {

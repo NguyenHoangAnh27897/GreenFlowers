@@ -25,9 +25,9 @@ namespace GreenFlowers.Controllers
 
         public ActionResult Shop()
         {
-            ViewBag.Message = "Your shop page.";
+            var lst = db.GF_Product.OrderByDescending(s => s.Created_Date).ToList();
 
-            return View();
+            return View(lst);
         }
 
         public ActionResult Contact()

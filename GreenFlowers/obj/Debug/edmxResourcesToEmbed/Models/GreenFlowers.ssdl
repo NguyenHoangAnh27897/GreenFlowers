@@ -43,6 +43,7 @@
     <Property Name="DiscountPrice" Type="int" />
     <Property Name="IDCategory" Type="int" />
     <Property Name="IsHide" Type="bit" />
+    <Property Name="Created_Date" Type="datetime" />
   </EntityType>
   <EntityType Name="GF_Record">
     <Key>
