@@ -3,7 +3,14 @@
     ViewBag.Title = "ListOrder";
     Layout = "~/Views/Shared/_LayoutMaster.cshtml";
 }
-
+<style>
+    .isDisabled {
+  
+        cursor: not-allowed;
+        opacity: 0.5;
+        text-decoration: none;
+    }
+</style>
 <div class="main-wrapper">
     <div class="container">
 
@@ -58,7 +65,7 @@
                                             }
                                             else
                                             {
-                                                <tr class="alert-success">
+                                                <tr class="alert-success isDisabled">
                                                     <td><a href="/webmaster/checkorder/@item.ID">@item.ID.Substring(0, 5)</a></td>
                                                     <td>@item.CustomerName</td>
                                                     <td>@item.Address</td>

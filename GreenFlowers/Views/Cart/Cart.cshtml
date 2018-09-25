@@ -59,10 +59,13 @@
             document.querySelector('button.shopping-cart-buy').removeAttribute("disabled");
         }
         $('button.shopping-cart-buy').click(() => {
+            //console.log(JSON.stringify(dataOrder));
+            //event.preventDefault();
             $.ajax({
                 type: "POST",
                 url: "/cart/addtocart",
-                contentType: "application/json",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
                 data: JSON.stringify(dataOrder),
                 cache: false,
                 success: function (result) {

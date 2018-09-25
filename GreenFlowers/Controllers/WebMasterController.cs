@@ -462,5 +462,17 @@ namespace GreenFlowers.Controllers
                 return RedirectToAction("Login", "WebMaster");
             }
         }
+
+        public ActionResult EditSlider()
+        {
+            if (Session["Authentication"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "WebMaster");
+            }
+        }
     }
 }
