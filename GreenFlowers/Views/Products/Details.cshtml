@@ -64,11 +64,11 @@
                             </ul>
                         </div>
                     </div>
-                    <span>@Model.FirstOrDefault().Price VNĐ</span>
+                    <span>@string.Format("{0:n0}", Model.FirstOrDefault().Price) VNĐ</span>
                     <div class="in-stock">
                         <p>Available: <span>In stock</span></p>
                     </div>
-                    <p>@Model.FirstOrDefault().Description.Substring(0,30)</p>
+                    <p>@Html.Raw(Model.FirstOrDefault().Description.Substring(0,30))</p>
                     <div class="pro-dec-feature">
                         <ul>
                             <li><input type="checkbox"> Protection Plan: <span> 2 year  $4.99</span></li>
@@ -135,7 +135,7 @@
             <div class="tab-content description-review-bottom">
                 <div id="des-details1" class="tab-pane active">
                     <div class="product-description-wrapper">
-                        <p>@Model.FirstOrDefault().Description</p>
+                        <p>@Html.Raw(Model.FirstOrDefault().Description)</p>
                         <ul>
                             <li>-  Typi non habent claritatem insitam</li>
                             <li>-  Est usus legentis in iis qui facit eorum claritatem. </li>
@@ -266,7 +266,7 @@
                             <a href="/product/detail/@item.ID">@item.ProductName </a>
                         </h4>
                         <div class="product-price-wrapper">
-                            <span>Giá: @item.Price VNĐ</span>
+                            <span>Giá: @string.Format("{0:n0}", item.Price) VNĐ</span>
                             @*<span class="product-price-old">$120.00 </span>*@
                         </div>
                     </div>
