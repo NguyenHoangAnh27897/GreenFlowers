@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IQueryable<GreenFlowers.Models.GF_Introduce>
+@{
     ViewBag.Title = "About";
 }
 <div class="breadcrumb-area gray-bg">
@@ -14,20 +15,19 @@
 <div class="about-us-area pt-80 pb-80">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-7 d-flex align-items-center">
+            <div class="col-lg-7 col-md-8 d-flex align-items-center">
                 <div class="overview-content-2">
-                    <h2>Welcome To <span>Green Flower</span> Store !</h2>
-                    <p class="peragraph-blog">Phuler Shop is a premium HTML template designed and develoved from the ground up with the sole purpose of helping you create an astonishing, the beautiful and user friendly website that will boost your product’s sales.</p>
-                    <p>The theme design package provides a complete Magento theme set for your online store according to your desired theme. This includes all Magento themes that are required for your online store's successful implementation.</p>
+                    <h2>Chào mừng đến với <span>Hoa tươi xanh</span> !</h2>
+                   @Html.Raw(Model.FirstOrDefault().ContentIntroduce)
                     <div class="overview-btn mt-45">
                         <a class="btn-style-2" href="@Url.Action("Shop", "Home")">Shop now!</a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-5">
+            <div class="col-lg-5 col-md-4">
                 <div class="overview-img text-center">
                     <a href="#">
-                        <img src="~/Images/banner/about-us.jpg" alt="">
+                        <img src="~/Images/introduce/@Model.FirstOrDefault().Avatar" alt="">
                     </a>
                 </div>
             </div>
@@ -78,111 +78,6 @@
                     <div class="count-title">
                         <h2 class="count">100</h2>
                         <span>happy clients</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="team-area pt-75 pb-50">
-    <div class="container">
-        <div class="text-center mb-40">
-            <h4 class="section-title-about">Team Members</h4>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="team-wrapper mb-30">
-                    <div class="team-img">
-                        <a href="#">
-                            <img src="~/Images/team/team-1.jpg" alt="">
-                        </a>
-                        <div class="team-action">
-                            <a class="action-plus facebook" href="#">
-                                <i class="ion-social-facebook"></i>
-                            </a>
-                            <a class="action-heart twitter" title="Wishlist" href="#">
-                                <i class="ion-social-twitter"></i>
-                            </a>
-                            <a class="action-cart instagram" href="#">
-                                <i class="ion-social-instagram"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="team-content text-center">
-                        <h4>Mr.Mike Banding</h4>
-                        <span>Manager </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="team-wrapper mb-30">
-                    <div class="product-img">
-                        <a href="product-details.html">
-                            <img src="~/Images/team/team-3.jpg" alt="">
-                        </a>
-                        <div class="team-action">
-                            <a class="action-plus facebook" href="#">
-                                <i class="ion-social-facebook"></i>
-                            </a>
-                            <a class="action-heart twitter" title="Wishlist" href="#">
-                                <i class="ion-social-twitter"></i>
-                            </a>
-                            <a class="action-cart instagram" href="#">
-                                <i class="ion-social-instagram"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="team-content text-center">
-                        <h4>Mr.Peter Pan</h4>
-                        <span>Developer </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="team-wrapper mb-30">
-                    <div class="team-img">
-                        <a href="#">
-                            <img src="~/Images/team/team-2.jpg" alt="">
-                        </a>
-                        <div class="team-action">
-                            <a class="action-plus facebook" href="#">
-                                <i class="ion-social-facebook"></i>
-                            </a>
-                            <a class="action-heart twitter" title="Wishlist" href="#">
-                                <i class="ion-social-twitter"></i>
-                            </a>
-                            <a class="action-cart instagram" href="#">
-                                <i class="ion-social-instagram"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="team-content text-center">
-                        <h4>Ms.Sophia</h4>
-                        <span>Designer </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="team-wrapper mb-30">
-                    <div class="product-img">
-                        <a href="product-details.html">
-                            <img src="~/Images/team/team-4.jpg" alt="">
-                        </a>
-                        <div class="team-action">
-                            <a class="action-plus facebook" href="#">
-                                <i class="ion-social-facebook"></i>
-                            </a>
-                            <a class="action-heart twitter" title="Wishlist" href="#">
-                                <i class="ion-social-twitter"></i>
-                            </a>
-                            <a class="action-cart instagram" href="#">
-                                <i class="ion-social-instagram"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="team-content text-center">
-                        <h4>Mr.John Lee</h4>
-                        <span>Chairmen </span>
                     </div>
                 </div>
             </div>

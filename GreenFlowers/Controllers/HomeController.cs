@@ -19,8 +19,9 @@ namespace GreenFlowers.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
-            return View();
+            string id = "introduce";
+            var rs = db.GF_Introduce.Where(s => s.ID.Equals(id));
+            return View(rs);
         }
 
         public ActionResult Shop()
@@ -32,10 +33,29 @@ namespace GreenFlowers.Controllers
 
         public ActionResult Contact()
         {
+
             ViewBag.Message = "Your contact page.";
 
             return View();
         }
 
+        [HttpPost]
+        public ActionResult SendContact(string fullname, string email, string subject, string message)
+        {
+            try
+            {
+                GF_AboutUs ab = new GF_AboutUs();
+                ab.Fullname = fullname;
+                ab.Title = subject;
+                ab.Email = email;
+                ab.ContentAbout = message;
+                db.GF_AboutUs.Add(ab);
+                db.SaveChanges();
+                return RedirectToAction("Contact","Home");
+            }catch(Exception ex)
+            {
+                return RedirectToAction("ErrorPage", "Error");
+            }
+        }
     }
 }

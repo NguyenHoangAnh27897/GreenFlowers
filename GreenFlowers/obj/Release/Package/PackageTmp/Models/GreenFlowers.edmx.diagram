@@ -10,6 +10,9 @@
         <EntityTypeShape EntityType="hoat7422_hoatuoixanh.comModel.GF_Order" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="hoat7422_hoatuoixanh.comModel.GF_Product" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="hoat7422_hoatuoixanh.comModel.GF_Record" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoat7422_hoatuoixanh.comModel.GF_AboutUs" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="hoat7422_hoatuoixanh.comModel.GF_Introduce" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="hoat7422_hoatuoixanh.comModel.GF_Slider" Width="1.5" PointX="2.75" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -201,6 +201,7 @@
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CheckOutController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -209,10 +210,16 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\GF_AboutUs.cs">
+      <DependentUpon>GreenFlowers.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\GF_Blog.cs">
       <DependentUpon>GreenFlowers.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GF_Category.cs">
+      <DependentUpon>GreenFlowers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GF_Introduce.cs">
       <DependentUpon>GreenFlowers.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GF_Order.cs">
@@ -222,6 +229,9 @@
       <DependentUpon>GreenFlowers.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GF_Record.cs">
+      <DependentUpon>GreenFlowers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GF_Slider.cs">
       <DependentUpon>GreenFlowers.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GreenFlower.cs" />
@@ -892,9 +902,13 @@
     <Content Include="Views\WebMaster\ListOrder.cshtml" />
     <Content Include="Views\WebMaster\CheckOrder.cshtml" />
     <Content Include="Views\WebMaster\EditSlider.cshtml" />
+    <Content Include="Views\WebMaster\EditIntroduce.cshtml" />
+    <Content Include="Views\Error\ErrorPage.cshtml" />
+    <Content Include="Views\WebMaster\ListContact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\introduce\" />
     <Folder Include="Images\product\image\" />
   </ItemGroup>
   <ItemGroup>

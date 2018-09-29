@@ -63,5 +63,33 @@
     <EntitySet Name="GF_Order" EntityType="Self.GF_Order" />
     <EntitySet Name="GF_Product" EntityType="Self.GF_Product" />
     <EntitySet Name="GF_Record" EntityType="Self.GF_Record" />
+    <EntitySet Name="GF_AboutUs" EntityType="hoat7422_hoatuoixanh.comModel.GF_AboutUs" />
+    <EntitySet Name="GF_Introduce" EntityType="hoat7422_hoatuoixanh.comModel.GF_Introduce" />
+    <EntitySet Name="GF_Slider" EntityType="hoat7422_hoatuoixanh.comModel.GF_Slider" />
   </EntityContainer>
+  <EntityType Name="GF_AboutUs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContentAbout" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GF_Introduce">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContentIntroduce" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Avatar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GF_Slider">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Slider" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

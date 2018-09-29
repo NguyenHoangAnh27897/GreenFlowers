@@ -474,5 +474,92 @@ namespace GreenFlowers.Controllers
                 return RedirectToAction("Login", "WebMaster");
             }
         }
+
+        public ActionResult EditIntroduce()
+        {
+            if (Session["Authentication"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "WebMaster");
+            }
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult EditIntroduce(string editor, HttpPostedFileBase avatar)
+        {
+            if (Session["Authentication"] != null)
+            {
+                string Avatar = "";
+                if (avatar != null)
+                {
+                    if (avatar.ContentLength > 0)
+                    {
+                        var filename = Path.GetFileName(avatar.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Images/introduce"), avatar.FileName);
+                        avatar.SaveAs(path);
+                        Avatar += avatar.FileName;
+                    }
+
+                }
+
+                var intro = db.GF_Introduce.Find("introduce");
+                intro.ContentIntroduce = editor;
+                intro.Avatar = Avatar;
+                db.Entry(intro).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index", "WebMaster");
+            }
+            else
+            {
+                return RedirectToAction("Login", "WebMaster");
+            }
+        }
+
+        public ActionResult ListContact()
+        {
+            if (Session["Authentication"] != null)
+            {
+                var lst = db.GF_AboutUs.ToList();
+                return View(lst);
+            }
+            else
+            {
+                return RedirectToAction("Login", "WebMaster");
+            }
+        }
+
+        public ActionResult DeleteProduct(string id)
+        {
+            if (Session["Authentication"] != null)
+            {
+                var rs = db.GF_Product.Find(id);
+                db.Entry(rs).State = EntityState.Deleted;
+                db.SaveChanges();
+                return RedirectToAction("ListProduct");
+            }
+            else
+            {
+                return RedirectToAction("Login", "WebMaster");
+            }
+        }
+
+        public ActionResult DeleteContact(string id)
+        {
+            if (Session["Authentication"] != null)
+            {
+                int ID = int.Parse(id);
+                var rs = db.GF_AboutUs.Find(ID);
+                db.Entry(rs).State = EntityState.Deleted;
+                db.SaveChanges();
+                return RedirectToAction("ListContact");
+            }
+            else
+            {
+                return RedirectToAction("Login", "WebMaster");
+            }
+        }
     }
 }

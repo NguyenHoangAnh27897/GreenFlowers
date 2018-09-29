@@ -62,5 +62,33 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="GF_AboutUs">
+      <EntityTypeMapping TypeName="hoat7422_hoatuoixanh.comModel.GF_AboutUs">
+        <MappingFragment StoreEntitySet="GF_AboutUs">
+          <ScalarProperty Name="ContentAbout" ColumnName="ContentAbout" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GF_Introduce">
+      <EntityTypeMapping TypeName="hoat7422_hoatuoixanh.comModel.GF_Introduce">
+        <MappingFragment StoreEntitySet="GF_Introduce">
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="ContentIntroduce" ColumnName="ContentIntroduce" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GF_Slider">
+      <EntityTypeMapping TypeName="hoat7422_hoatuoixanh.comModel.GF_Slider">
+        <MappingFragment StoreEntitySet="GF_Slider">
+          <ScalarProperty Name="Slider" ColumnName="Slider" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
