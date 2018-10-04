@@ -1,0 +1,137 @@
+﻿@using PagedList.Mvc;
+@using GridMvc.Html;
+@model PagedList.IPagedList<GreenFlowers.Models.GF_Product>
+@using GreenFlowers.Models
+@{
+    ViewBag.Title = "Shop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    GreenFlowersEntities db = new GreenFlowersEntities();
+    var rs = db.GF_Category.ToList();
+}
+
+<div class="breadcrumb-area gray-bg">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Shopping Flowers </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="shop-page-area pt-75 pb-75">
+    <div class="container">
+        <div class="row flex-row-reverse">
+            <div class="col-lg-9">
+                <div class="banner-area pb-30">
+                    <a href="product-details.html"><img alt="" src="~/Images/banner/banner-49.jpg"></a>
+                </div>
+                <div class="shop-topbar-wrapper">
+                    <div class="shop-topbar-left">
+                        <ul class="view-mode">
+                            <li class="active"><a href="#product-grid" data-view="product-grid"><i class="fa fa-th"></i></a></li>
+                            <li><a href="#product-list" data-view="product-list"><i class="fa fa-list-ul"></i></a></li>
+                        </ul>
+                        <p>Showing 1 - 20 of 30 results  </p>
+                    </div>
+                    <div class="product-sorting-wrapper">
+                        <div class="product-shorting shorting-style">
+                            <label>View:</label>
+                            <select>
+                                <option value=""> 20</option>
+                                <option value=""> 23</option>
+                                <option value=""> 30</option>
+                            </select>
+                        </div>
+                        <div class="product-show shorting-style">
+                            <label>Sort by:</label>
+                            <select>
+                                <option value="">Default</option>
+                                <option value=""> Name</option>
+                                <option value=""> price</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-list-product-wrapper">
+                    <div class="product-grid product-view pb-20">
+                        <div class="row">
+
+                            @foreach (var item in Model)
+                            {
+                                <div class="product-width col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-30">
+                                    <div class="product-wrapper">
+                                        <div class="product-img">
+                                            <a href="/products/details/@item.ID">
+                                                <img alt="" src="~/Images/product/avatar/@item.Avatar">
+                                            </a>
+                                            @*<span>-30%</span>*@
+                                            <div class="product-action">
+                                                <a class="action-wishlist" href="#" title="Wishlist">
+                                                    <i class="icon-heart"></i>
+                                                </a>
+                                                <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
+                                                    <i class="icon-magnifier-add"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="product-content text-center">
+                                            <h4>
+                                                <a href="/products/details/@item.ID">@item.ProductName</a>
+                                            </h4>
+                                            <div class="product-price-wrapper">
+                                                <span>@string.Format("{0:n0}", item.Price) VND</span>
+                                                @*<span class="product-price-old">$120.00 </span>*@
+                                            </div>
+                                        </div>
+                                        <div class="product-list-details">
+                                            <h4>
+                                                <a href="/products/details/@item.ID">@item.ProductName</a>
+                                            </h4>
+                                            <div class="product-price-wrapper">
+                                                <span>@string.Format("{0:n0}", item.Price) VND</span>
+                                                @*<span class="product-price-old">$120.00 </span>*@
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipic it, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                            <div class="shop-list-cart-wishlist">
+                                                <a href="#" title="Wishlist"><i class="icon-heart"></i></a>
+                                                <a href="#" title="Add To Cart"><i class="icon-handbag"></i></a>
+                                                <a href="/products/details/@item.ID" data-target="#exampleModal" data-toggle="modal" title="Quick View">
+                                                    <i class="icon-magnifier-add"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                    <div class="pagination-total-pages">
+                        <div class="pagination-style">
+                            <br />
+                            <strong style="margin: 12px;"> Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</strong>
+                            @Html.PagedListPager(Model, page => Url.Action("ListProduct", new { page }))
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="shop-sidebar-wrapper gray-bg-7 shop-sidebar-mrg">
+                    <div class="shop-widget">
+                        <h4 class="shop-sidebar-title">Shop By Categories</h4>
+                        <div class="shop-catigory">
+                            <ul id="faq">
+
+                                @foreach (var item in rs)
+                                {
+                                    <li> <a href="/products/listproduct/@item.ID">@item.Category</a> </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

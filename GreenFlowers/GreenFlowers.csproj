@@ -45,10 +45,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GridMvc">
+      <HintPath>..\..\MNPOST\MNPOSTWEBSITE\bin\GridMvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList">
+      <HintPath>..\..\MNPOST\MNPOSTWEBSITE\bin\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\..\MNPOST\MNPOSTWEBSITE\bin\PagedList.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -742,6 +751,7 @@
     <Content Include="Images\instagram\instagram4.jpg" />
     <Content Include="Images\instagram\instagram5.jpg" />
     <Content Include="Images\instagram\instagram6.jpg" />
+    <Content Include="Images\logo\a3solution.png" />
     <Content Include="Images\logo\lo3go.png" />
     <Content Include="Images\logo\logo.png" />
     <Content Include="Images\logo\logo2.png" />
@@ -905,6 +915,7 @@
     <Content Include="Views\WebMaster\EditIntroduce.cshtml" />
     <Content Include="Views\Error\ErrorPage.cshtml" />
     <Content Include="Views\WebMaster\ListContact.cshtml" />
+    <Content Include="Views\Products\ListProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

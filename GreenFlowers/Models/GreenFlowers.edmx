@@ -49,6 +49,9 @@
           <Property Name="IDCategory" Type="int" />
           <Property Name="IsHide" Type="bit" />
           <Property Name="Created_Date" Type="datetime" />
+          <Property Name="CustomerView" Type="int" />
+          <Property Name="SaleFromDate" Type="date" />
+          <Property Name="SaleToDate" Type="date" />
         </EntityType>
         <EntityType Name="GF_Record">
           <Key>
@@ -145,6 +148,9 @@
           <Property Name="IDCategory" Type="Int32" />
           <Property Name="IsHide" Type="Boolean" />
           <Property Name="Created_Date" Type="DateTime" Precision="3" />
+          <Property Name="CustomerView" Type="Int32" />
+          <Property Name="SaleFromDate" Type="DateTime" Precision="0" />
+          <Property Name="SaleToDate" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="GF_Record">
           <Key>
@@ -235,6 +241,9 @@
           <EntitySetMapping Name="GF_Product">
             <EntityTypeMapping TypeName="hoat7422_hoatuoixanh.comModel.GF_Product">
               <MappingFragment StoreEntitySet="GF_Product">
+                <ScalarProperty Name="SaleToDate" ColumnName="SaleToDate" />
+                <ScalarProperty Name="SaleFromDate" ColumnName="SaleFromDate" />
+                <ScalarProperty Name="CustomerView" ColumnName="CustomerView" />
                 <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />

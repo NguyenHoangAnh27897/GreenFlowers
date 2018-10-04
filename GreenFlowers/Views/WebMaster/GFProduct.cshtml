@@ -37,19 +37,24 @@
                             <form action="/webmaster/addproduct" method="post" enctype="multipart/form-data">
 
                                 <div class="form-group">
+                                    <label for="exampleFormControlInput4">ID</label>
+                                    <input type="text" class="form-control" placeholder="" name="ID">
+                                </div>
+
+                                <div class="form-group">
                                     <label for="exampleFormControlInput4">Product Name</label>
                                     <input type="text" class="form-control" placeholder="" name="name">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="exampleFormControlInput4">Price</label>
-                                    <input type="number" class="form-control" placeholder="" name="price" step="any">
+                                    <input style="width:20%" type="number" class="form-control" placeholder="" name="price" step="any">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="exampleFormControlInput4">Discount Price</label>
                                     <input type="checkbox" name="discountprice" data-toggle="collapse" data-target="#discount" step="any">
-                                    <input id="discount" type="number" class="form-control collapse" name="discountprice" step="any">
+                                    <input style="width:20%" id="discount" type="number" class="form-control collapse" name="discountprice" step="any">
                                 </div>
 
                                 <div class="form-group">

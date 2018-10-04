@@ -48,16 +48,30 @@
                                     <tbody>
                                         @foreach (var item in Model)
                                         {
-                                            <tr>
-                                                <td>@item.ID.Substring(0,10)</td>
-                                                <td><a href="/webmaster/editblog/@item.ID">@item.Title.Substring(0,10)</a></td>
-                                                <td>@item.ContentBlog.Substring(0,25)</td>
-                                                <td>@item.Avatar</td>
-                                                <td>@item.CreatedBy</td>
-                                                <td>@item.CreatedDate</td>
-                                                <td><input type="checkbox" /></td>
-                                                <td><a href="/webmaster/deleteproduct/@item.ID"><img src="~/Images/icon/if_f-cross_256_282471.png" /></a></td>
-                                            </tr>
+                                        <tr>
+                                            <td>@item.ID.Substring(0, 10)</td>
+                                            <td><a href="/webmaster/editblog/@item.ID">@item.Title.Substring(0, 10)</a></td>
+                                            @if (item.ContentBlog != null)
+                                            {
+                                                if (item.ContentBlog.Count() > 25)
+                                                {
+                                                    <td>@item.ContentBlog.Substring(0, 25)</td>
+                                                }
+                                                else
+                                                {
+                                                    <td></td>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <td></td>
+                                            }
+                                            <td>@item.Avatar</td>
+                                            <td>@item.CreatedBy</td>
+                                            <td>@item.CreatedDate</td>
+                                            <td><input type="checkbox" /></td>
+                                            <td><a href="/webmaster/deleteproduct/@item.ID"><img src="~/Images/icon/if_f-cross_256_282471.png" /></a></td>
+                                        </tr>
                                         }
                                     </tbody>
                                 </table>

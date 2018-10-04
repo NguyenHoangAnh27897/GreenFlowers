@@ -236,3 +236,8 @@ C:\Users\hoang\source\repos\GreenFlowers\GreenFlowers\obj\Debug\GreenFlowers.csp
 C:\Users\hoang\source\repos\GreenFlowers\GreenFlowers\obj\Debug\GreenFlowers.csproj.CopyComplete
 C:\Users\hoang\source\repos\GreenFlowers\GreenFlowers\obj\Debug\GreenFlowers.dll
 C:\Users\hoang\source\repos\GreenFlowers\GreenFlowers\obj\Debug\GreenFlowers.pdb
+C:\Users\hoang\source\repos\GreenFlowers\GreenFlowers\bin\GridMvc.dll
+C:\Users\hoang\source\repos\GreenFlowers\GreenFlowers\bin\PagedList.dll
+C:\Users\hoang\source\repos\GreenFlowers\GreenFlowers\bin\PagedList.Mvc.dll
+C:\Users\hoang\source\repos\GreenFlowers\GreenFlowers\bin\PagedList.xml
+C:\Users\hoang\source\repos\GreenFlowers\GreenFlowers\bin\PagedList.Mvc.xml

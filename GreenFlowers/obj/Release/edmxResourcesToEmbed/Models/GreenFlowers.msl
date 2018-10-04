@@ -37,6 +37,9 @@
     <EntitySetMapping Name="GF_Product">
       <EntityTypeMapping TypeName="hoat7422_hoatuoixanh.comModel.GF_Product">
         <MappingFragment StoreEntitySet="GF_Product">
+          <ScalarProperty Name="SaleToDate" ColumnName="SaleToDate" />
+          <ScalarProperty Name="SaleFromDate" ColumnName="SaleFromDate" />
+          <ScalarProperty Name="CustomerView" ColumnName="CustomerView" />
           <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ProductName" ColumnName="ProductName" />

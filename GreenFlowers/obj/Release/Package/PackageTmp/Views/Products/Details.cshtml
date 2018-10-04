@@ -68,26 +68,18 @@
                     <div class="in-stock">
                         <p>Available: <span>In stock</span></p>
                     </div>
-                    <p>@Html.Raw(Model.FirstOrDefault().Description.Substring(0,100)) ... <a href="#" style="color:blue">Xem thêm</a></p>
-                    <div class="pro-dec-feature">
-                        <ul>
-                            <li><input type="checkbox"> Protection Plan: <span> 2 year  $4.99</span></li>
-                            <li><input type="checkbox"> Remote Holder: <span> $9.99</span></li>
-                            <li><input type="checkbox"> Koral Alexa Voice Remote Case: <span> Red  $16.99</span></li>
-                            <li><input type="checkbox"> Amazon Basics HD Antenna: <span>25 Mile  $14.99</span></li>
-                        </ul>
-                    </div>
+                    @if (Model.FirstOrDefault().Description.Count() > 100)
+                    {
+                        <p>@Html.Raw(Model.FirstOrDefault().Description.Substring(0, 100)) ... <a href="#" style="color:blue">Xem thêm</a></p>
+                    }
                     <div class="quality-add-to-cart">
                         <div class="quality">
-                            <label>Qty:</label>
-                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="02">
+                            <label>Số lượng:</label>
+                            <input class="cart-plus-minus-box" type="number" name="qtybutton" value="01" step="any">
                         </div>
                         <div class="shop-list-cart-wishlist">
-                            <a href="" title="Add To Cart" class="btn-cart">
+                            <a href="" title="Thêm vào giỏ" class="btn-cart">
                                 <i class="icon-handbag"></i>
-                            </a>
-                            <a title="Wishlist" href="#">
-                                <i class="icon-heart"></i>
                             </a>
                         </div>
                     </div>
@@ -111,14 +103,6 @@
                             <li><a href="#"> Love </a></li>
                         </ul>
                     </div>
-                    <div class="pro-dec-social">
-                        <ul>
-                            <li><a class="tweet" href="#"><i class="ion-social-twitter"></i> Tweet</a></li>
-                            <li><a class="share" href="#"><i class="ion-social-facebook"></i> Share</a></li>
-                            <li><a class="google" href="#"><i class="ion-social-googleplus-outline"></i> Google+</a></li>
-                            <li><a class="pinterest" href="#"><i class="ion-social-pinterest"></i> Pinterest</a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
@@ -130,18 +114,12 @@
             <div class="description-review-topbar nav text-center">
                 <a class="active" data-toggle="tab" href="#des-details1">Description</a>
                 <a data-toggle="tab" href="#des-details2">Tags</a>
-                <a data-toggle="tab" href="#des-details3">Review</a>
+                @*<a data-toggle="tab" href="#des-details3">Review</a>*@
             </div>
             <div class="tab-content description-review-bottom">
                 <div id="des-details1" class="tab-pane active">
                     <div class="product-description-wrapper">
-                        <p>@Html.Raw(Model.FirstOrDefault().Description)</p>
-                        <ul>
-                            <li>-  Typi non habent claritatem insitam</li>
-                            <li>-  Est usus legentis in iis qui facit eorum claritatem. </li>
-                            <li>-  Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.</li>
-                            <li>-  Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.</li>
-                        </ul>
+                        @Html.Raw(Model.FirstOrDefault().Description)
                     </div>
                 </div>
                 <div id="des-details2" class="tab-pane">
@@ -157,7 +135,7 @@
                         </ul>
                     </div>
                 </div>
-                <div id="des-details3" class="tab-pane">
+                @*<div id="des-details3" class="tab-pane">
                     <div class="rattings-wrapper">
                         <div class="sin-rattings">
                             <div class="star-author-all">
@@ -231,7 +209,7 @@
                             </form>
                         </div>
                     </div>
-                </div>
+                </div>*@
             </div>
         </div>
     </div>
@@ -240,37 +218,38 @@
     <div class="container">
         <div class="product-top-bar section-border mb-35">
             <div class="section-title-wrap">
-                <h3 class="section-title section-bg-white">Related Products</h3>
+                <h3 class="section-title section-bg-white">Sản phẩm liên quan khác</h3>
             </div>
         </div>
         <div class="featured-product-active hot-flower owl-carousel product-nav">
             @foreach (var item in lst)
             {
-                <div class="product-wrapper">
-                    <div class="product-img">
-                        <a href="/product/detail/@item.ID">
-                            <img alt="" src="~/Images/product/avatar/@item.Avatar">
-                        </a>
-                        @*<span>-30%</span>*@
-                        <div class="product-action">
-                            <a class="action-wishlist" href="#" title="Wishlist">
-                                <i class="icon-heart"></i>
+                if (item.IDCategory == Model.FirstOrDefault().IDCategory)
+                {
+                    <div class="product-wrapper">
+                        <div class="product-img">
+                            <a href="/products/details/@item.ID">
+                                <img alt="" src="~/Images/product/avatar/@item.Avatar">
                             </a>
-                            <a class="action-compare" href="/product/detail/@item.ID" data-target="#exampleModal" data-toggle="modal" title="Quick View">
-                                <i class="icon-magnifier-add"></i>
-                            </a>
+                            <div class="product-action">
+                                <a class="action-wishlist" href="#" title="Wishlist">
+                                    <i class="icon-heart"></i>
+                                </a>
+                                <a class="action-compare" href="/products/details/@item.ID" data-target="#exampleModal" data-toggle="modal" title="Quick View">
+                                    <i class="icon-magnifier-add"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-content text-center">
+                            <h4>
+                                <a href="/products/details/@item.ID">@item.ProductName </a>
+                            </h4>
+                            <div class="product-price-wrapper">
+                                <span>Giá: @string.Format("{0:n0}", item.Price) VNĐ</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="product-content text-center">
-                        <h4>
-                            <a href="/product/detail/@item.ID">@item.ProductName </a>
-                        </h4>
-                        <div class="product-price-wrapper">
-                            <span>Giá: @string.Format("{0:n0}", item.Price) VNĐ</span>
-                            @*<span class="product-price-old">$120.00 </span>*@
-                        </div>
-                    </div>
-                </div>
+                }
             }
 
         </div>

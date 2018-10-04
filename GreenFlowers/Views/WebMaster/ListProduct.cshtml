@@ -53,7 +53,21 @@
                                             <td><a href="/webmaster/editproduct/@item.ID">@item.ProductName</a></td>
                                             <td>@item.Price</td>
                                             <td>@item.DiscountPrice</td>
-                                            <td>@item.Description.Substring(0,25)</td>
+                                            @if (item.Description != null)
+                                            {
+                                                if (item.Description.Count() > 25)
+                                                {
+                                                    <td>@item.Description.Substring(0, 25)</td>
+                                                }
+                                                else
+                                                {
+                                                    <td></td>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <td></td>
+                                            }
                                             <td>@item.Avatar</td>
                                             <td>@item.Images</td>
                                             <td><input type="checkbox" /></td>

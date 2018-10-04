@@ -65,7 +65,7 @@ namespace GreenFlowers.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult AddProduct(string name, HttpPostedFileBase avatar, HttpPostedFileBase[] images, string editor, bool hide = false, int price = 0, int discountprice = 0, string category ="")
+        public ActionResult AddProduct(string ID,string name, HttpPostedFileBase avatar, HttpPostedFileBase[] images, string editor, bool hide = false, int price = 0, int discountprice = 0, string category ="")
         {
             //kiểm tra đã đăng nhập vào chưa
             if (Session["Authentication"] != null)
@@ -105,7 +105,7 @@ namespace GreenFlowers.Controllers
                     }
                 }
                 GF_Product pd = new GF_Product();
-                pd.ID = getGUID();
+                pd.ID = ID;
                 pd.ProductName = name;
                 if(Avatar != "")
                 {
@@ -218,6 +218,7 @@ namespace GreenFlowers.Controllers
                 {
                     pd.Images = pd.Images;
                 }
+                pd.Price = price;
                 pd.DiscountPrice = discountprice;
                 pd.Description = editor;
                 pd.IDCategory = int.Parse(category);
@@ -289,7 +290,7 @@ namespace GreenFlowers.Controllers
                 cate.Category = category;
                 db.GF_Category.Add(cate);
                 db.SaveChanges();
-                return RedirectToAction("Index","WebMaster");
+                return RedirectToAction("ListCategory", "WebMaster");
             }
             else
             {

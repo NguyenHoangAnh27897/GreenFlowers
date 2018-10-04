@@ -3,22 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using GreenFlowers.Models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace GreenFlowers.Controllers
 {
     public class BlogController : Controller
     {
+        GreenFlowersEntities db = new GreenFlowersEntities();
         // GET: Blog
-        public ActionResult Index()
+        public ActionResult Index(int? page = 1)
         {
-            ViewBag.Message = "Your blog page.";
-
-            return View();
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            var lst = db.GF_Blog.OrderByDescending(s=>s.CreatedDate).ToList();
+            return View(lst.ToPagedList(pageNumber, pageSize));
         }
 
-        public ActionResult Details()
+        public ActionResult Details(string id)
         {
-            return View();
+            var rs = db.GF_Blog.Where(s => s.ID == id);
+            return View(rs);
         }
     }
 }

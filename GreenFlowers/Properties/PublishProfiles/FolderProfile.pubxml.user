@@ -28,10 +28,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/25/2018 00:58:40</publishTime>
     </File>
     <File Include="bin/GreenFlowers.dll">
-      <publishTime>09/28/2018 14:40:33</publishTime>
+      <publishTime>10/04/2018 02:20:03</publishTime>
     </File>
     <File Include="bin/GreenFlowers.pdb">
-      <publishTime>09/28/2018 14:40:33</publishTime>
+      <publishTime>10/04/2018 02:20:03</publishTime>
+    </File>
+    <File Include="bin/GridMvc.dll">
+      <publishTime>09/19/2018 11:37:13</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>09/25/2018 00:58:40</publishTime>
@@ -104,6 +107,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/Owin.dll">
       <publishTime>09/25/2018 00:58:44</publishTime>
+    </File>
+    <File Include="bin/PagedList.dll">
+      <publishTime>09/19/2018 11:37:13</publishTime>
+    </File>
+    <File Include="bin/PagedList.Mvc.dll">
+      <publishTime>09/19/2018 11:37:13</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>09/25/2018 00:58:43</publishTime>
@@ -1848,6 +1857,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Images/instagram/instagram6.jpg">
       <publishTime>09/25/2018 00:58:35</publishTime>
     </File>
+    <File Include="Images/logo/a3solution.png">
+      <publishTime>10/04/2018 02:08:01</publishTime>
+    </File>
     <File Include="Images/logo/lo3go.png">
       <publishTime>09/25/2018 00:58:35</publishTime>
     </File>
@@ -2041,28 +2053,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/25/2018 00:58:35</publishTime>
     </File>
     <File Include="Views/Blog/Details.cshtml">
-      <publishTime>09/25/2018 00:58:35</publishTime>
+      <publishTime>10/03/2018 10:01:50</publishTime>
     </File>
     <File Include="Views/Blog/Index.cshtml">
-      <publishTime>09/25/2018 00:58:35</publishTime>
+      <publishTime>10/03/2018 10:00:13</publishTime>
     </File>
     <File Include="Views/Cart/Cart.cshtml">
       <publishTime>09/26/2018 23:04:23</publishTime>
     </File>
     <File Include="Views/CheckOut/Checkout.cshtml">
-      <publishTime>09/25/2018 00:58:35</publishTime>
+      <publishTime>09/29/2018 18:54:01</publishTime>
+    </File>
+    <File Include="Views/Error/ErrorPage.cshtml">
+      <publishTime>09/28/2018 16:50:01</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>09/28/2018 14:39:35</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>09/25/2018 00:58:35</publishTime>
+      <publishTime>09/28/2018 16:41:21</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>09/28/2018 13:59:11</publishTime>
+      <publishTime>09/29/2018 22:07:43</publishTime>
     </File>
     <File Include="Views/Home/Shop.cshtml">
-      <publishTime>09/28/2018 14:02:48</publishTime>
+      <publishTime>10/03/2018 09:43:17</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
       <publishTime>09/25/2018 00:58:35</publishTime>
@@ -2083,7 +2098,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/25/2018 00:58:35</publishTime>
     </File>
     <File Include="Views/Products/Details.cshtml">
-      <publishTime>09/28/2018 14:04:34</publishTime>
+      <publishTime>10/03/2018 13:39:04</publishTime>
+    </File>
+    <File Include="Views/Products/ListProduct.cshtml">
+      <publishTime>10/04/2018 02:17:39</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>09/25/2018 00:58:35</publishTime>
@@ -2092,10 +2110,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/25/2018 00:58:35</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>09/28/2018 14:03:29</publishTime>
+      <publishTime>10/03/2018 09:45:14</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutMaster.cshtml">
-      <publishTime>09/28/2018 14:10:02</publishTime>
+      <publishTime>10/04/2018 02:11:02</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>09/25/2018 00:58:35</publishTime>
@@ -2119,28 +2137,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/28/2018 14:12:06</publishTime>
     </File>
     <File Include="Views/WebMaster/EditProduct.cshtml">
-      <publishTime>09/25/2018 00:58:35</publishTime>
+      <publishTime>10/03/2018 14:03:05</publishTime>
     </File>
     <File Include="Views/WebMaster/EditSlider.cshtml">
       <publishTime>09/25/2018 17:28:57</publishTime>
     </File>
     <File Include="Views/WebMaster/GFProduct.cshtml">
-      <publishTime>09/25/2018 00:58:35</publishTime>
+      <publishTime>10/03/2018 14:02:55</publishTime>
     </File>
     <File Include="Views/WebMaster/Index.cshtml">
       <publishTime>09/25/2018 00:58:35</publishTime>
     </File>
     <File Include="Views/WebMaster/ListBlog.cshtml">
-      <publishTime>09/25/2018 00:58:35</publishTime>
+      <publishTime>10/03/2018 12:03:59</publishTime>
     </File>
     <File Include="Views/WebMaster/ListCategory.cshtml">
-      <publishTime>09/25/2018 00:58:35</publishTime>
+      <publishTime>09/28/2018 16:53:37</publishTime>
+    </File>
+    <File Include="Views/WebMaster/ListContact.cshtml">
+      <publishTime>09/28/2018 17:05:05</publishTime>
     </File>
     <File Include="Views/WebMaster/ListOrder.cshtml">
-      <publishTime>09/26/2018 01:20:30</publishTime>
+      <publishTime>09/28/2018 16:54:20</publishTime>
     </File>
     <File Include="Views/WebMaster/ListProduct.cshtml">
-      <publishTime>09/25/2018 00:58:35</publishTime>
+      <publishTime>10/03/2018 12:04:09</publishTime>
     </File>
     <File Include="Views/WebMaster/Login.cshtml">
       <publishTime>09/25/2018 00:58:35</publishTime>

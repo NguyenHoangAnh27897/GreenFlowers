@@ -289,18 +289,18 @@
                 $ul.prepend(myLi(dataStorage[i], i));
             }
 
-            //$('.delete').on('click', (e) => {
-            //    e.preventDefault();
-            //    var $this = e.target.closest('li');
-            //    dataStorage.splice($this.getAttribute('data-order'), 1);
-            //    if (dataStorage.length != 0) {
-            //        $('span.count-style').text(dataStorage.length);
-            //    } else {
-            //        $('span.count-style').text(0);
-            //    }
-            //    localStorage.setItem('order', JSON.stringify(dataStorage));
-            //    $this.outerHTML = "";
-            //});
+            $('.delete').on('click', (e) => {
+                e.preventDefault();
+                var $this = e.target.closest('li');
+                dataStorage.splice($this.getAttribute('data-order'), 1);
+                if (dataStorage.length != 0) {
+                    $('span.count-style').text(dataStorage.length);
+                } else {
+                    $('span.count-style').text(0);
+                }
+                localStorage.setItem('order', JSON.stringify(dataStorage));
+                $this.outerHTML = "";
+            });
         });
 
         var myLi = (data, i) => {

@@ -235,3 +235,9 @@ C:\Users\nnam1\Desktop\Source\GreenFlowers\GreenFlowers\bin\Microsoft.CodeDom.Pr
 C:\Users\nnam1\Desktop\Source\GreenFlowers\GreenFlowers\obj\Release\GreenFlowers.csprojResolveAssemblyReference.cache
 C:\Users\nnam1\Desktop\Source\GreenFlowers\GreenFlowers\obj\Release\GreenFlowers.dll
 C:\Users\nnam1\Desktop\Source\GreenFlowers\GreenFlowers\obj\Release\GreenFlowers.pdb
+C:\Users\hoang\source\repos\GreenFlowers\GreenFlowers\bin\GridMvc.dll
+C:\Users\hoang\source\repos\GreenFlowers\GreenFlowers\bin\PagedList.dll
+C:\Users\hoang\source\repos\GreenFlowers\GreenFlowers\bin\PagedList.Mvc.dll
+C:\Users\hoang\source\repos\GreenFlowers\GreenFlowers\bin\PagedList.xml
+C:\Users\hoang\source\repos\GreenFlowers\GreenFlowers\bin\PagedList.Mvc.xml
+C:\Users\hoang\source\repos\GreenFlowers\GreenFlowers\obj\Release\GreenFlowers.csprojAssemblyReference.cache

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using GreenFlowers.Models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace GreenFlowers.Controllers
 {
@@ -12,7 +14,7 @@ namespace GreenFlowers.Controllers
         GreenFlowersEntities db = new GreenFlowersEntities();
         public ActionResult Index()
         {
-            var lst = db.GF_Product.ToList();
+            var lst = db.GF_Product.OrderByDescending(s => s.Created_Date).ToList();
             return View(lst);
         }
 
@@ -24,11 +26,12 @@ namespace GreenFlowers.Controllers
             return View(rs);
         }
 
-        public ActionResult Shop()
+        public ActionResult Shop(int? page = 1)
         {
+            int pageSize = 9;
+            int pageNumber = (page ?? 1);
             var lst = db.GF_Product.OrderByDescending(s => s.Created_Date).ToList();
-
-            return View(lst);
+            return View(lst.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult Contact()

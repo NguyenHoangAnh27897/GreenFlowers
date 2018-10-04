@@ -35,14 +35,14 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Product Name</th>
-                                            <th>Price</th>
-                                            <th>Discount Price</th>
-                                            <th>Description</th>
+                                            <th>Tên sản phẩm</th>
+                                            <th>Giá</th>
+                                            <th>Giảm giá</th>
+                                            <th>Miêu tả</th>
                                             <th>Avatar</th>
                                             <th>IMG</th>
                                             <th>Hide</th>
-                                            <th>Action</th>
+                                            <th>Xoá</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -53,7 +53,21 @@
                                             <td><a href="/webmaster/editproduct/@item.ID">@item.ProductName</a></td>
                                             <td>@item.Price</td>
                                             <td>@item.DiscountPrice</td>
-                                            <td>@item.Description.Substring(0,25)</td>
+                                            @if (item.Description != null)
+                                            {
+                                                if (item.Description.Count() > 25)
+                                                {
+                                                    <td>@item.Description.Substring(0, 25)</td>
+                                                }
+                                                else
+                                                {
+                                                    <td></td>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <td></td>
+                                            }
                                             <td>@item.Avatar</td>
                                             <td>@item.Images</td>
                                             <td><input type="checkbox" /></td>

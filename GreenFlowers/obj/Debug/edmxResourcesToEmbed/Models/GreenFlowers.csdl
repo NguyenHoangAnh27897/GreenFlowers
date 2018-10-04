@@ -44,6 +44,9 @@
     <Property Name="IDCategory" Type="Int32" />
     <Property Name="IsHide" Type="Boolean" />
     <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="CustomerView" Type="Int32" />
+    <Property Name="SaleFromDate" Type="DateTime" Precision="0" />
+    <Property Name="SaleToDate" Type="DateTime" Precision="0" />
   </EntityType>
   <EntityType Name="GF_Record">
     <Key>

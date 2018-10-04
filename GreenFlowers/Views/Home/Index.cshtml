@@ -1,5 +1,8 @@
 ﻿@model IEnumerable<GreenFlowers.Models.GF_Product>
+@using GreenFlowers.Models;
 @{
+    GreenFlowersEntities db = new GreenFlowersEntities();
+    var lst = db.GF_Product.OrderByDescending(s => s.CustomerView).ToList();
     ViewBag.Title = "Home Page";
 }
 
@@ -321,7 +324,7 @@
             </div>
         </div>
         <div class="featured-product-active hot-flower owl-carousel product-nav">
-            @foreach (var item in Model)
+            @foreach (var item in lst)
             {
                 <div class="product-wrapper">
                     <div class="product-img">
