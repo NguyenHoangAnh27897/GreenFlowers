@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using GreenFlowers.Models;
 using System.Data.Entity;
+using PagedList;
+using PagedList.Mvc;
 
 namespace GreenFlowers.Controllers
 {
@@ -65,7 +67,7 @@ namespace GreenFlowers.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult AddProduct(string ID,string name, HttpPostedFileBase avatar, HttpPostedFileBase[] images, string editor, int price = 0, int? discountprice = null, string category ="")
+        public ActionResult AddProduct(string ID,string name, HttpPostedFileBase avatar, HttpPostedFileBase[] images, string editor, int price = 0, int? discountprice = 0, string category ="")
         {
             //kiểm tra đã đăng nhập vào chưa
             if (Session["Authentication"] != null)
@@ -116,7 +118,16 @@ namespace GreenFlowers.Controllers
                     pd.Images = Images;
                 }
                 pd.Price = price;
-                pd.DiscountPrice = discountprice;
+                if(discountprice == 0)
+                {
+                    discountprice = null;
+                    pd.DiscountPrice = discountprice;
+                }
+                else
+                {
+                    var percent = (price * discountprice) / 100;
+                    pd.DiscountPrice = percent;
+                }
                 pd.Description = editor;
                 pd.IDCategory = int.Parse(category);
                 pd.Created_Date = DateTime.Now;
@@ -131,13 +142,15 @@ namespace GreenFlowers.Controllers
       
         }
 
-        public ActionResult ListProduct()
+        public ActionResult ListProduct(int? page = 1)
         {
             //kiểm tra đã đăng nhập vào chưa
             if (Session["Authentication"] != null)
             {
-                var ls = db.GF_Product.ToList();
-                return View(ls);
+                int pageSize = 10;
+                int pageNumber = (page ?? 1);
+                var ls = db.GF_Product.Where(s=>s.Price != null).ToList();
+                return View(ls.ToPagedList(pageNumber,pageSize));
             }
             else
             {
@@ -614,6 +627,21 @@ namespace GreenFlowers.Controllers
             if (Session["Authentication"] != null)
             {
                 return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "WebMaster");
+            }
+        }
+
+        public ActionResult ListSale(int? page = 1)
+        {
+            if (Session["Authentication"] != null)
+            {
+                int pageSize = 10;
+                int pageNumber = (page ?? 1);
+                var lst = db.GF_Product.Where(s=>s.Price == null && s.DiscountPrice != null).ToList();
+                return View(lst.ToPagedList(pageNumber, pageSize));
             }
             else
             {

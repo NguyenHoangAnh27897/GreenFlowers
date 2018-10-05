@@ -918,6 +918,7 @@
     <Content Include="Views\Products\ListProduct.cshtml" />
     <Content Include="Views\Blog\Search.cshtml" />
     <Content Include="Views\WebMaster\AddSale.cshtml" />
+    <Content Include="Views\WebMaster\ListSale.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
