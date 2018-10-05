@@ -1,11 +1,12 @@
 ﻿@model IEnumerable<GreenFlowers.Models.GF_Product>
 @using GreenFlowers.Models;
+@using System.Globalization;
 @{
     GreenFlowersEntities db = new GreenFlowersEntities();
-    var lst = db.GF_Product.OrderByDescending(s => s.CustomerView).ToList();
-    var lstcate = db.GF_Category.OrderByDescending(s => s.ID).ToList();
-    var slider = db.GF_Slider.Where(s => s.ID == 1).FirstOrDefault();
-    string[] arrStr;
+var lst = db.GF_Product.OrderByDescending(s => s.CustomerView).ToList();
+var lstcate = db.GF_Category.OrderByDescending(s => s.ID).ToList();
+var slider = db.GF_Slider.Where(s => s.ID == 1).FirstOrDefault();
+string[] arrStr;
 }
 
 <div class="slider-area">
@@ -46,17 +47,17 @@
         }
 
         @*<div class="single-slider pt-175 pb-258 bg-img" style="background-image:url(../../Images/slider/slider-2.jpg);">
-            <div class="container">
-                <div class="slider-content slider-animated-2">
-                    <h3 class="animated">New Arrivals</h3>
-                    <h1 class="animated">For Mother’s Day!</h1>
-                    <h5 class="animated">Exclusive Offer -10% Off This Week</h5>
-                    <div class="slider-btn mt-45">
-                        <a class="animated" href="@Url.Action("Details", "Products")">shop Now</a>
+                <div class="container">
+                    <div class="slider-content slider-animated-2">
+                        <h3 class="animated">New Arrivals</h3>
+                        <h1 class="animated">For Mother’s Day!</h1>
+                        <h5 class="animated">Exclusive Offer -10% Off This Week</h5>
+                        <div class="slider-btn mt-45">
+                            <a class="animated" href="@Url.Action("Details", "Products")">shop Now</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>*@
+            </div>*@
     </div>
 </div>
 <div class="banner-area">
@@ -107,19 +108,19 @@
                 <h3 class="section-title section-bg-white">Sản phẩm mới</h3>
             </div>
             @*<div class="product-tab-list nav section-bg-white">
-                <a class="active" data-toggle="tab" href="#tab1">
-                    <h4>All </h4>
-                </a>
-                <a data-toggle="tab" href="#tab2">
-                    <h4>Winter </h4>
-                </a>
-                <a data-toggle="tab" href="#tab3">
-                    <h4> Various  </h4>
-                </a>
-                <a data-toggle="tab" href="#tab4">
-                    <h4>Greens </h4>
-                </a>
-            </div>*@
+                    <a class="active" data-toggle="tab" href="#tab1">
+                        <h4>All </h4>
+                    </a>
+                    <a data-toggle="tab" href="#tab2">
+                        <h4>Winter </h4>
+                    </a>
+                    <a data-toggle="tab" href="#tab3">
+                        <h4> Various  </h4>
+                    </a>
+                    <a data-toggle="tab" href="#tab4">
+                        <h4>Greens </h4>
+                    </a>
+                </div>*@
         </div>
         <div class="tab-content jump">
             <div id="tab1" class="tab-pane active">
@@ -190,36 +191,36 @@
     </div>
 </div>
 @*<div class="testimonials-area bg-img pt-120 pb-115" style="background-image:url(../../Images/bg/bg-1.jpg);">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-7 col-md-12 ml-auto col-12">
-                <div class="testimonial-active owl-carousel">
-                    <div class="single-testimonial text-center">
-                        <div class="testimonial-img">
-                            <img alt="" src="~/Images/icon-img/testi.png">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 ml-auto col-12">
+                    <div class="testimonial-active owl-carousel">
+                        <div class="single-testimonial text-center">
+                            <div class="testimonial-img">
+                                <img alt="" src="~/Images/icon-img/testi.png">
+                            </div>
+                            <p>When a beautiful design is combined with powerful technology,<br> it truly is an artwork. I love how my website operates and looks with this theme. <br>Thank you for the awesome product. </p>
+                            <h4>Samia Robiul</h4>
                         </div>
-                        <p>When a beautiful design is combined with powerful technology,<br> it truly is an artwork. I love how my website operates and looks with this theme. <br>Thank you for the awesome product. </p>
-                        <h4>Samia Robiul</h4>
-                    </div>
-                    <div class="single-testimonial text-center">
-                        <div class="testimonial-img">
-                            <img alt="" src="~/Images/icon-img/testi.png">
+                        <div class="single-testimonial text-center">
+                            <div class="testimonial-img">
+                                <img alt="" src="~/Images/icon-img/testi.png">
+                            </div>
+                            <p>“ Lorem ipsum dolor sit, con adipisicing elit, sed do eiusmod tempor <br>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud <br>exercitati ullamco laboris  ” </p>
+                            <h4> Tayeb Rayed</h4>
                         </div>
-                        <p>“ Lorem ipsum dolor sit, con adipisicing elit, sed do eiusmod tempor <br>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud <br>exercitati ullamco laboris  ” </p>
-                        <h4> Tayeb Rayed</h4>
-                    </div>
-                    <div class="single-testimonial text-center">
-                        <div class="testimonial-img">
-                            <img alt="" src="~/Images/icon-img/testi.png">
+                        <div class="single-testimonial text-center">
+                            <div class="testimonial-img">
+                                <img alt="" src="~/Images/icon-img/testi.png">
+                            </div>
+                            <p>When a beautiful design is combined with powerful ,<br> technology it truly is an artwork. I love how my website operates and looks with this  <br>theme. Thank you for the awesome product. </p>
+                            <h4>Hamim Ahamed</h4>
                         </div>
-                        <p>When a beautiful design is combined with powerful ,<br> technology it truly is an artwork. I love how my website operates and looks with this  <br>theme. Thank you for the awesome product. </p>
-                        <h4>Hamim Ahamed</h4>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>*@
+    </div>*@
 <div class="best-selling-product pt-70 pb-75 gray-bg">
     <div class="container">
         <div class="product-top-bar section-border mb-35">
@@ -248,11 +249,12 @@
                                         {
                                             <p>@Html.Raw(item.Description.Substring(0, 100)) ... </p>
                                         }
-                                        else {
+                                        else
+                                        {
                                             <p>@Html.Raw(item.Description)</p>
                                         }
                                         <div class="timer timer-style">
-                                            <div data-countdown="@item.SaleFromDate"></div>
+                                            <div data-countdown="@item.SaleToDate.Value.ToString("yyyy/MM/dd")"></div>
                                         </div>
                                         <div class="deals-btn">
                                             <a href="/products/details/@item.ID">Mua ngay</a>
@@ -349,7 +351,7 @@
         </div>
     </div>
 </div>
-        <!-- Modal -->
+<!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

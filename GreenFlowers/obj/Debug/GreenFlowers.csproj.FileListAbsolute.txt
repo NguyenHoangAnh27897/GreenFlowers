@@ -328,8 +328,6 @@ C:\Users\nnam1\Desktop\New folder (5)\GreenFlowers\GreenFlowers\bin\System.Web.W
 C:\Users\nnam1\Desktop\New folder (5)\GreenFlowers\GreenFlowers\bin\System.Web.WebPages.Razor.dll
 C:\Users\nnam1\Desktop\New folder (5)\GreenFlowers\GreenFlowers\bin\WebGrease.dll
 C:\Users\nnam1\Desktop\New folder (5)\GreenFlowers\GreenFlowers\bin\Newtonsoft.Json.xml
-C:\Users\nnam1\Desktop\New folder (5)\GreenFlowers\GreenFlowers\bin\PagedList.xml
-C:\Users\nnam1\Desktop\New folder (5)\GreenFlowers\GreenFlowers\bin\PagedList.Mvc.xml
 C:\Users\nnam1\Desktop\New folder (5)\GreenFlowers\GreenFlowers\bin\System.Web.Helpers.xml
 C:\Users\nnam1\Desktop\New folder (5)\GreenFlowers\GreenFlowers\bin\System.Web.Mvc.xml
 C:\Users\nnam1\Desktop\New folder (5)\GreenFlowers\GreenFlowers\bin\System.Web.Optimization.xml
@@ -358,6 +356,5 @@ C:\Users\nnam1\Desktop\New folder (5)\GreenFlowers\GreenFlowers\bin\Microsoft.AI
 C:\Users\nnam1\Desktop\New folder (5)\GreenFlowers\GreenFlowers\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\nnam1\Desktop\New folder (5)\GreenFlowers\GreenFlowers\bin\Microsoft.AI.Web.xml
 C:\Users\nnam1\Desktop\New folder (5)\GreenFlowers\GreenFlowers\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\nnam1\Desktop\New folder (5)\GreenFlowers\GreenFlowers\obj\Debug\GreenFlowers.csprojResolveAssemblyReference.cache
 C:\Users\nnam1\Desktop\New folder (5)\GreenFlowers\GreenFlowers\obj\Debug\GreenFlowers.dll
 C:\Users\nnam1\Desktop\New folder (5)\GreenFlowers\GreenFlowers\obj\Debug\GreenFlowers.pdb
