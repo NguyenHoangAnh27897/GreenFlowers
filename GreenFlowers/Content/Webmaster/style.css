@@ -2271,3 +2271,43 @@
         transition: all .3s ease;
     }
     /*==================== End Search section ====================*/
+    .pagination-style li {
+    display: inline-block;
+    list-style: outside none none;
+    margin: 0 8px 0 0;
+}
+.pagination-total-pages {
+    display: flex;
+    justify-content: space-between;
+}
+.pagination-style li a {
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    color: #242424;
+    display: inline-block;
+    line-height: 1;
+    padding: 11px 13px;
+}
+.pagination-style li a:hover,
+.pagination-style li a.active,
+.pagination-style li a.next:hover {
+    background-color: #ff3d2a;
+    color: #fff;
+}
+.pagination-style li a.prev-next {
+    padding: 11px 22px;
+}
+.pagination-style li a.prev i {
+    margin-right: 7px;
+}
+.pagination-style li a.next i {
+    margin-left: 10px;
+}
+.pagination-style li a.next {
+    background-color: #242424;
+    color: #fff;
+}
+.pagination-total-pages {
+    /*border: 1px solid #e9e9e9;*/
+    padding: 15px 24px 13px;
+}

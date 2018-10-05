@@ -1,4 +1,4 @@
-(function($) {
+﻿(function($) {
     'use strict';
     
     /*--
@@ -193,7 +193,10 @@
         var $this = $(this),
             finalDate = $(this).data('countdown');
         $this.countdown(finalDate, function(event) {
-            $this.html(event.strftime('<span class="cdown day">%-D <p>Days</p></span> <span class="cdown hour">%-H <p>Hour</p></span> <span class="cdown minutes">%M <p>Min</p></span class="cdown second"> <span>%S <p>Sec</p></span>'));
+            $this.html(event.strftime(`<span class="cdown day">%-D 
+                <p>Ngày</p></span> <span class="cdown hour">%-H <p>Giờ</p>
+                </span> <span class="cdown minutes">%M <p>Phút</p></span class="cdown second">
+                <span>%S <p>Giây</p></span>`));
         });
     });
     
