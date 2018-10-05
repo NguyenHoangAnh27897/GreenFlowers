@@ -358,3 +358,4 @@ C:\Users\nnam1\Desktop\New folder (5)\GreenFlowers\GreenFlowers\bin\Microsoft.AI
 C:\Users\nnam1\Desktop\New folder (5)\GreenFlowers\GreenFlowers\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\nnam1\Desktop\New folder (5)\GreenFlowers\GreenFlowers\obj\Debug\GreenFlowers.dll
 C:\Users\nnam1\Desktop\New folder (5)\GreenFlowers\GreenFlowers\obj\Debug\GreenFlowers.pdb
+C:\Users\nnam1\Desktop\New folder (5)\GreenFlowers\GreenFlowers\obj\Debug\GreenFlowers.csprojResolveAssemblyReference.cache
