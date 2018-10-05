@@ -125,7 +125,7 @@ namespace GreenFlowers.Controllers
                 }
                 else
                 {
-                    var percent = (price * discountprice) / 100;
+                    var percent = price - ((price * discountprice) / 100);
                     pd.DiscountPrice = percent;
                 }
                 pd.Description = editor;
@@ -174,7 +174,7 @@ namespace GreenFlowers.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult EditProduct(string id, string name, HttpPostedFileBase avatar, HttpPostedFileBase[] images, string editor, int price = 0, int? discountprice = null, string category ="")
+        public ActionResult EditProduct(string id, string name, HttpPostedFileBase avatar, HttpPostedFileBase[] images, string editor, int price = 0, int? discountprice = 0, string category ="")
         {
             //kiểm tra đã đăng nhập vào chưa
             if (Session["Authentication"] != null)
@@ -232,7 +232,16 @@ namespace GreenFlowers.Controllers
                     pd.Images = pd.Images;
                 }
                 pd.Price = price;
-                pd.DiscountPrice = discountprice;
+                if (discountprice == 0)
+                {
+                    discountprice = null;
+                    pd.DiscountPrice = discountprice;
+                }
+                else
+                {
+                    var percent = price - ((price * discountprice) / 100);
+                    pd.DiscountPrice = percent;
+                }
                 pd.Description = editor;
                 pd.IDCategory = int.Parse(category);
                 db.Entry(pd).State = EntityState.Modified;
@@ -265,13 +274,15 @@ namespace GreenFlowers.Controllers
         }
 
 
-        public ActionResult ListCategory()
+        public ActionResult ListCategory(int? page =1 )
         {
             //kiểm tra đã đăng nhập vào chưa
             if (Session["Authentication"] != null)
             {
+                int pageSize = 10;
+                int pageNumber = (page ?? 1);
                 var lst = db.GF_Category.ToList();
-                return View(lst);
+                return View(lst.ToPagedList(pageNumber,pageSize));
             }
             else
             {
@@ -310,13 +321,15 @@ namespace GreenFlowers.Controllers
             }
         }
 
-        public ActionResult ListBlog()
+        public ActionResult ListBlog(int? page = 1)
         {
             //kiểm tra đã đăng nhập vào chưa
             if (Session["Authentication"] != null)
             {
+                int pageSize = 10;
+                int pageNumber = (page ?? 1);
                 var lst = db.GF_Blog.ToList();
-                return View(lst);
+                return View(lst.ToPagedList(pageNumber,pageSize));
             }
             else
             {
@@ -428,13 +441,15 @@ namespace GreenFlowers.Controllers
 
         }
 
-        public ActionResult ListOrder()
+        public ActionResult ListOrder(int? page = 1)
         {
             //kiểm tra đã đăng nhập vào chưa
             if (Session["Authentication"] != null)
             {
+                int pageSize = 10;
+                int pageNumber = (page ?? 1);
                 var lst = db.GF_Order.ToList();
-                return View(lst);
+                return View(lst.ToPagedList(pageNumber,pageSize));
             }
             else
             {
@@ -572,12 +587,14 @@ namespace GreenFlowers.Controllers
             }
         }
 
-        public ActionResult ListContact()
+        public ActionResult ListContact(int? page = 1)
         {
             if (Session["Authentication"] != null)
             {
+                int pageSize = 10;
+                int pageNumber = (page ?? 1);
                 var lst = db.GF_AboutUs.ToList();
-                return View(lst);
+                return View(lst.ToPagedList(pageNumber,pageSize));
             }
             else
             {
