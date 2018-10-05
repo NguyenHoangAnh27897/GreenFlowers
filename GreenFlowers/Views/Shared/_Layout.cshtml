@@ -256,6 +256,11 @@
             });
         });
 
+        var FormatCurrency = (value) => {
+            let $dola = value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+            return $dola.slice(1, $dola.indexOf(".00"));
+        }
+
         var myLi = (data, i) => {
             var $li = `<li class="single-shopping-cart" data-order="${i}">
                         <div class="shopping-cart-img">
@@ -265,7 +270,7 @@
                             <i>${ data.date}</i>
                             <h4><a href="#">${data.ProductName} </a></h4>
                             <h6>Số lượng: ${data.Qty}</h6>
-                            <span>Giá: ${data.Price} VNĐ</span>
+                            <span>Giá: ${FormatCurrency(data.Price)} VNĐ</span>
                         </div>
                     </li>`;
             return $li;
