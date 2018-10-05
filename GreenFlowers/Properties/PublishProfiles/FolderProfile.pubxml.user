@@ -28,10 +28,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/25/2018 00:58:40</publishTime>
     </File>
     <File Include="bin/GreenFlowers.dll">
-      <publishTime>10/04/2018 02:20:03</publishTime>
+      <publishTime>10/05/2018 15:09:42</publishTime>
     </File>
     <File Include="bin/GreenFlowers.pdb">
-      <publishTime>10/04/2018 02:20:03</publishTime>
+      <publishTime>10/05/2018 15:09:42</publishTime>
     </File>
     <File Include="bin/GridMvc.dll">
       <publishTime>09/19/2018 11:37:13</publishTime>
@@ -334,7 +334,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/25/2018 00:58:35</publishTime>
     </File>
     <File Include="Content/style.css">
-      <publishTime>09/25/2018 00:58:35</publishTime>
+      <publishTime>10/04/2018 20:38:46</publishTime>
     </File>
     <File Include="Content/Webmaster/css/bootstrap.min.css">
       <publishTime>09/25/2018 00:58:34</publishTime>
@@ -2077,7 +2077,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/29/2018 22:07:43</publishTime>
     </File>
     <File Include="Views/Home/Shop.cshtml">
-      <publishTime>10/03/2018 09:43:17</publishTime>
+      <publishTime>10/04/2018 21:37:06</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
       <publishTime>09/25/2018 00:58:35</publishTime>
@@ -2098,7 +2098,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/25/2018 00:58:35</publishTime>
     </File>
     <File Include="Views/Products/Details.cshtml">
-      <publishTime>10/03/2018 13:39:04</publishTime>
+      <publishTime>10/04/2018 21:51:20</publishTime>
     </File>
     <File Include="Views/Products/ListProduct.cshtml">
       <publishTime>10/04/2018 02:17:39</publishTime>
@@ -2140,7 +2140,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/03/2018 14:03:05</publishTime>
     </File>
     <File Include="Views/WebMaster/EditSlider.cshtml">
-      <publishTime>09/25/2018 17:28:57</publishTime>
+      <publishTime>10/04/2018 22:23:19</publishTime>
     </File>
     <File Include="Views/WebMaster/GFProduct.cshtml">
       <publishTime>10/03/2018 14:02:55</publishTime>

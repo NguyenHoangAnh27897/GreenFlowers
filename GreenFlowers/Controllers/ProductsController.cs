@@ -48,7 +48,7 @@ namespace GreenFlowers.Controllers
         {
             try
             {
-                int pageSize = 5;
+                int pageSize = 9;
                 int pageNumber = (page ?? 1);
                 int ID = int.Parse(id);
                 var lst = db.GF_Product.Where(s => s.IDCategory == ID).ToList();

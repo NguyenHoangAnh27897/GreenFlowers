@@ -2192,6 +2192,7 @@ textarea:focus {
 }
 .product-img img {
     width: 100%;
+    height: 293px;
 }
 .product-action {
     bottom: 0;
