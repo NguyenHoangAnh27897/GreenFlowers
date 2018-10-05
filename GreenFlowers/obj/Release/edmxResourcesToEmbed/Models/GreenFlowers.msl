@@ -88,6 +88,10 @@
     <EntitySetMapping Name="GF_Slider">
       <EntityTypeMapping TypeName="hoat7422_hoatuoixanh.comModel.GF_Slider">
         <MappingFragment StoreEntitySet="GF_Slider">
+          <ScalarProperty Name="Button" ColumnName="Button" />
+          <ScalarProperty Name="Heading5" ColumnName="Heading5" />
+          <ScalarProperty Name="Heading1" ColumnName="Heading1" />
+          <ScalarProperty Name="Heading3" ColumnName="Heading3" />
           <ScalarProperty Name="Slider" ColumnName="Slider" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>

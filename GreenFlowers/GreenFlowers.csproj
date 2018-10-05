@@ -916,6 +916,8 @@
     <Content Include="Views\Error\ErrorPage.cshtml" />
     <Content Include="Views\WebMaster\ListContact.cshtml" />
     <Content Include="Views\Products\ListProduct.cshtml" />
+    <Content Include="Views\Blog\Search.cshtml" />
+    <Content Include="Views\WebMaster\AddSale.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

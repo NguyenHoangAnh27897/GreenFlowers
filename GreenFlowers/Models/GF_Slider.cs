@@ -16,5 +16,9 @@ namespace GreenFlowers.Models
     {
         public int ID { get; set; }
         public string Slider { get; set; }
+        public string Heading3 { get; set; }
+        public string Heading1 { get; set; }
+        public string Heading5 { get; set; }
+        public string Button { get; set; }
     }
 }

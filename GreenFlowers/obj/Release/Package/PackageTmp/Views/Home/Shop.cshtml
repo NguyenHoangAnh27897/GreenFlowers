@@ -13,8 +13,8 @@
     <div class="container">
         <div class="breadcrumb-content">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li class="active">Shopping Flowers </li>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li class="active">Danh sách các sản phẩm</li>
             </ul>
         </div>
     </div>
@@ -33,7 +33,7 @@
                             @*<li><a href="#product-list" data-view="product-list"><i class="fa fa-list-ul"></i></a></li>*@
                         </ul>
                     </div>
-                    <div class="product-sorting-wrapper">
+                    @*<div class="product-sorting-wrapper">
                         <div class="product-shorting shorting-style">
                             <label>View:</label>
                             <select>
@@ -42,15 +42,15 @@
                                 <option value=""> 30</option>
                             </select>
                         </div>
-                        @*<div class="product-show shorting-style">
+                        <div class="product-show shorting-style">
                             <label>Sort by:</label>
                             <select>
                                 <option value="">Default</option>
                                 <option value=""> Name</option>
                                 <option value=""> price</option>
                             </select>
-                        </div>*@
-                    </div>
+                        </div>
+                    </div>*@
                 </div>
                 <div class="grid-list-product-wrapper">
                     <div class="product-grid product-view pb-20">
@@ -58,50 +58,100 @@
 
                             @foreach (var item in Model)
                             {
-                                <div class="product-width col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-30">
-                                    <div class="product-wrapper">
-                                        <div class="product-img">
-                                            <a href="/products/details/@item.ID">
-                                                <img alt="" src="~/Images/product/avatar/@item.Avatar">
-                                            </a>
-                                            @*<span>-30%</span>*@
-                                            <div class="product-action">
-                                                <a class="action-wishlist" href="#" title="Wishlist">
-                                                    <i class="icon-heart"></i>
+                                if (item.DiscountPrice == null && item.Price != null)
+                                {
+                                    <div class="product-width col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-30">
+                                        <div class="product-wrapper">
+                                            <div class="product-img">
+                                                <a href="/products/details/@item.ID">
+                                                    <img alt="" src="~/Images/product/avatar/@item.Avatar">
                                                 </a>
-                                                <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
-                                                    <i class="icon-magnifier-add"></i>
-                                                </a>
+                                                @*<span>-30%</span>*@
+                                                <div class="product-action">
+                                                    <a class="action-wishlist" href="#" title="Wishlist">
+                                                        <i class="icon-heart"></i>
+                                                    </a>
+                                                    <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
+                                                        <i class="icon-magnifier-add"></i>
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="product-content text-center">
-                                            <h4>
-                                                <a href="/products/details/@item.ID">@item.ProductName</a>
-                                            </h4>
-                                            <div class="product-price-wrapper">
-                                                <span>@string.Format("{0:n0}", item.Price) VND</span>
-                                                @*<span class="product-price-old">$120.00 </span>*@
+                                            <div class="product-content text-center">
+                                                <h4>
+                                                    <a href="/products/details/@item.ID">@item.ProductName</a>
+                                                </h4>
+                                                <div class="product-price-wrapper">
+                                                    <span>Giá: @string.Format("{0:n0}", item.Price) VNĐ</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="product-list-details">
-                                            <h4>
-                                                <a href="/products/details/@item.ID">@item.ProductName</a>
-                                            </h4>
-                                            <div class="product-price-wrapper">
-                                                <span>@string.Format("{0:n0}", item.Price) VND</span>
-                                                @*<span class="product-price-old">$120.00 </span>*@
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipic it, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                            <div class="shop-list-cart-wishlist">
-                                                <a href="#" title="Wishlist"><i class="icon-heart"></i></a>
-                                                <a href="#" title="Add To Cart"><i class="icon-handbag"></i></a>
-                                                <a href="/products/details/@item.ID" data-target="#exampleModal" data-toggle="modal" title="Quick View">
-                                                    <i class="icon-magnifier-add"></i>
-                                                </a>
+                                            <div class="product-list-details">
+                                                <h4>
+                                                    <a href="/products/details/@item.ID">@item.ProductName</a>
+                                                </h4>
+                                                <div class="product-price-wrapper">
+                                                    <span>Giá: @string.Format("{0:n0}", item.Price) VNĐ</span>
+                                                    @*<span class="product-price-old">$120.00 </span>*@
+                                                </div>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipic it, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                                <div class="shop-list-cart-wishlist">
+                                                    <a href="#" title="Wishlist"><i class="icon-heart"></i></a>
+                                                    <a href="#" title="Add To Cart"><i class="icon-handbag"></i></a>
+                                                    <a href="/products/details/@item.ID" data-target="#exampleModal" data-toggle="modal" title="Quick View">
+                                                        <i class="icon-magnifier-add"></i>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                }
+                                else if(item.DiscountPrice != null && item.Price != null)
+                                {
+                                    <div class="product-width col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-30">
+                                        <div class="product-wrapper">
+                                            <div class="product-img">
+                                                <a href="/products/details/@item.ID">
+                                                    <img alt="" src="~/Images/product/avatar/@item.Avatar">
+                                                </a>
+                                                @*<span>-30%</span>*@
+                                                <div class="product-action">
+                                                    <a class="action-wishlist" href="#" title="Wishlist">
+                                                        <i class="icon-heart"></i>
+                                                    </a>
+                                                    <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
+                                                        <i class="icon-magnifier-add"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="product-content text-center">
+                                                <h4>
+                                                    <a href="/products/details/@item.ID">@item.ProductName</a>
+                                                </h4>
+                                                <div class="product-price-wrapper">
+                                                    <span>Giá: @string.Format("{0:n0}", item.DiscountPrice) VNĐ</span>
+                                                    <span class="product-price-old">@string.Format("{0:n0}", item.Price) VNĐ </span>
+                                                </div>
+                                            </div>
+                                            <div class="product-list-details">
+                                                <h4>
+                                                    <a href="/products/details/@item.ID">@item.ProductName</a>
+                                                </h4>
+                                                <div class="product-price-wrapper">
+                                                    <span>Giá: @string.Format("{0:n0}", item.DiscountPrice) VNĐ</span>
+                                                    <span class="product-price-old">@string.Format("{0:n0}", item.Price) VNĐ </span>
+                                                </div>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipic it, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                                <div class="shop-list-cart-wishlist">
+                                                    <a href="#" title="Wishlist"><i class="icon-heart"></i></a>
+                                                    <a href="#" title="Add To Cart"><i class="icon-handbag"></i></a>
+                                                    <a href="/products/details/@item.ID" data-target="#exampleModal" data-toggle="modal" title="Quick View">
+                                                        <i class="icon-magnifier-add"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
                             }
 
                         </div>
@@ -109,11 +159,8 @@
                     <div class="pagination-total-pages">
                         <div class="pagination-style">
                             <br />
-                            <strong style="margin: 12px;"> Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</strong>
+                            <strong style="margin: 12px;"> Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount</strong>
                             @Html.PagedListPager(Model, page => Url.Action("Shop", new { page }))
-                        </div>
-                        <div class="total-pages">
-                            <p>Showing 1 - 20 of 30 results  </p>
                         </div>
                     </div>
                 </div>
@@ -121,7 +168,7 @@
             <div class="col-lg-3">
                 <div class="shop-sidebar-wrapper gray-bg-7 shop-sidebar-mrg">
                     <div class="shop-widget">
-                        <h4 class="shop-sidebar-title">Shop By Categories</h4>
+                        <h4 class="shop-sidebar-title">Danh sách danh mục</h4>
                         <div class="shop-catigory">
                             <ul id="faq">
 

@@ -28,10 +28,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/25/2018 00:58:40</publishTime>
     </File>
     <File Include="bin/GreenFlowers.dll">
-      <publishTime>10/05/2018 15:09:42</publishTime>
+      <publishTime>10/05/2018 18:35:32</publishTime>
     </File>
     <File Include="bin/GreenFlowers.pdb">
-      <publishTime>10/05/2018 15:09:42</publishTime>
+      <publishTime>10/05/2018 18:35:32</publishTime>
     </File>
     <File Include="bin/GridMvc.dll">
       <publishTime>09/19/2018 11:37:13</publishTime>
@@ -2053,31 +2053,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/25/2018 00:58:35</publishTime>
     </File>
     <File Include="Views/Blog/Details.cshtml">
-      <publishTime>10/03/2018 10:01:50</publishTime>
+      <publishTime>10/05/2018 17:42:18</publishTime>
     </File>
     <File Include="Views/Blog/Index.cshtml">
-      <publishTime>10/03/2018 10:00:13</publishTime>
+      <publishTime>10/05/2018 17:38:21</publishTime>
+    </File>
+    <File Include="Views/Blog/Search.cshtml">
+      <publishTime>10/05/2018 17:38:27</publishTime>
     </File>
     <File Include="Views/Cart/Cart.cshtml">
-      <publishTime>09/26/2018 23:04:23</publishTime>
+      <publishTime>10/05/2018 17:09:04</publishTime>
     </File>
     <File Include="Views/CheckOut/Checkout.cshtml">
-      <publishTime>09/29/2018 18:54:01</publishTime>
+      <publishTime>10/05/2018 16:30:43</publishTime>
     </File>
     <File Include="Views/Error/ErrorPage.cshtml">
       <publishTime>09/28/2018 16:50:01</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
-      <publishTime>09/28/2018 14:39:35</publishTime>
+      <publishTime>10/05/2018 16:15:24</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>09/28/2018 16:41:21</publishTime>
+      <publishTime>10/05/2018 16:15:35</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>09/29/2018 22:07:43</publishTime>
+      <publishTime>10/05/2018 18:34:25</publishTime>
     </File>
     <File Include="Views/Home/Shop.cshtml">
-      <publishTime>10/04/2018 21:37:06</publishTime>
+      <publishTime>10/05/2018 18:26:59</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
       <publishTime>09/25/2018 00:58:35</publishTime>
@@ -2098,10 +2101,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/25/2018 00:58:35</publishTime>
     </File>
     <File Include="Views/Products/Details.cshtml">
-      <publishTime>10/04/2018 21:51:20</publishTime>
+      <publishTime>10/05/2018 18:30:38</publishTime>
     </File>
     <File Include="Views/Products/ListProduct.cshtml">
-      <publishTime>10/04/2018 02:17:39</publishTime>
+      <publishTime>10/05/2018 18:26:31</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>09/25/2018 00:58:35</publishTime>
@@ -2110,10 +2113,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/25/2018 00:58:35</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>10/03/2018 09:45:14</publishTime>
+      <publishTime>10/05/2018 17:29:07</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutMaster.cshtml">
-      <publishTime>10/04/2018 02:11:02</publishTime>
+      <publishTime>10/05/2018 17:40:57</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>09/25/2018 00:58:35</publishTime>
@@ -2122,49 +2125,52 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/25/2018 00:58:35</publishTime>
     </File>
     <File Include="Views/WebMaster/AddBlog.cshtml">
-      <publishTime>09/25/2018 00:58:35</publishTime>
+      <publishTime>10/05/2018 16:20:39</publishTime>
     </File>
     <File Include="Views/WebMaster/AddCategory.cshtml">
-      <publishTime>09/25/2018 00:58:35</publishTime>
+      <publishTime>10/05/2018 16:21:02</publishTime>
+    </File>
+    <File Include="Views/WebMaster/AddSale.cshtml">
+      <publishTime>10/05/2018 17:52:09</publishTime>
     </File>
     <File Include="Views/WebMaster/CheckOrder.cshtml">
-      <publishTime>09/25/2018 00:58:35</publishTime>
+      <publishTime>10/05/2018 16:37:18</publishTime>
     </File>
     <File Include="Views/WebMaster/EditBlog.cshtml">
-      <publishTime>09/25/2018 00:58:35</publishTime>
+      <publishTime>10/05/2018 16:22:56</publishTime>
     </File>
     <File Include="Views/WebMaster/EditIntroduce.cshtml">
-      <publishTime>09/28/2018 14:12:06</publishTime>
+      <publishTime>10/05/2018 16:23:43</publishTime>
     </File>
     <File Include="Views/WebMaster/EditProduct.cshtml">
-      <publishTime>10/03/2018 14:03:05</publishTime>
+      <publishTime>10/05/2018 16:23:53</publishTime>
     </File>
     <File Include="Views/WebMaster/EditSlider.cshtml">
-      <publishTime>10/04/2018 22:23:19</publishTime>
+      <publishTime>10/05/2018 15:56:41</publishTime>
     </File>
     <File Include="Views/WebMaster/GFProduct.cshtml">
-      <publishTime>10/03/2018 14:02:55</publishTime>
+      <publishTime>10/05/2018 16:36:22</publishTime>
     </File>
     <File Include="Views/WebMaster/Index.cshtml">
-      <publishTime>09/25/2018 00:58:35</publishTime>
+      <publishTime>10/05/2018 16:40:02</publishTime>
     </File>
     <File Include="Views/WebMaster/ListBlog.cshtml">
-      <publishTime>10/03/2018 12:03:59</publishTime>
+      <publishTime>10/05/2018 16:26:35</publishTime>
     </File>
     <File Include="Views/WebMaster/ListCategory.cshtml">
-      <publishTime>09/28/2018 16:53:37</publishTime>
+      <publishTime>10/05/2018 16:25:26</publishTime>
     </File>
     <File Include="Views/WebMaster/ListContact.cshtml">
-      <publishTime>09/28/2018 17:05:05</publishTime>
+      <publishTime>10/05/2018 16:25:20</publishTime>
     </File>
     <File Include="Views/WebMaster/ListOrder.cshtml">
-      <publishTime>09/28/2018 16:54:20</publishTime>
+      <publishTime>10/05/2018 16:37:36</publishTime>
     </File>
     <File Include="Views/WebMaster/ListProduct.cshtml">
-      <publishTime>10/03/2018 12:04:09</publishTime>
+      <publishTime>10/05/2018 16:27:13</publishTime>
     </File>
     <File Include="Views/WebMaster/Login.cshtml">
-      <publishTime>09/25/2018 00:58:35</publishTime>
+      <publishTime>10/05/2018 16:34:48</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
       <publishTime>09/25/2018 00:58:35</publishTime>

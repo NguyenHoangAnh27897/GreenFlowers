@@ -11,8 +11,8 @@
     <div class="container">
         <div class="breadcrumb-content">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li class="active"> Blog Masonry </li>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li class="active">Bài viết</li>
             </ul>
         </div>
     </div>
@@ -39,7 +39,15 @@
                                 </ul>
                             </div>
                         </div>
-                        <p>@Html.Raw(item.ContentBlog.Substring(0, 100)) ...</p>
+                        @if (item.ContentBlog.Count() > 100)
+                        {
+                            <p>@Html.Raw(item.ContentBlog.Substring(0, 100)) ...</p>
+                        }
+                        else
+                        {
+                            <p>@Html.Raw(item.ContentBlog)</p>
+                        }
+
                         <div class="blog-btn-social mt-30">
                             <div class="blog-btn">
                                 <a href="/blog/details/@item.ID">Xem thêm</a>
@@ -53,7 +61,7 @@
         <div class="pagination-total-pages">
             <div class="pagination-style">
                 <br />
-                <strong style="margin: 12px;"> Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</strong>
+                <strong style="margin: 12px;"> Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount</strong>
                 @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
             </div>
         </div>

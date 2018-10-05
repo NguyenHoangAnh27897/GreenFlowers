@@ -94,5 +94,9 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" />
     <Property Name="Slider" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Heading3" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Heading1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Heading5" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Button" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

@@ -1,15 +1,18 @@
 ﻿@model IQueryable<GreenFlowers.Models.GF_Blog>
+    @using GreenFlowers.Models
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    GreenFlowersEntities db = new GreenFlowersEntities();
+    var lst = db.GF_Blog.ToList();
 }
 
 <div class="breadcrumb-area gray-bg">
     <div class="container">
         <div class="breadcrumb-content">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li class="active">Blog Details Standerd </li>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li class="active">Bài viết</li>
             </ul>
         </div>
     </div>
@@ -50,8 +53,8 @@
                 <div class="blog-sidebar-wrapper sidebar-mrg">
                     <div class="blog-widget mb-50">
                         <div class="blog-search">
-                            <form class="news-form">
-                                <input type="text" placeholder="Search.....">
+                            <form class="news-form" method="get" action="/blog/search">
+                                <input type="text" placeholder="Tìm....." name="content">
                                 <button type="submit">
                                     <i class="ion-search"></i>
                                 </button>
@@ -61,49 +64,26 @@
                     <div class="blog-widget mb-40">
                         <div class="blog-author">
                             <a href="#"><img src="~/Images/blog/blog-author.png" alt=""></a>
-                            <h4><a href="#">Kathy Gibson</a></h4>
-                            <span>Head of Director, SEO</span>
+                            <h4><a href="#">ADMIN</a></h4>
+                            <span>ADMIN Website</span>
                         </div>
                     </div>
                     <div class="blog-widget mb-45">
                         <h4 class="blog-widget-title mb-25">Bài viết khác</h4>
                         <div class="blog-recent-post">
-                            <div class="recent-post-wrapper mb-25">
-                                <div class="recent-post-img">
-                                    <a href="#"><img src="~/Images/blog/blog-recentpost-1.jpg" alt=""></a>
+                            @foreach (var item in lst)
+                            {
+                                <div class="recent-post-wrapper mb-25">
+                                    <div class="recent-post-img">
+                                        <a href="/blog/details/@item.ID"><img src="~/Images/blog/@item.Avatar" alt=""></a>
+                                    </div>
+                                    <div class="recent-post-content">
+                                        <h4><a href="/blog/details/@item.ID">@item.Title</a></h4>
+                                        <span>@item.CreatedDate</span>
+                                    </div>
                                 </div>
-                                <div class="recent-post-content">
-                                    <h4><a href="#">New Products</a></h4>
-                                    <span>October 14, 2018</span>
-                                </div>
-                            </div>
-                            <div class="recent-post-wrapper mb-25">
-                                <div class="recent-post-img">
-                                    <a href="#"><img src="~/Images/blog/blog-recentpost-2.jpg" alt=""></a>
-                                </div>
-                                <div class="recent-post-content">
-                                    <h4><a href="#">New Products</a></h4>
-                                    <span>October 14, 2018</span>
-                                </div>
-                            </div>
-                            <div class="recent-post-wrapper mb-25">
-                                <div class="recent-post-img">
-                                    <a href="#"><img src="~/Images/blog/blog-recentpost-3.jpg" alt=""></a>
-                                </div>
-                                <div class="recent-post-content">
-                                    <h4><a href="#">New Products</a></h4>
-                                    <span>October 14, 2018</span>
-                                </div>
-                            </div>
-                            <div class="recent-post-wrapper mb-25">
-                                <div class="recent-post-img">
-                                    <a href="#"><img src="~/Images/blog/blog-recentpost-4.jpg" alt=""></a>
-                                </div>
-                                <div class="recent-post-content">
-                                    <h4><a href="#">New Products</a></h4>
-                                    <span>October 14, 2018</span>
-                                </div>
-                            </div>
+                            }
+
                         </div>
                     </div>                 
                 </div>

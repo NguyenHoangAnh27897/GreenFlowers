@@ -84,6 +84,10 @@
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
     <Property Name="Slider" Type="nvarchar(max)" />
+    <Property Name="Heading3" Type="nvarchar" MaxLength="200" />
+    <Property Name="Heading1" Type="nvarchar" MaxLength="200" />
+    <Property Name="Heading5" Type="nvarchar" MaxLength="200" />
+    <Property Name="Button" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityContainer Name="hoat7422_hoatuoixanhcomModelStoreContainer">
     <EntitySet Name="GF_Blog" EntityType="Self.GF_Blog" Schema="dbo" store:Type="Tables" />

@@ -7,7 +7,7 @@
         <div class="breadcrumb-content">
             <ul>
                 <li>@Html.ActionLink("Trang Chủ", "Index", "Home")</li>
-                <li class="active">About us </li>
+                <li class="active">Về chúng tôi</li>
             </ul>
         </div>
     </div>
@@ -20,7 +20,7 @@
                     <h2>Chào mừng đến với <span>Hoa tươi xanh</span> !</h2>
                    @Html.Raw(Model.FirstOrDefault().ContentIntroduce)
                     <div class="overview-btn mt-45">
-                        <a class="btn-style-2" href="@Url.Action("Shop", "Home")">Shop now!</a>
+                        <a class="btn-style-2" href="@Url.Action("Shop", "Home")">Mua ngay</a>
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
         </div>
     </div>
 </div>
-<div class="project-count-area gray-bg pt-100 pb-70">
+@*<div class="project-count-area gray-bg pt-100 pb-70">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6">
@@ -114,7 +114,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
 <div class="brand-logo-area ptb-75">
     <div class="container">
         <div class="brand-logo-active owl-carousel">

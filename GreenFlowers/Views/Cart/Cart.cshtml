@@ -8,8 +8,8 @@
     <div class="container">
         <div class="breadcrumb-content">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li class="active">Wishlist </li>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li class="active">Giỏ hàng</li>
             </ul>
         </div>
     </div>
@@ -17,7 +17,7 @@
 <!-- shopping-cart-area start -->
 <div class="cart-main-area pt-70 pb-75">
     <div class="container">
-        <h3 class="page-title">Your cart items</h3>
+        <h3 class="page-title">Sản phẩm của bạn</h3>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                 <form action="/cart/addtocart" method="post">
@@ -26,17 +26,18 @@
                             <thead>
                                 <tr>
                                     <th></th>
-                                    <th>Product Name</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Total Price</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Tổng giá</th>
                                 </tr>
                             </thead>
                             <tbody class="tbody-cart"></tbody>
                         </table>
                     </div>
-                    <div class="col-sm-4">
-                        <button class="shopping-cart-buy btn btn-success">Thanh toán</button>
+                    <br />
+                    <div class="col-sm-8">
+                        <button class="shopping-cart-buy btn btn-success" style="height:45px;width:125px;border-radius:5%">Thanh toán</button>
                     </div>
                 </form>
             </div>

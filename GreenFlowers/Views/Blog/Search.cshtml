@@ -1,12 +1,10 @@
 ﻿@using PagedList.Mvc;
 @using GridMvc.Html;
 @model PagedList.IPagedList<GreenFlowers.Models.GF_Blog>
-@using GreenFlowers.Models
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Search";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="breadcrumb-area gray-bg">
     <div class="container">
         <div class="breadcrumb-content">
@@ -47,7 +45,6 @@
                         {
                             <p>@Html.Raw(item.ContentBlog)</p>
                         }
-
                         <div class="blog-btn-social mt-30">
                             <div class="blog-btn">
                                 <a href="/blog/details/@item.ID">Xem thêm</a>
@@ -67,4 +64,6 @@
         </div>
     </div>
 </div>
+
+
 

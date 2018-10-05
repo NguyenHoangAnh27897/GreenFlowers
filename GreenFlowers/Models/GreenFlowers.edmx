@@ -89,6 +89,10 @@
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Slider" Type="nvarchar(max)" />
+          <Property Name="Heading3" Type="nvarchar" MaxLength="200" />
+          <Property Name="Heading1" Type="nvarchar" MaxLength="200" />
+          <Property Name="Heading5" Type="nvarchar" MaxLength="200" />
+          <Property Name="Button" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="hoat7422_hoatuoixanhcomModelStoreContainer">
           <EntitySet Name="GF_Blog" EntityType="Self.GF_Blog" Schema="dbo" store:Type="Tables" />
@@ -198,6 +202,10 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Slider" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Heading3" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Heading1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Heading5" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Button" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -292,6 +300,10 @@
           <EntitySetMapping Name="GF_Slider">
             <EntityTypeMapping TypeName="hoat7422_hoatuoixanh.comModel.GF_Slider">
               <MappingFragment StoreEntitySet="GF_Slider">
+                <ScalarProperty Name="Button" ColumnName="Button" />
+                <ScalarProperty Name="Heading5" ColumnName="Heading5" />
+                <ScalarProperty Name="Heading1" ColumnName="Heading1" />
+                <ScalarProperty Name="Heading3" ColumnName="Heading3" />
                 <ScalarProperty Name="Slider" ColumnName="Slider" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>

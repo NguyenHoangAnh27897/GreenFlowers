@@ -4,8 +4,8 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
     GreenFlowersEntities db = new GreenFlowersEntities();
-    var lst = db.GF_Product.ToList();
     var id = Model.FirstOrDefault().IDCategory;
+    var lst = db.GF_Product.Where(s => s.IDCategory == id).ToList();
     var name = db.GF_Category.Where(s=>s.ID==id).FirstOrDefault().Category;
 }
 
@@ -13,7 +13,7 @@
     <div class="container">
         <div class="breadcrumb-content">
             <ul>
-                <li><a href="/home/index">Home</a></li>
+                <li><a href="/home/index">Trang chủ</a></li>
                 <li class="active">Chi tiết sản phẩm </li>
             </ul>
         </div>
@@ -45,30 +45,44 @@
                             <img src="~/Images/product-details/product-detalis-s2.jpg" alt="">
                         </a>
                     </div>
-                    <span>-29%</span>
+                    @*<span>-29%</span>*@
                 </div>
             </div>
             <div class="col-lg-6 col-md-12">
                 <div class="product-details-content">
                     <h4>@Model.FirstOrDefault().ProductName</h4>
                     <div class="rating-review">
-                        <div class="pro-dec-rating">
-                            <i class="ion-android-star-outline theme-star"></i>
-                            <i class="ion-android-star-outline theme-star"></i>
-                            <i class="ion-android-star-outline theme-star"></i>
-                            <i class="ion-android-star-outline theme-star"></i>
-                            <i class="ion-android-star-outline"></i>
-                        </div>
+                        @*<div class="pro-dec-rating">
+                <i class="ion-android-star-outline theme-star"></i>
+                <i class="ion-android-star-outline theme-star"></i>
+                <i class="ion-android-star-outline theme-star"></i>
+                <i class="ion-android-star-outline theme-star"></i>
+                <i class="ion-android-star-outline"></i>
+            </div>*@
                         <div class="pro-dec-review">
                             <ul>
-                                <li>@Model.FirstOrDefault().CustomerView Lượt xem</li>
+                                <li>Sản phẩm có @Model.FirstOrDefault().CustomerView lượt xem</li>
                             </ul>
                         </div>
                     </div>
-                    <span>@string.Format("{0:n0}", Model.FirstOrDefault().Price) VNĐ</span>
-                    <div class="in-stock">
-                        <p>Available: <span>In stock</span></p>
-                    </div>
+                    @if (Model.FirstOrDefault().DiscountPrice == null && Model.FirstOrDefault().Price != null)
+                    {
+                        <span>Giá: @string.Format("{0:n0}", Model.FirstOrDefault().Price) VNĐ</span>
+                    }
+                    else if (Model.FirstOrDefault().DiscountPrice != null && Model.FirstOrDefault().Price != null)
+                    {
+                        <div class="product-price-wrapper">
+                            <span>Giá: @string.Format("{0:n0}", Model.FirstOrDefault().DiscountPrice) VNĐ</span>
+                            <span class="product-price-old">@string.Format("{0:n0}", Model.FirstOrDefault().Price) VNĐ</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="product-price-wrapper">
+                            <span>Giá: @string.Format("{0:n0}", Model.FirstOrDefault().DiscountPrice) VNĐ</span>
+                        </div>
+                    }
+
                     @if (Model.FirstOrDefault().Description.Count() > 100)
                     {
                         <p>@Html.Raw(Model.FirstOrDefault().Description.Substring(0, 100)) ... <a href="#" style="color:blue">Xem thêm</a></p>
@@ -87,19 +101,19 @@
                     <div class="pro-dec-categories">
                         <ul>
                             <li class="categories-title">Danh mục:</li>
-                                <li> <a href="/products/listproduct/@Model.FirstOrDefault().IDCategory">@name</a></li>
+                            <li> <a href="/products/listproduct/@Model.FirstOrDefault().IDCategory">@name</a></li>
                         </ul>
                     </div>
                     @*<div class="pro-dec-categories">
-                        <ul>
-                            <li class="categories-title">Tags: </li>
-                            <li><a href="#"> Bouquet,</a></li>
-                            <li><a href="#"> Event, </a></li>
-                            <li><a href="#"> Gift,</a></li>
-                            <li><a href="#"> Joy,</a></li>
-                            <li><a href="#"> Love </a></li>
-                        </ul>
-                    </div>*@
+            <ul>
+                <li class="categories-title">Tags: </li>
+                <li><a href="#"> Bouquet,</a></li>
+                <li><a href="#"> Event, </a></li>
+                <li><a href="#"> Gift,</a></li>
+                <li><a href="#"> Joy,</a></li>
+                <li><a href="#"> Love </a></li>
+            </ul>
+        </div>*@
                 </div>
             </div>
         </div>
@@ -109,8 +123,8 @@
     <div class="container">
         <div class="description-review-wrapper">
             <div class="description-review-topbar nav text-center">
-                <a class="active" data-toggle="tab" href="#des-details1">Description</a>
-                <a data-toggle="tab" href="#des-details2">Tags</a>
+                <a class="active" data-toggle="tab" href="#des-details1">Mô tả</a>
+                <a data-toggle="tab" href="#des-details2">Danh mục</a>
                 @*<a data-toggle="tab" href="#des-details3">Review</a>*@
             </div>
             <div class="tab-content description-review-bottom">
@@ -122,7 +136,7 @@
                 <div id="des-details2" class="tab-pane">
                     <div class="product-anotherinfo-wrapper">
                         <ul>
-                            <li><span>Tag:</span></li>
+                            <li><span>Loại:</span></li>
                             <li> <a href="/products/listproduct/@Model.FirstOrDefault().IDCategory">@name</a></li>
                         </ul>
                     </div>
@@ -141,7 +155,7 @@
         <div class="featured-product-active hot-flower owl-carousel product-nav">
             @foreach (var item in lst)
             {
-                if (item.IDCategory == Model.FirstOrDefault().IDCategory)
+                if (item.DiscountPrice == null && item.Price != null)
                 {
                     <div class="product-wrapper">
                         <div class="product-img">
@@ -167,6 +181,34 @@
                         </div>
                     </div>
                 }
+                else if (item.DiscountPrice != null && item.Price != null)
+                {
+                    <div class="product-wrapper">
+                        <div class="product-img">
+                            <a href="/products/details/@item.ID">
+                                <img alt="" src="~/Images/product/avatar/@item.Avatar">
+                            </a>
+                            <div class="product-action">
+                                <a class="action-wishlist" href="#" title="Wishlist">
+                                    <i class="icon-heart"></i>
+                                </a>
+                                <a class="action-compare" href="/products/details/@item.ID" data-target="#exampleModal" data-toggle="modal" title="Quick View">
+                                    <i class="icon-magnifier-add"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-content text-center">
+                            <h4>
+                                <a href="/products/details/@item.ID">@item.ProductName </a>
+                            </h4>
+                            <div class="product-price-wrapper">
+                                <span>Giá: @string.Format("{0:n0}", item.DiscountPrice) VNĐ</span>
+                                <span class="product-price-old">@string.Format("{0:n0}", item.Price) VNĐ</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+
             }
 
         </div>

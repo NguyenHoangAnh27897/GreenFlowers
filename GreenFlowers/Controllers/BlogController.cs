@@ -15,7 +15,7 @@ namespace GreenFlowers.Controllers
         // GET: Blog
         public ActionResult Index(int? page = 1)
         {
-            int pageSize = 5;
+            int pageSize = 7;
             int pageNumber = (page ?? 1);
             var lst = db.GF_Blog.OrderByDescending(s=>s.CreatedDate).ToList();
             return View(lst.ToPagedList(pageNumber, pageSize));
@@ -25,6 +25,15 @@ namespace GreenFlowers.Controllers
         {
             var rs = db.GF_Blog.Where(s => s.ID == id);
             return View(rs);
+        }
+
+        [HttpGet]
+        public ActionResult Search(string content, int? page = 1)
+        {
+            int pageSize = 7;
+            int pageNumber = (page ?? 1);
+            var lst = db.GF_Blog.Where(s => s.Title.Contains(content)).ToList();
+            return View(lst.ToPagedList(pageNumber, pageSize));
         }
     }
 }

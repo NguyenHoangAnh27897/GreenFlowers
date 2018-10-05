@@ -15,8 +15,8 @@
             <div class="col-lg-12">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/webmaster/index">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Quản lý Product</li>
+                        <li class="breadcrumb-item"><a href="/webmaster/index">Trang chủ</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Quản lý Sản phẩm</li>
                     </ol>
                 </nav>
             </div>
@@ -39,23 +39,23 @@
 
                                 <input type="text" class="form-control" placeholder="" name="id" value="@Model.FirstOrDefault().ID" style="display:none">
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput4">Product Name</label>
+                                    <label for="exampleFormControlInput4">Tên sản phẩm</label>
                                     <input type="text" class="form-control" placeholder="" name="name" value="@Model.FirstOrDefault().ProductName">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput4">Price</label>
+                                    <label for="exampleFormControlInput4">Giá</label>
                                     <input style="width:20%" type="number" class="form-control" placeholder="" name="price" step="any" value="@Model.FirstOrDefault().Price">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput4">Discount Price</label>
+                                    <label for="exampleFormControlInput4">Giá giảm</label>
                                     <input type="checkbox" name="discountprice" data-toggle="collapse" data-target="#discount" step="any">
                                     <input style="width:20%" id="discount" type="number" class="form-control collapse" name="discountprice" step="any" value="@Model.FirstOrDefault().DiscountPrice">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Category</label>
+                                    <label for="exampleFormControlSelect1">Danh mục</label>
                                     <select name='category' class='form-control'>
                                         @foreach (var item in lst)
                                         {
@@ -89,7 +89,7 @@
                                     else
                                     {
                                         <div class="form-group">
-                                            <label for="exampleFormControlFile1">Images</label>
+                                            <label for="exampleFormControlFile1">Hình ảnh</label>
                                             <br />
                                             <input type="file" name="images" accept="image/*" multiple="multiple" />
                                             <img src="~/Images/product/image/@Model.FirstOrDefault().Images" />
@@ -100,22 +100,22 @@
                                 else
                                 {
                                     <div class="form-group">
-                                        <label for="exampleFormControlFile1">Images</label>
+                                        <label for="exampleFormControlFile1">Hình ảnh</label>
                                         <br />
                                         <input type="file" name="images" accept="image/*" multiple="multiple" />
                                     </div>
                                 }
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Description</label>
+                                    <label for="exampleFormControlSelect1">Mô tả</label>
                                     <br />
                                     <textarea name="editor" id="editor" rows="50" cols="80">@Model.FirstOrDefault().Description</textarea>
                                 </div>
 
-                                <div class="form-group">
+                                @*<div class="form-group">
                                     <label class="form-check-label"><input type="checkbox" name="hide" value="true" />Hide</label>
-                                </div>
+                                </div>*@
 
-                                <button class="btn btn-primaryt">Submit</button>
+                                <button class="btn btn-primaryt">Lưu</button>
                             </form>
                         </div>
 

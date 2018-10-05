@@ -3,24 +3,49 @@
 @{
     GreenFlowersEntities db = new GreenFlowersEntities();
     var lst = db.GF_Product.OrderByDescending(s => s.CustomerView).ToList();
-    ViewBag.Title = "Home Page";
+    var lstcate = db.GF_Category.OrderByDescending(s => s.ID).ToList();
+    var slider = db.GF_Slider.Where(s => s.ID == 1).FirstOrDefault();
+    string[] arrStr;
 }
 
 <div class="slider-area">
     <div class="slider-active owl-dot-style owl-carousel">
-        <div class="single-slider pt-175 pb-258 bg-img" style="background-image:url(../../Images/slider/slider-1.jpg);">
-            <div class="container">
-                <div class="slider-content slider-animated-1">
-                    <h3 class="animated">New Arrivals</h3>
-                    <h1 class="animated">For Mother’s Day!</h1>
-                    <h5 class="animated">Exclusive Offer -10% Off This Week</h5>
-                    <div class="slider-btn mt-45">
-                        <a class="animated" href="@Url.Action("Details", "Products")">shop Now</a>
+        @if (slider.Slider.Contains(","))
+        {
+            arrStr = slider.Slider.Split(',');
+            foreach (var img in arrStr)
+            {
+                <div class="single-slider pt-175 pb-258 bg-img" style="background-image:url(../../Images/slider/@img);">
+                    <div class="container">
+                        <div class="slider-content slider-animated-1">
+                            <h3 class="animated">@slider.Heading3</h3>
+                            <h1 class="animated">@slider.Heading1</h1>
+                            <h5 class="animated">@slider.Heading5</h5>
+                            <div class="slider-btn mt-45">
+                                <a class="animated" href="@Url.Action("Details", "Products")">@slider.Button</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="single-slider pt-175 pb-258 bg-img" style="background-image:url(../../Images/slider/@slider.Slider);">
+                <div class="container">
+                    <div class="slider-content slider-animated-1">
+                        <h3 class="animated">@slider.Heading3</h3>
+                        <h1 class="animated">@slider.Heading1</h1>
+                        <h5 class="animated">@slider.Heading5</h5>
+                        <div class="slider-btn mt-45">
+                            <a class="animated" href="@Url.Action("Details", "Products")">@slider.Button</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="single-slider pt-175 pb-258 bg-img" style="background-image:url(../../Images/slider/slider-2.jpg);">
+        }
+
+        @*<div class="single-slider pt-175 pb-258 bg-img" style="background-image:url(../../Images/slider/slider-2.jpg);">
             <div class="container">
                 <div class="slider-content slider-animated-2">
                     <h3 class="animated">New Arrivals</h3>
@@ -31,7 +56,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>*@
     </div>
 </div>
 <div class="banner-area">
@@ -44,8 +69,8 @@
                             <img src="~/Images/banner/banner-1.png" alt="">
                         </a>
                         <div class="banner-content">
-                            <h4>Camellias</h4>
-                            <a href="@Url.Action("Shop", "Home")">shop Now</a>
+                            <h4>@lstcate.FirstOrDefault().Category</h4>
+                            <a href="/products/listproduct/@lstcate.FirstOrDefault().ID">Mua ngay</a>
                         </div>
                     </div>
                 </div>
@@ -55,8 +80,8 @@
                             <img src="~/Images/banner/banner-2.png" alt="">
                         </a>
                         <div class="banner-content">
-                            <h4>Bergamot</h4>
-                            <a href="@Url.Action("Shop", "Home")">shop Now</a>
+                            <h4>@lstcate.Skip(1).FirstOrDefault().Category</h4>
+                            <a href="/products/listproduct/@lstcate.Skip(1).FirstOrDefault().ID">Mua ngay</a>
                         </div>
                     </div>
                 </div>
@@ -66,8 +91,8 @@
                             <img src="~/Images/banner/banner-3.png" alt="">
                         </a>
                         <div class="banner-content">
-                            <h4>Bottlebrush</h4>
-                            <a href="@Url.Action("Shop", "Home")">shop Now</a>
+                            <h4>@lstcate.Skip(2).FirstOrDefault().Category</h4>
+                            <a href="/products/listproduct/@lstcate.Skip(2).FirstOrDefault().ID">Mua ngay</a>
                         </div>
                     </div>
                 </div>
@@ -79,9 +104,9 @@
     <div class="container">
         <div class="product-top-bar section-border mb-35">
             <div class="section-title-wrap">
-                <h3 class="section-title section-bg-white">Featured Products</h3>
+                <h3 class="section-title section-bg-white">Sản phẩm mới</h3>
             </div>
-            <div class="product-tab-list nav section-bg-white">
+            @*<div class="product-tab-list nav section-bg-white">
                 <a class="active" data-toggle="tab" href="#tab1">
                     <h4>All </h4>
                 </a>
@@ -94,141 +119,77 @@
                 <a data-toggle="tab" href="#tab4">
                     <h4>Greens </h4>
                 </a>
-            </div>
+            </div>*@
         </div>
         <div class="tab-content jump">
             <div id="tab1" class="tab-pane active">
                 <div class="featured-product-active owl-carousel product-nav">
                     @foreach (var item in Model)
                     {
-                        <div class="product-wrapper">
-                            <div class="product-img">
-                                <a href="/products/details/@item.ID">
-                                    <img alt="" src="~/Images/product/avatar/@item.Avatar">
-                                </a>
-                                @*<span>-30%</span>*@
-                                <div class="product-action">
-                                    <a class="action-wishlist" href="#" title="Wishlist">
-                                        <i class="icon-heart"></i>
+                        if (item.DiscountPrice == null && item.Price != null)
+                        {
+                            <div class="product-wrapper">
+                                <div class="product-img">
+                                    <a href="/products/details/@item.ID">
+                                        <img alt="" src="~/Images/product/avatar/@item.Avatar">
                                     </a>
-                                    <a class="action-compare" href="/product/detail/@item.ID" data-target="#exampleModal" data-toggle="modal" title="Quick View">
-                                        <i class="icon-magnifier-add"></i>
-                                    </a>
+                                    @*<span>-30%</span>*@
+                                    <div class="product-action">
+                                        <a class="action-wishlist" href="#" title="Wishlist">
+                                            <i class="icon-heart"></i>
+                                        </a>
+                                        <a class="action-compare" href="/product/detail/@item.ID" data-target="#exampleModal" data-toggle="modal" title="Quick View">
+                                            <i class="icon-magnifier-add"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="product-content text-center">
+                                    <h4>
+                                        <a href="/products/details/@item.ID">@item.ProductName</a>
+                                    </h4>
+                                    <div class="product-price-wrapper">
+                                        <span>Giá: @string.Format("{0:n0}", item.Price) VNĐ</span>
+                                        @*<span class="product-price-old">$120.00 </span>*@
+                                    </div>
                                 </div>
                             </div>
-                            <div class="product-content text-center">   
-                                <h4>
-                                    <a href="/products/details/@item.ID">@item.ProductName</a>
-                                </h4>
-                                <div class="product-price-wrapper">
-                                    <span>Giá: @string.Format("{0:n0}", item.Price) VNĐ</span>
-                                    @*<span class="product-price-old">$120.00 </span>*@
-                                </div>
-                            </div>
-                        </div>
-                    }
-                </div>
-            </div>
-            <div id="tab2" class="tab-pane">
-                <div class="featured-product-active owl-carousel product-nav">
-                    @foreach (var item in Model)
-                    {
-                        <div class="product-wrapper">
-                            <div class="product-img">
-                                <a href="/products/details/@item.ID">
-                                    <img alt="" src="~/Images/product/avatar/@item.Avatar">
-                                </a>
-                                @*<span>-30%</span>*@
-                                <div class="product-action">
-                                    <a class="action-wishlist" href="#" title="Wishlist">
-                                        <i class="icon-heart"></i>
+                        }
+                        else if (item.DiscountPrice != null && item.Price != null)
+                        {
+                            <div class="product-wrapper">
+                                <div class="product-img">
+                                    <a href="/products/details/@item.ID">
+                                        <img alt="" src="~/Images/product/avatar/@item.Avatar">
                                     </a>
-                                    <a class="action-compare" href="/product/detail/@item.ID" data-target="#exampleModal" data-toggle="modal" title="Quick View">
-                                        <i class="icon-magnifier-add"></i>
-                                    </a>
+                                    @*<span>-30%</span>*@
+                                    <div class="product-action">
+                                        <a class="action-wishlist" href="#" title="Wishlist">
+                                            <i class="icon-heart"></i>
+                                        </a>
+                                        <a class="action-compare" href="/product/detail/@item.ID" data-target="#exampleModal" data-toggle="modal" title="Quick View">
+                                            <i class="icon-magnifier-add"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="product-content text-center">
+                                    <h4>
+                                        <a href="/products/details/@item.ID">@item.ProductName</a>
+                                    </h4>
+                                    <div class="product-price-wrapper">
+                                        <span>Giá: @string.Format("{0:n0}", item.DiscountPrice) VNĐ</span>
+                                        <span class="product-price-old">@string.Format("{0:n0}", item.Price) VNĐ</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="product-content text-center">
-                                <h4>
-                                    <a href="/products/details/@item.ID">@item.ProductName</a>
-                                </h4>
-                                <div class="product-price-wrapper">
-                                    <span>Giá: @string.Format("{0:n0}", item.Price) VNĐ</span>
-                                    @*<span class="product-price-old">$120.00 </span>*@
-                                </div>
-                            </div>
-                        </div>
-                    }
-                </div>
-            </div>
-            <div id="tab3" class="tab-pane">
-                <div class="featured-product-active owl-carousel product-nav">
-                    @foreach (var item in Model)
-                    {
-                        <div class="product-wrapper">
-                            <div class="product-img">
-                                <a href="/products/details/@item.ID">
-                                    <img alt="" src="~/Images/product/avatar/@item.Avatar">
-                                </a>
-                                @*<span>-30%</span>*@
-                                <div class="product-action">
-                                    <a class="action-wishlist" href="#" title="Wishlist">
-                                        <i class="icon-heart"></i>
-                                    </a>
-                                    <a class="action-compare" href="/product/detail/@item.ID" data-target="#exampleModal" data-toggle="modal" title="Quick View">
-                                        <i class="icon-magnifier-add"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="product-content text-center">
-                                <h4>
-                                    <a href="/products/details/@item.ID">@item.ProductName</a>
-                                </h4>
-                                <div class="product-price-wrapper">
-                                    <span>Giá: @string.Format("{0:n0}", item.Price) VNĐ</span>
-                                    @*<span class="product-price-old">$120.00 </span>*@
-                                </div>
-                            </div>
-                        </div>
-                    }
-                </div>
-            </div>
-            <div id="tab4" class="tab-pane">
-                <div class="featured-product-active owl-carousel product-nav">
-                    @foreach (var item in Model)
-                    {
-                        <div class="product-wrapper">
-                            <div class="product-img">
-                                <a href="/products/details/@item.ID">
-                                    <img alt="" src="~/Images/product/avatar/@item.Avatar">
-                                </a>
-                                @*<span>-30%</span>*@
-                                <div class="product-action">
-                                    <a class="action-wishlist" href="#" title="Wishlist">
-                                        <i class="icon-heart"></i>
-                                    </a>
-                                    <a class="action-compare" href="/product/detail/@item.ID" data-target="#exampleModal" data-toggle="modal" title="Quick View">
-                                        <i class="icon-magnifier-add"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="product-content text-center">
-                                <h4>
-                                    <a href="/products/details/@item.ID">@item.ProductName</a>
-                                </h4>
-                                <div class="product-price-wrapper">
-                                    <span>Giá: @string.Format("{0:n0}", item.Price) VNĐ</span>
-                                    @*<span class="product-price-old">$120.00 </span>*@
-                                </div>
-                            </div>
-                        </div>
+                        }
+
                     }
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="testimonials-area bg-img pt-120 pb-115" style="background-image:url(../../Images/bg/bg-1.jpg);">
+@*<div class="testimonials-area bg-img pt-120 pb-115" style="background-image:url(../../Images/bg/bg-1.jpg);">
     <div class="container">
         <div class="row">
             <div class="col-lg-7 col-md-12 ml-auto col-12">
@@ -258,60 +219,50 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
 <div class="best-selling-product pt-70 pb-75 gray-bg">
     <div class="container">
         <div class="product-top-bar section-border mb-35">
             <div class="section-title-wrap">
-                <h3 class="section-title section-bg-gray">Best Selling Products</h3>
+                <h3 class="section-title section-bg-gray">Sản phẩm với đợt giảm giá</h3>
             </div>
         </div>
         <div class="best-selling-wrap">
             <div class="best-selling-active owl-carousel product-nav">
-                <div class="single-best-selling">
-                    <div class="row">
-                        <div class="col-lg-6 col-xl-5 col-md-6">
-                            <div class="single-best-img">
-                                <img class="tilter" src="~/Images/banner/deal-1.png" alt="">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-7 col-md-6">
-                            <div class="deals-content text-center deal-mrg">
-                                <img alt="" src="~/Images/icon-img/deals-2.png">
-                                <h2>Hot Deal ! Sale Up To <span>20% Off</span></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. </p>
-                                <div class="timer timer-style">
-                                    <div data-countdown="2018/09/01"></div>
+                @foreach (var item in lst)
+                {
+                    if (item.Price == null)
+                    {
+                        <div class="single-best-selling">
+                            <div class="row">
+                                <div class="col-lg-6 col-xl-5 col-md-6">
+                                    <div class="single-best-img">
+                                        <img class="tilter" src="~/Images/product/avatar/@item.Avatar" alt="">
+                                    </div>
                                 </div>
-                                <div class="deals-btn">
-                                    <a href="#">Shop Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-best-selling">
-                    <div class="row">
-                        <div class="col-lg-6 col-xl-5 col-md-6">
-                            <div class="single-best-img">
-                                <img class="tilter" src="~/Images/banner/deal-1.png" alt="">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-7 col-md-6">
-                            <div class="deals-content text-center deal-mrg">
-                                <img alt="" src="~/Images/icon-img/deals-2.png">
-                                <h2>Hot Deal ! Sale Up To <span>20% Off</span></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. </p>
-                                <div class="timer timer-style">
-                                    <div data-countdown="2018/09/01"></div>
-                                </div>
-                                <div class="deals-btn">
-                                    <a href="#">Shop Now</a>
+                                <div class="col-lg-6 col-xl-7 col-md-6">
+                                    <div class="deals-content text-center deal-mrg">
+                                        <img alt="" src="~/Images/icon-img/deals-2.png">
+                                        <h2>Giảm chỉ còn <span>@string.Format("{0:n0}", item.DiscountPrice) VNĐ</span></h2>
+                                        @if (item.Description.Count() > 100)
+                                        {
+                                            <p>@Html.Raw(item.Description.Substring(0, 100)) ... </p>
+                                        }
+                                        else {
+                                            <p>@Html.Raw(item.Description)</p>
+                                        }
+                                        <div class="timer timer-style">
+                                            <div data-countdown="@item.SaleFromDate"></div>
+                                        </div>
+                                        <div class="deals-btn">
+                                            <a href="/products/details/@item.ID">Mua ngay</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    }
+                }
             </div>
         </div>
     </div>
@@ -320,37 +271,69 @@
     <div class="container">
         <div class="product-top-bar section-border mb-35">
             <div class="section-title-wrap">
-                <h3 class="section-title section-bg-white">Hot Flower</h3>
+                <h3 class="section-title section-bg-white">Sản phẩm bán chạy</h3>
             </div>
         </div>
         <div class="featured-product-active hot-flower owl-carousel product-nav">
             @foreach (var item in lst)
             {
-                <div class="product-wrapper">
-                    <div class="product-img">
-                        <a href="/products/details/@item.ID">
-                            <img alt="" src="~/Images/product/avatar/@item.Avatar">
-                        </a>
-                        @*<span>-30%</span>*@
-                        <div class="product-action">
-                            <a class="action-wishlist" href="#" title="Wishlist">
-                                <i class="icon-heart"></i>
+                if (item.DiscountPrice == null && item.Price != null)
+                {
+                    <div class="product-wrapper">
+                        <div class="product-img">
+                            <a href="/products/details/@item.ID">
+                                <img alt="" src="~/Images/product/avatar/@item.Avatar">
                             </a>
-                            <a class="action-compare" href="/product/detail/@item.ID" data-target="#exampleModal" data-toggle="modal" title="Quick View">
-                                <i class="icon-magnifier-add"></i>
-                            </a>
+                            @*<span>-30%</span>*@
+                            <div class="product-action">
+                                <a class="action-wishlist" href="#" title="Wishlist">
+                                    <i class="icon-heart"></i>
+                                </a>
+                                <a class="action-compare" href="/product/detail/@item.ID" data-target="#exampleModal" data-toggle="modal" title="Quick View">
+                                    <i class="icon-magnifier-add"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-content text-center">
+                            <h4>
+                                <a href="/products/details/@item.ID">@item.ProductName</a>
+                            </h4>
+                            <div class="product-price-wrapper">
+                                <span>Giá: @string.Format("{0:n0}", item.Price) VNĐ</span>
+                                @*<span class="product-price-old">$120.00 </span>*@
+                            </div>
                         </div>
                     </div>
-                    <div class="product-content text-center">
-                        <h4>
-                            <a href="/products/details/@item.ID">@item.ProductName</a>
-                        </h4>
-                        <div class="product-price-wrapper">
-                            <span>Giá: @string.Format("{0:n0}", item.Price) VNĐ</span>
-                            @*<span class="product-price-old">$120.00 </span>*@
+                }
+                else if (item.DiscountPrice != null && item.Price != null)
+                {
+                    <div class="product-wrapper">
+                        <div class="product-img">
+                            <a href="/products/details/@item.ID">
+                                <img alt="" src="~/Images/product/avatar/@item.Avatar">
+                            </a>
+                            @*<span>-30%</span>*@
+                            <div class="product-action">
+                                <a class="action-wishlist" href="#" title="Wishlist">
+                                    <i class="icon-heart"></i>
+                                </a>
+                                <a class="action-compare" href="/product/detail/@item.ID" data-target="#exampleModal" data-toggle="modal" title="Quick View">
+                                    <i class="icon-magnifier-add"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-content text-center">
+                            <h4>
+                                <a href="/products/details/@item.ID">@item.ProductName</a>
+                            </h4>
+                            <div class="product-price-wrapper">
+                                <span>Giá: @string.Format("{0:n0}", item.DiscountPrice) VNĐ</span>
+                                <span class="product-price-old">@string.Format("{0:n0}", item.Price) VNĐ</span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
+
             }
         </div>
     </div>
@@ -359,9 +342,9 @@
     <div class="container">
         <div class="new-year-offer-wrap pt-70 pb-75 bg-img" style="background-image:url(../../Images/banner/banner-4.jpg);">
             <div class="new-year-offer-content text-center">
-                <h4>New Year Offer</h4>
-                <h3>Fresh flowers for any special occasion</h3>
-                <a href="/home/shop">Discover now</a>
+                <h4>Những sản phẩm chất lượng nhất</h4>
+                <h3>Những bó hoa tươi cho những mùa đặc biệt</h3>
+                <a href="/home/shop">Khám phá ngay</a>
             </div>
         </div>
     </div>

@@ -65,7 +65,7 @@ namespace GreenFlowers.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult AddProduct(string ID,string name, HttpPostedFileBase avatar, HttpPostedFileBase[] images, string editor, bool hide = false, int price = 0, int discountprice = 0, string category ="")
+        public ActionResult AddProduct(string ID,string name, HttpPostedFileBase avatar, HttpPostedFileBase[] images, string editor, int price = 0, int? discountprice = null, string category ="")
         {
             //kiểm tra đã đăng nhập vào chưa
             if (Session["Authentication"] != null)
@@ -119,7 +119,7 @@ namespace GreenFlowers.Controllers
                 pd.DiscountPrice = discountprice;
                 pd.Description = editor;
                 pd.IDCategory = int.Parse(category);
-                pd.IsHide = hide;
+                pd.Created_Date = DateTime.Now;
                 db.GF_Product.Add(pd);
                 db.SaveChanges();
                 return RedirectToAction("ListProduct", "WebMaster");
@@ -161,7 +161,7 @@ namespace GreenFlowers.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult EditProduct(string id, string name, HttpPostedFileBase avatar, HttpPostedFileBase[] images, string editor, bool hide = false, int price = 0, int discountprice = 0, string category ="")
+        public ActionResult EditProduct(string id, string name, HttpPostedFileBase avatar, HttpPostedFileBase[] images, string editor, int price = 0, int? discountprice = null, string category ="")
         {
             //kiểm tra đã đăng nhập vào chưa
             if (Session["Authentication"] != null)
@@ -222,7 +222,6 @@ namespace GreenFlowers.Controllers
                 pd.DiscountPrice = discountprice;
                 pd.Description = editor;
                 pd.IDCategory = int.Parse(category);
-                pd.IsHide = hide;
                 db.Entry(pd).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("ListProduct", "WebMaster");
@@ -328,7 +327,7 @@ namespace GreenFlowers.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult AddBlog(string title, string editor, HttpPostedFileBase avatar, bool hide = false)
+        public ActionResult AddBlog(string title, string editor, HttpPostedFileBase avatar)
         {
             //kiểm tra đã đăng nhập vào chưa
             if (Session["Authentication"] != null)
@@ -353,7 +352,6 @@ namespace GreenFlowers.Controllers
                 bl.ContentBlog = editor;
                 bl.CreatedBy = "Admin";
                 bl.CreatedDate = DateTime.Now;
-                bl.IsHide = hide;
                 db.GF_Blog.Add(bl);
                 db.SaveChanges();
                 return RedirectToAction("ListBlog", "WebMaster");
@@ -381,7 +379,7 @@ namespace GreenFlowers.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult EditBlog(string id, string title, string editor, HttpPostedFileBase avatar, bool hide = false)
+        public ActionResult EditBlog(string id, string title, string editor, HttpPostedFileBase avatar)
         {
             //kiểm tra đã đăng nhập vào chưa
             if (Session["Authentication"] != null)
@@ -406,7 +404,6 @@ namespace GreenFlowers.Controllers
                 bl.ContentBlog = editor;
                 bl.CreatedBy = "Admin";
                 bl.CreatedDate = DateTime.Now;
-                bl.IsHide = hide;
                 db.Entry(bl).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("ListBlog", "WebMaster");
@@ -468,7 +465,50 @@ namespace GreenFlowers.Controllers
         {
             if (Session["Authentication"] != null)
             {
-                return View();
+                var rs = db.GF_Slider.Where(s => s.ID == 1);
+                return View(rs);
+            }
+            else
+            {
+                return RedirectToAction("Login", "WebMaster");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult EditSlider(HttpPostedFileBase[] images, string heading3, string heading1, string heading5, string button)
+        {
+            if (Session["Authentication"] != null)
+            {
+                string Images = "";
+                if (images != null)
+                {
+                    foreach (HttpPostedFileBase file in images)
+                    {
+                        if (file != null)
+                        {
+                            if (file.ContentLength > 0)
+                            {
+                                var filename = Path.GetFileName(file.FileName);
+                                var path = Path.Combine(Server.MapPath("~/Images/product/image"), file.FileName);
+                                file.SaveAs(path);
+                                Images += file.FileName + ",";
+                            }
+                        }
+                    }
+                    if (Images != "")
+                    {
+                        Images = Images.Remove(Images.Length - 1);
+                    }
+                }
+                var rs = db.GF_Slider.Find(1);
+                rs.Slider = Images;
+                rs.Heading3 = heading3;
+                rs.Heading1 = heading1;
+                rs.Heading5 = heading5;
+                rs.Button = button;
+                db.Entry(rs).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index","WebMaster");
             }
             else
             {
@@ -556,6 +596,101 @@ namespace GreenFlowers.Controllers
                 db.Entry(rs).State = EntityState.Deleted;
                 db.SaveChanges();
                 return RedirectToAction("ListContact");
+            }
+            else
+            {
+                return RedirectToAction("Login", "WebMaster");
+            }
+        }
+
+        public ActionResult Logout()
+        {
+            Session["Authentication"] = null;
+            return RedirectToAction("Login", "WebMaster");
+        }
+
+        public ActionResult AddSale()
+        {
+            if (Session["Authentication"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "WebMaster");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult AddSale(string ID, string name, HttpPostedFileBase avatar, HttpPostedFileBase[] images, string editor, int discountprice = 0, string category = "", string FromDate = "", string ToDate= "")
+        {
+            //kiểm tra đã đăng nhập vào chưa
+            if (Session["Authentication"] != null)
+            {
+                string Avatar = "";
+                if (avatar != null)
+                {
+                    if (avatar.ContentLength > 0)
+                    {
+                        var filename = Path.GetFileName(avatar.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Images/product/avatar"), avatar.FileName);
+                        avatar.SaveAs(path);
+                        Avatar += avatar.FileName;
+                    }
+
+                }
+
+                string Images = "";
+                if (images != null)
+                {
+                    foreach (HttpPostedFileBase file in images)
+                    {
+                        if (file != null)
+                        {
+                            if (file.ContentLength > 0)
+                            {
+                                var filename = Path.GetFileName(file.FileName);
+                                var path = Path.Combine(Server.MapPath("~/Images/product/image"), file.FileName);
+                                file.SaveAs(path);
+                                Images += file.FileName + ",";
+                            }
+                        }
+                    }
+                    if (Images != "")
+                    {
+                        Images = Images.Remove(Images.Length - 1);
+                    }
+                }
+                if (String.IsNullOrEmpty(FromDate) || String.IsNullOrEmpty(ToDate))
+                {
+                    FromDate = DateTime.Now.ToString("yyyy-MM-dd");
+                    ToDate = DateTime.Now.ToString("yyyy-MM-dd");
+
+                }
+                DateTime fDate =DateTime.ParseExact(FromDate, "yyyy-MM-dd",
+                                       System.Globalization.CultureInfo.InvariantCulture);
+                DateTime tDate = DateTime.ParseExact(ToDate, "yyyy-MM-dd",
+                                       System.Globalization.CultureInfo.InvariantCulture);
+                GF_Product pd = new GF_Product();
+                pd.ID = ID;
+                pd.ProductName = name;
+                if (Avatar != "")
+                {
+                    pd.Avatar = Avatar;
+                }
+                if (Images != "")
+                {
+                    pd.Images = Images;
+                }
+                pd.Price = null;
+                pd.DiscountPrice = discountprice;
+                pd.Description = editor;
+                pd.IDCategory = int.Parse(category);
+                pd.SaleFromDate = fDate;
+                pd.SaleToDate = tDate;
+                db.GF_Product.Add(pd);
+                db.SaveChanges();
+                return RedirectToAction("ListProduct", "WebMaster");
             }
             else
             {
