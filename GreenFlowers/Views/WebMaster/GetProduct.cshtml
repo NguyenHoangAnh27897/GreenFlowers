@@ -4,7 +4,6 @@
     Layout = "~/Views/Shared/_LayoutMaster.cshtml";
     int i = 0;
 }
-
 <div class="main-wrapper">
     <div class="container">
 
@@ -67,11 +66,11 @@
     </div>
 </div>
 <script>
-      $(document).ready(function () {
-          $('#sendProduct').on('click', function () {
-                var product = [];
-              var i = 0;
-              var dis = $('#sale').text()
+    $(document).ready(function () {
+        $('#sendProduct').bind('click', function () {
+            var product = [];
+            var i = 0;
+            var dis = $('#sale').text()
             $('input:checked').each(function () {
                 product.push($('#product #' + i).text());
                 i++;

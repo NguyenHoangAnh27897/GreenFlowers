@@ -759,8 +759,10 @@ namespace GreenFlowers.Controllers
                     int discountprice = int.Parse(discount);
                     foreach(var item in productid)
                     {
+                        var pd = db.GF_Product.Where(s => s.ID.Equals(item)).FirstOrDefault().DiscountPrice;
                         var rs = db.GF_Product.Find(item);
-                        rs.DiscountPrice = rs.DiscountPrice - ((rs.DiscountPrice * discountprice) / 100);
+                        pd = pd - ((pd * discountprice) / 100);
+                        rs.DiscountPrice = pd;
                         db.Entry(rs).State = EntityState.Modified;
                         db.SaveChanges();
                     }
