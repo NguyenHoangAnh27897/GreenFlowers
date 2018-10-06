@@ -45,8 +45,6 @@
     <Property Name="IsHide" Type="bit" />
     <Property Name="Created_Date" Type="datetime" />
     <Property Name="CustomerView" Type="int" />
-    <Property Name="SaleFromDate" Type="date" />
-    <Property Name="SaleToDate" Type="date" />
   </EntityType>
   <EntityType Name="GF_Record">
     <Key>
@@ -78,6 +76,15 @@
     <Property Name="ContentIntroduce" Type="nvarchar(max)" />
     <Property Name="Avatar" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="GF_Sale">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SaleName" Type="nvarchar" MaxLength="200" />
+    <Property Name="DiscountPercent" Type="int" />
+    <Property Name="ToDate" Type="date" />
+  </EntityType>
   <EntityType Name="GF_Slider">
     <Key>
       <PropertyRef Name="ID" />
@@ -97,6 +104,7 @@
     <EntitySet Name="GF_Record" EntityType="Self.GF_Record" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GF_AboutUs" EntityType="Self.GF_AboutUs" Schema="hoat7422_hoatuoixanh" store:Type="Tables" />
     <EntitySet Name="GF_Introduce" EntityType="Self.GF_Introduce" Schema="hoat7422_hoatuoixanh" store:Type="Tables" />
+    <EntitySet Name="GF_Sale" EntityType="Self.GF_Sale" Schema="hoat7422_hoatuoixanh" store:Type="Tables" />
     <EntitySet Name="GF_Slider" EntityType="Self.GF_Slider" Schema="hoat7422_hoatuoixanh" store:Type="Tables" />
   </EntityContainer>
 </Schema>

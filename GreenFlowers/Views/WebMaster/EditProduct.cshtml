@@ -44,19 +44,13 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput4">Giá</label>
+                                    <label for="exampleFormControlInput4">Giá (VNĐ)</label>
                                     <input style="width:20%" type="number" class="form-control" placeholder="" name="price" step="any" value="@Model.FirstOrDefault().Price">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput4">Giá giảm</label>
-                                    <input type="checkbox" name="discountprice" data-toggle="collapse" data-target="#discount" step="any">
-                                    <input style="width:20%" id="discount" type="number" class="form-control collapse" name="discountprice" step="any" value="@Model.FirstOrDefault().DiscountPrice">
-                                </div>
-
-                                <div class="form-group">
                                     <label for="exampleFormControlSelect1">Danh mục</label>
-                                    <select name='category' class='form-control'>
+                                    <select name='category' class='form-control' style="width:25%">
                                         @foreach (var item in lst)
                                         {
                                             <option value="@item.ID">@item.Category</option>

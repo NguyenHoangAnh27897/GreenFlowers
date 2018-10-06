@@ -20,7 +20,6 @@
         <h3 class="page-title">Sản phẩm của bạn</h3>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                <form action="/cart/addtocart" method="post">
                     <div class="table-content table-responsive wishlist">
                         <table>
                             <thead>
@@ -39,7 +38,6 @@
                     <div class="col-sm-8">
                         <button class="shopping-cart-buy btn btn-success" style="height:45px;width:125px;border-radius:5%">Thanh toán</button>
                     </div>
-                </form>
             </div>
         </div>
     </div>
@@ -70,7 +68,7 @@
                 data: JSON.stringify(dataOrder),
                 cache: false,
                 success: function (result) {
-                    console.log(result);
+                    window.location.href = "/Checkout/Checkout"
                 },
                 error: function (error) {
                     console.log(JSON.stringify(error));
@@ -79,6 +77,11 @@
         });
     });
 
+    var FormatCurrency = (value) => {
+        let $dola = value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        return $dola.slice(1, $dola.indexOf(".00"));
+    }
+
     var myTr = (data, i) => {
         var $tr = `<tr>
                     <td class="product-thumbnail">
@@ -86,14 +89,14 @@
                     </td>
                     <td class ="product-name"><a href="#">${data.ProductName}<input type="text" name="productname" value="${data.ProductName}" style="display:none"/></a></td>
                     
-                    <td class ="product-price-cart"><span class ="amount">${data.Price} <input type="number" name="price" value="${data.Price}" style="display:none" /></span></td>
+                    <td class ="product-price-cart"><span class ="amount"> ${FormatCurrency(data.Price)} <input type="number" name="price" value=" ${FormatCurrency(data.Price)}" style="display:none" /></span></td>
                    
                     <td class="product-quantity">
                         <div class="pro-dec-cart">
                             <input class ="cart-plus-minus-box" type="number" value="${data.Qty}" name="quantity" readonly disable>
                         </div>
                     </td>
-                    <td class ="product-subtotal">${data.Qty * data.Price}</td>
+                    <td class ="product-subtotal"> ${ FormatCurrency(data.Qty * data.Price)}</td>
                 </tr>`;
         return $tr;
     }

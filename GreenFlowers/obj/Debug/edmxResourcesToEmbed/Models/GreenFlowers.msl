@@ -37,8 +37,6 @@
     <EntitySetMapping Name="GF_Product">
       <EntityTypeMapping TypeName="hoat7422_hoatuoixanh.comModel.GF_Product">
         <MappingFragment StoreEntitySet="GF_Product">
-          <ScalarProperty Name="SaleToDate" ColumnName="SaleToDate" />
-          <ScalarProperty Name="SaleFromDate" ColumnName="SaleFromDate" />
           <ScalarProperty Name="CustomerView" ColumnName="CustomerView" />
           <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -93,6 +91,16 @@
           <ScalarProperty Name="Heading1" ColumnName="Heading1" />
           <ScalarProperty Name="Heading3" ColumnName="Heading3" />
           <ScalarProperty Name="Slider" ColumnName="Slider" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GF_Sale">
+      <EntityTypeMapping TypeName="hoat7422_hoatuoixanh.comModel.GF_Sale">
+        <MappingFragment StoreEntitySet="GF_Sale">
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="DiscountPercent" ColumnName="DiscountPercent" />
+          <ScalarProperty Name="SaleName" ColumnName="SaleName" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

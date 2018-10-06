@@ -2,7 +2,11 @@
 @{
     ViewBag.Title = "Checkout";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    int total = 0;
+    int? total = 0;
+    foreach(var item in Model)
+    {
+        total += item.TotalPrice;
+    }
 }
 
 <div class="breadcrumb-area gray-bg">
@@ -86,7 +90,7 @@
                                                                     </td>
                                                                     <td>
                                                                         <div class="o-pro-price">
-                                                                            <p>@item.Price</p>
+                                                                            <p>@string.Format("{0:n0}", item.Price)</p>
                                                                         </div>
                                                                     </td>
                                                                     <td>
@@ -96,17 +100,16 @@
                                                                     </td>
                                                                     <td>
                                                                         <div class="o-pro-subtotal">
-                                                                            <p>@item.TotalPrice</p>
+                                                                            <p>@string.Format("{0:n0}", item.TotalPrice)</p>
                                                                         </div>
                                                                     </td>
                                                                 </tr>
-
                                                             }
                                                         </tbody>
                                                         <tfoot>
                                                             <tr>
                                                                 <td colspan="3">Tổng tiền</td>
-                                                                <td colspan="1">@total</td>
+                                                                <td colspan="1">@string.Format("{0:n0}", total)</td>
                                                             </tr>
                                                         </tfoot>
                                                     </table>

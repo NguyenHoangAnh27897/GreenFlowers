@@ -240,6 +240,9 @@
     <Compile Include="Models\GF_Record.cs">
       <DependentUpon>GreenFlowers.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GF_Sale.cs">
+      <DependentUpon>GreenFlowers.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\GF_Slider.cs">
       <DependentUpon>GreenFlowers.tt</DependentUpon>
     </Compile>
@@ -919,6 +922,8 @@
     <Content Include="Views\Blog\Search.cshtml" />
     <Content Include="Views\WebMaster\AddSale.cshtml" />
     <Content Include="Views\WebMaster\ListSale.cshtml" />
+    <Content Include="Views\WebMaster\EditSale.cshtml" />
+    <Content Include="Views\WebMaster\GetProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -67,7 +67,7 @@ namespace GreenFlowers.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult AddProduct(string ID,string name, HttpPostedFileBase avatar, HttpPostedFileBase[] images, string editor, int price = 0, int? discountprice = 0, string category ="")
+        public ActionResult AddProduct(string ID,string name, HttpPostedFileBase avatar, HttpPostedFileBase[] images, string editor, int price = 0, string category ="")
         {
             //kiểm tra đã đăng nhập vào chưa
             if (Session["Authentication"] != null)
@@ -117,17 +117,7 @@ namespace GreenFlowers.Controllers
                 {
                     pd.Images = Images;
                 }
-                pd.Price = price;
-                if(discountprice == 0)
-                {
-                    discountprice = null;
-                    pd.DiscountPrice = discountprice;
-                }
-                else
-                {
-                    var percent = price - ((price * discountprice) / 100);
-                    pd.DiscountPrice = percent;
-                }
+                pd.Price = price;           
                 pd.Description = editor;
                 pd.IDCategory = int.Parse(category);
                 pd.Created_Date = DateTime.Now;
@@ -174,7 +164,7 @@ namespace GreenFlowers.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult EditProduct(string id, string name, HttpPostedFileBase avatar, HttpPostedFileBase[] images, string editor, int price = 0, int? discountprice = 0, string category ="")
+        public ActionResult EditProduct(string id, string name, HttpPostedFileBase avatar, HttpPostedFileBase[] images, string editor, int price = 0, string category ="")
         {
             //kiểm tra đã đăng nhập vào chưa
             if (Session["Authentication"] != null)
@@ -232,16 +222,6 @@ namespace GreenFlowers.Controllers
                     pd.Images = pd.Images;
                 }
                 pd.Price = price;
-                if (discountprice == 0)
-                {
-                    discountprice = null;
-                    pd.DiscountPrice = discountprice;
-                }
-                else
-                {
-                    var percent = price - ((price * discountprice) / 100);
-                    pd.DiscountPrice = percent;
-                }
                 pd.Description = editor;
                 pd.IDCategory = int.Parse(category);
                 db.Entry(pd).State = EntityState.Modified;
@@ -657,7 +637,7 @@ namespace GreenFlowers.Controllers
             {
                 int pageSize = 10;
                 int pageNumber = (page ?? 1);
-                var lst = db.GF_Product.Where(s=>s.Price == null && s.DiscountPrice != null).ToList();
+                var lst = db.GF_Sale.ToList();
                 return View(lst.ToPagedList(pageNumber, pageSize));
             }
             else
@@ -666,76 +646,126 @@ namespace GreenFlowers.Controllers
             }
         }
 
+        public ActionResult EditSale(string id)
+        {
+            if (Session["Authentication"] != null)
+            {
+                int ID = int.Parse(id);
+                var rs = db.GF_Sale.Where(s=>s.ID == ID);
+                return View(rs);
+            }
+            else
+            {
+                return RedirectToAction("Login", "WebMaster");
+            }
+        }
+
         [HttpPost]
-        public ActionResult AddSale(string ID, string name, HttpPostedFileBase avatar, HttpPostedFileBase[] images, string editor, int discountprice = 0, string category = "", string FromDate = "", string ToDate= "")
+        public ActionResult AddSale( string name, int discountprice = 0, string ToDate= "")
         {
             //kiểm tra đã đăng nhập vào chưa
             if (Session["Authentication"] != null)
             {
-                string Avatar = "";
-                if (avatar != null)
+              
+                if ( String.IsNullOrEmpty(ToDate))
                 {
-                    if (avatar.ContentLength > 0)
-                    {
-                        var filename = Path.GetFileName(avatar.FileName);
-                        var path = Path.Combine(Server.MapPath("~/Images/product/avatar"), avatar.FileName);
-                        avatar.SaveAs(path);
-                        Avatar += avatar.FileName;
-                    }
-
-                }
-
-                string Images = "";
-                if (images != null)
-                {
-                    foreach (HttpPostedFileBase file in images)
-                    {
-                        if (file != null)
-                        {
-                            if (file.ContentLength > 0)
-                            {
-                                var filename = Path.GetFileName(file.FileName);
-                                var path = Path.Combine(Server.MapPath("~/Images/product/image"), file.FileName);
-                                file.SaveAs(path);
-                                Images += file.FileName + ",";
-                            }
-                        }
-                    }
-                    if (Images != "")
-                    {
-                        Images = Images.Remove(Images.Length - 1);
-                    }
-                }
-                if (String.IsNullOrEmpty(FromDate) || String.IsNullOrEmpty(ToDate))
-                {
-                    FromDate = DateTime.Now.ToString("yyyy-MM-dd");
                     ToDate = DateTime.Now.ToString("yyyy-MM-dd");
 
                 }
-                DateTime fDate =DateTime.ParseExact(FromDate, "yyyy-MM-dd",
-                                       System.Globalization.CultureInfo.InvariantCulture);
                 DateTime tDate = DateTime.ParseExact(ToDate, "yyyy-MM-dd",
                                        System.Globalization.CultureInfo.InvariantCulture);
-                GF_Product pd = new GF_Product();
-                pd.ID = ID;
-                pd.ProductName = name;
-                if (Avatar != "")
-                {
-                    pd.Avatar = Avatar;
-                }
-                if (Images != "")
-                {
-                    pd.Images = Images;
-                }
-                pd.Price = null;
-                pd.DiscountPrice = discountprice;
-                pd.Description = editor;
-                pd.IDCategory = int.Parse(category);
-                pd.SaleFromDate = fDate;
-                pd.SaleToDate = tDate;
-                db.GF_Product.Add(pd);
+                GF_Sale sale = new GF_Sale();
+                sale.SaleName = name;
+                sale.DiscountPercent = discountprice;
+                sale.ToDate = tDate;
+                db.GF_Sale.Add(sale);
                 db.SaveChanges();
-                return RedirectToAction("ListProduct", "WebMaster");
+                return RedirectToAction("ListSale", "WebMaster");
+            }
+            else
+            {
+                return RedirectToAction("Login", "WebMaster");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult EditSale(string ID, string name, int discountprice = 0, string ToDate = "")
+        {
+            //kiểm tra đã đăng nhập vào chưa
+            if (Session["Authentication"] != null)
+            {
+
+                if (String.IsNullOrEmpty(ToDate))
+                {
+                    ToDate = DateTime.Now.ToString("yyyy-MM-dd");
+
+                }
+                DateTime tDate = DateTime.ParseExact(ToDate, "yyyy-MM-dd",
+                                       System.Globalization.CultureInfo.InvariantCulture);
+                int id = int.Parse(ID);
+                var sale = db.GF_Sale.Find(id);
+                sale.SaleName = name;
+                sale.DiscountPercent = discountprice;
+                sale.ToDate = tDate;
+                db.Entry(sale).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("ListSale", "WebMaster");
+            }
+            else
+            {
+                return RedirectToAction("Login", "WebMaster");
+            }
+        }
+
+        public ActionResult DeleteSale(string id)
+        {
+            if (Session["Authentication"] != null)
+            {
+                int ID = int.Parse(id);
+                var rs = db.GF_Sale.Find(ID);
+                db.Entry(rs).State = EntityState.Deleted;
+                db.SaveChanges();
+                return RedirectToAction("ListSale");
+            }
+            else
+            {
+                return RedirectToAction("Login", "WebMaster");
+            }
+        }
+
+        public ActionResult GetProduct(string id)
+        {
+            if (Session["Authentication"] != null)
+            {
+                int ID = int.Parse(id);
+                var sale = db.GF_Sale.Where(s => s.ID == ID).FirstOrDefault().DiscountPercent;
+                Session["DiscountPercent"] = sale;
+                var lst = db.GF_Product.ToList();
+                return View(lst);
+            }
+            else
+            {
+                return RedirectToAction("Login", "WebMaster");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult SendProduct(IEnumerable<string> productid, string discount)
+        {
+            if (Session["Authentication"] != null)
+            {
+                if(productid != null)
+                {
+                    int discountprice = int.Parse(discount);
+                    foreach(var item in productid)
+                    {
+                        var rs = db.GF_Product.Find(item);
+                        rs.DiscountPrice = rs.DiscountPrice - ((rs.DiscountPrice * discountprice) / 100);
+                        db.Entry(rs).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
+                return RedirectToAction("ListSale", "WebMaster");
             }
             else
             {

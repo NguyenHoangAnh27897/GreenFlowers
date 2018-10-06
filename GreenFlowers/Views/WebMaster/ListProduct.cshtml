@@ -14,7 +14,7 @@
             <div class="col-lg-12">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/webmaster/index" ">Trang chủ</a></li>
+                        <li class="breadcrumb-item"><a href="/webmaster/index">Trang chủ</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Danh sách Sản phẩm</li>
                     </ol>
                 </nav>
@@ -53,8 +53,8 @@
                                             <tr>
                                                 <td>@item.ID</td>
                                                 <td><a href="/webmaster/editproduct/@item.ID">@item.ProductName</a></td>
-                                                <td>@item.Price</td>
-                                                <td>@item.DiscountPrice</td>
+                                                <td>@string.Format("{0:n0}", item.Price)</td>
+                                                <td>@string.Format("{0:n0}", item.DiscountPrice)</td>
                                                 @if (item.Description != null)
                                                 {
                                                     if (item.Description.Count() > 25)

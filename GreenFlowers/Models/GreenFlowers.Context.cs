@@ -33,5 +33,6 @@ namespace GreenFlowers.Models
         public virtual DbSet<GF_AboutUs> GF_AboutUs { get; set; }
         public virtual DbSet<GF_Introduce> GF_Introduce { get; set; }
         public virtual DbSet<GF_Slider> GF_Slider { get; set; }
+        public virtual DbSet<GF_Sale> GF_Sale { get; set; }
     }
 }

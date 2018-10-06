@@ -21,7 +21,7 @@ namespace GreenFlowers.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddtoCart()
+        public JsonResult AddtoCart()
         {
             var resolveRequest = HttpContext.Request;
             List<Cart> cart = new List<Cart>();
@@ -50,11 +50,11 @@ namespace GreenFlowers.Controllers
                     db.GF_Record.Add(rc);
                     db.SaveChanges();
                 }
-                return RedirectToAction("Checkout", "Checkout");
+                return Json(new { msg = "Thành công", status = "200" }, JsonRequestBehavior.AllowGet);
             }
             else
             {
-                return RedirectToAction("ErrorPage", "Error");
+                return Json(new {  msg = "Thất bại", status ="500" }, JsonRequestBehavior.AllowGet);
             }
           
         }

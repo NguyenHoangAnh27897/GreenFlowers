@@ -55,7 +55,7 @@
                         </ul>
                     </div>
                     <div class="col-xl-8 col-md-6">
-                        <ul class="top-user">                        
+                        <ul class="top-user">
                             <li class="icons">
                                 <i class="fa fa-user"></i>
                                 <ul class="drop-down user-dropdown">
@@ -72,7 +72,7 @@
         <div class="left-sidebar">
             <div class="logo">
                 <a href="/webmaster/index">
-                    <img src="~/Images/logo/a3solution.png" width="180" alt="" class="img-fluid">
+                    <span style="color:#ca9f6d">A3 SOLUTION</span>
                 </a>
             </div>
             <div class="profile-user">
@@ -82,41 +82,40 @@
             </div>
             <nav class="left-menu">
                 <ul class="metismenu" id="menu">
-                    <li><a href="/webmaster/index">Dashboard</a></li>
                     <li>
-                        <a href="javascript:void(0)" aria-expanded="true">Sản phẩm</a>
+                        <a href="javascript:void(0)" aria-expanded="true">Quản lí trang chủ</a>
                         <ul>
-                            <li><a href="/webmaster/listproduct">Danh Sách</a></li>
-                            <li><a href="/webmaster/gfproduct">Thêm</a></li>
-                            <li><a href="/webmaster/addsale">Danh sách đợt giảm giá</a></li>
-                            <li><a href="/webmaster/addsale">Thêm đợt giảm giá</a></li>
+                            <li><a href="/webmaster/editslider">Thay đổi Slider</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:void(0)" aria-expanded="true">Loại sản phẩm</a>
+                        <a href="javascript:void(0)" aria-expanded="true">Quản lí trang giới thiệu</a>
                         <ul>
-                            <li><a href="/webmaster/listcategory">Danh Sách</a></li>
-                            <li><a href="/webmaster/addcategory">Thêm</a></li>
+                            <li><a href="/webmaster/editintroduce">Thay đổi trang giới thiệu</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" aria-expanded="true">Quản lí Shop</a>
+                        <ul>
+                            <li><a href="/webmaster/listproduct">Danh sách sản phẩm</a></li>
+                            <li><a href="/webmaster/gfproduct">Thêm sản phẩm</a></li>
+                            <li><a href="/webmaster/listsale">Danh sách đợt giảm giá</a></li>
+                            <li><a href="/webmaster/addsale">Thêm đợt giảm giá</a></li>
+                            <li><a href="/webmaster/listcategory">Danh sách loại sản phẩm</a></li>
+                            <li><a href="/webmaster/addcategory">Thêm loại sản phẩm</a></li>
+                            <li><a href="/webmaster/listorder">Danh sách đơn hàng</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="javascript:void(0)" aria-expanded="true">Bài đăng</a>
                         <ul>
-                            <li><a href="/webmaster/listblog">Danh Sách</a></li>
-                            <li><a href="/webmaster/addblog">Thêm</a></li>
+                            <li><a href="/webmaster/listblog">Danh sách bài đăng</a></li>
+                            <li><a href="/webmaster/addblog">Thêm bài đăng</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:void(0)" aria-expanded="true">Đơn hàng</a>
+                        <a href="javascript:void(0)" aria-expanded="true">Quản lí trang liên hệ</a>
                         <ul>
-                            <li><a href="/webmaster/listorder">Danh Sách</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)" aria-expanded="true">Quản lí</a>
-                        <ul>
-                            <li><a href="/webmaster/editslider">Thay đổi Slider</a></li>
-                            <li><a href="/webmaster/editintroduce">Thay đổi trang giới thiệu</a></li>
                             <li><a href="/webmaster/listcontact">Danh sách liên hệ</a></li>
                         </ul>
                     </li>
@@ -153,7 +152,7 @@
     </div> -->
     <!--================= End search section =================-->
     <!--================= Jquery plugins =================-->
-    <script src="~/Content/Webmaster/js/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
     <!-- Bootstrap -->
     <script src="~/Content/Webmaster/js/bootstrap.min.js"></script>
     <!-- Owl Carousel -->
@@ -167,10 +166,10 @@
     <!-- maps js -->
     <!-- Start datatable js -->
     @*<script src="~/Content/Webmaster/js/datatable/1.10.19/js/jquery.dataTables.js"></script>
-    <script src="~/Content/Webmaster/js/datatable/1.10.18/js/jquery.dataTables.min.js"></script>
-    <script src="~/Content/Webmaster/js/datatable/1.10.18/js/dataTables.bootstrap4.min.js"></script>
-    <script src="~/Content/Webmaster/js/datatable/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-    <script src="~/Content/Webmaster/js/datatable/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>*@
+        <script src="~/Content/Webmaster/js/datatable/1.10.18/js/jquery.dataTables.min.js"></script>
+        <script src="~/Content/Webmaster/js/datatable/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+        <script src="~/Content/Webmaster/js/datatable/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+        <script src="~/Content/Webmaster/js/datatable/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>*@
 
     <!-- maps Resources -->
     <script src="~/Content/Webmaster/js/amcharts/ammap.js"></script>
@@ -181,6 +180,8 @@
     <script src="~/Content/Webmaster/js/maps.js"></script>
     <!-- main js -->
     <script src="~/Content/Webmaster/js/main.js"></script>
+    <script src="https://nosir.github.io/cleave.js/dist/cleave.min.js"></script>
+    <script src="https://nosir.github.io/cleave.js/dist/cleave-phone.i18n.js"></script>
     @*<script src="~/Content/Style/Webmaster/js/ckeditor/ckeditor.js"></script>*@
     <!-- income chart js -->
     <script src="~/Content/Webmaster/js/highcharts.js"></script>

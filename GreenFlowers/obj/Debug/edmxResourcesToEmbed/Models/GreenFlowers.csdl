@@ -45,8 +45,6 @@
     <Property Name="IsHide" Type="Boolean" />
     <Property Name="Created_Date" Type="DateTime" Precision="3" />
     <Property Name="CustomerView" Type="Int32" />
-    <Property Name="SaleFromDate" Type="DateTime" Precision="0" />
-    <Property Name="SaleToDate" Type="DateTime" Precision="0" />
   </EntityType>
   <EntityType Name="GF_Record">
     <Key>
@@ -69,6 +67,7 @@
     <EntitySet Name="GF_AboutUs" EntityType="hoat7422_hoatuoixanh.comModel.GF_AboutUs" />
     <EntitySet Name="GF_Introduce" EntityType="hoat7422_hoatuoixanh.comModel.GF_Introduce" />
     <EntitySet Name="GF_Slider" EntityType="hoat7422_hoatuoixanh.comModel.GF_Slider" />
+    <EntitySet Name="GF_Sale" EntityType="hoat7422_hoatuoixanh.comModel.GF_Sale" />
   </EntityContainer>
   <EntityType Name="GF_AboutUs">
     <Key>
@@ -98,5 +97,14 @@
     <Property Name="Heading1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="Heading5" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="Button" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GF_Sale">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SaleName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DiscountPercent" Type="Int32" />
+    <Property Name="ToDate" Type="DateTime" Precision="0" />
   </EntityType>
 </Schema>

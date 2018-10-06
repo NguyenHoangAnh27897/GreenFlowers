@@ -1,6 +1,6 @@
-﻿
+﻿@model IQueryable<GreenFlowers.Models.GF_Sale>
 @{
-    ViewBag.Title = "GFProduct";
+    ViewBag.Title = "EditSale";
     Layout = "~/Views/Shared/_LayoutMaster.cshtml";
 }
 
@@ -27,27 +27,28 @@
                     <div class="single-form">
                         <div class="section-head">
                             <div class="title">
-                                <h4>Thêm Đợt giảm giá</h4>
+                                <h4>Chỉnh sửa Đợt giảm giá</h4>
                             </div>
                         </div>
 
                         <div class="section-body">
-                            <form action="/webmaster/addsale" method="post">
+                            <form action="/webmaster/editsale" method="post">
 
+                                <input style="display:none;" name="ID" value="@Model.FirstOrDefault().ID"/>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput4">Tên đợt giảm giá</label>
-                                    <input type="text" class="form-control" placeholder="" name="name">
+                                    <input type="text" class="form-control" placeholder="" name="name" value="@Model.FirstOrDefault().SaleName">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="exampleFormControlInput4">Giá giảm (%)</label>
-                                    <input style="width:20%" type="number" class="form-control" placeholder="" name="discountprice" step="any">
+                                    <input style="width:20%" type="number" class="form-control" placeholder="" name="discountprice" step="any" value="@Model.FirstOrDefault().DiscountPercent">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="exampleFormControlInput4">Ngày kết thúc</label>
-                                    <input style="width:20%" type="date" class="form-control" placeholder="" name="ToDate" />
-                                </div>                            
+                                    <input style="width:20%" type="date" class="form-control" placeholder="" name="ToDate" value="@Model.FirstOrDefault().ToDate.Value"/>
+                                </div>
 
                                 <button class="btn btn-primaryt">Lưu</button>
                             </form>

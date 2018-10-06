@@ -1014,6 +1014,7 @@
 
     .single-form .form-control {
         background: #0e0e26;
+        color:white;
     }
 
     .form-rounded {
@@ -2310,4 +2311,8 @@
 .pagination-total-pages {
     /*border: 1px solid #e9e9e9;*/
     padding: 15px 24px 13px;
+}
+
+.col-sm-3.bg-slider {
+    height: 14em;
 }
